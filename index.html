@@ -7,328 +7,257 @@
 
 <style>
 *{box-sizing:border-box}
-
+html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#050505;
-color:#fff
+ margin:0;
+ background:#050505;
+ color:#fff;
+ font-family:Arial,Helvetica,sans-serif
 }
-
 header{
-position:sticky;
-top:0;
-z-index:10;
-background:#080808;
-border-bottom:1px solid #c99a18;
-padding:15px
+ position:sticky;
+ top:0;
+ z-index:1000;
+ background:#080808;
+ border-bottom:1px solid #c99a18;
+ padding:14px
 }
-
 .nav{
-max-width:1200px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center
+ max-width:1200px;
+ margin:auto;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px
 }
-
 .logo{
-font-size:20px;
-font-weight:bold;
-color:#f5c542
+ color:#f5c542;
+ font-size:20px;
+ font-weight:900;
+ letter-spacing:1px
 }
-
 .actions button{
-background:#111;
-border:1px solid #f5c542;
-color:#fff;
-padding:10px 13px;
-border-radius:6px;
-margin-left:5px
+ background:#111;
+ color:#fff;
+ border:1px solid #f5c542;
+ border-radius:6px;
+ padding:9px 12px;
+ margin-left:4px;
+ cursor:pointer
 }
-
 .hero{
-padding:70px 5%;
-background:linear-gradient(120deg,#050505,#17120a)
+ padding:65px 5%;
+ background:radial-gradient(circle at 85% 30%,#332506,#050505 45%)
 }
-
-.hero h1{
-font-size:55px;
-margin:0 0 15px
-}
-
-.gold{color:#f5c542}
-
-.hero p{
-color:#aaa;
-max-width:600px;
-line-height:1.7
-}
-
-.btn{
-display:inline-block;
-padding:13px 20px;
-background:#f5c542;
-color:#000;
-font-weight:bold;
-border-radius:6px;
-text-decoration:none;
-margin-top:15px
-}
-
-section{
-padding:45px 5%
-}
-
 .container{
-max-width:1200px;
-margin:auto
+ max-width:1200px;
+ margin:auto
 }
-
+.gold{color:#f5c542}
+.hero h1{
+ font-size:clamp(42px,7vw,72px);
+ line-height:.95;
+ margin:10px 0 18px
+}
+.hero p{
+ max-width:620px;
+ color:#aaa;
+ line-height:1.7
+}
+.btn{
+ display:inline-block;
+ background:#f5c542;
+ color:#000;
+ padding:13px 20px;
+ border-radius:6px;
+ text-decoration:none;
+ font-weight:bold;
+ margin-top:12px
+}
+section{padding:45px 5%}
 .title{
-color:#f5c542;
-font-size:27px;
-margin-bottom:20px
+ color:#f5c542;
+ margin-bottom:22px;
+ font-size:27px
 }
-
 .controls{
-display:flex;
-gap:10px;
-margin-bottom:25px
+ display:flex;
+ gap:10px;
+ margin-bottom:25px
 }
-
 input,select{
-background:#111;
-color:#fff;
-border:1px solid #333;
-padding:13px;
-border-radius:6px
+ background:#111;
+ color:#fff;
+ border:1px solid #333;
+ border-radius:6px;
+ padding:13px
 }
+input{flex:1}
 
-input{
-flex:1
-}
-
-/* HORIZONTAL PRODUCTS */
-
+/* HORIZONTAL PRODUCT LIST */
 .products{
-display:flex;
-gap:18px;
-overflow-x:auto;
-padding-bottom:20px
+ display:flex;
+ flex-wrap:nowrap;
+ gap:18px;
+ overflow-x:auto;
+ padding:5px 2px 20px
 }
-
-.products::-webkit-scrollbar{
-height:8px
-}
-
+.products::-webkit-scrollbar{height:8px}
 .products::-webkit-scrollbar-thumb{
-background:#f5c542;
-border-radius:10px
+ background:#f5c542;
+ border-radius:10px
 }
-
 .card{
-flex:0 0 250px;
-background:#111;
-border:1px solid #292929;
-border-radius:10px;
-overflow:hidden
+ flex:0 0 255px;
+ min-width:255px;
+ background:#111;
+ border:1px solid #292929;
+ border-radius:10px;
+ overflow:hidden
 }
-
-.card:hover{
-border-color:#f5c542
+.card:hover{border-color:#f5c542}
+.product-image{
+ width:100%;
+ height:230px;
+ background:#f1f1f1;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ overflow:hidden
 }
-
-.image{
-height:220px;
-background:#eee;
-display:flex;
-justify-content:center;
-align-items:center
+.product-image img{
+ width:100%;
+ height:100%;
+ object-fit:contain;
+ padding:14px;
+ display:block
 }
-
-/* PHONE IMAGE */
-
-.phone{
-width:105px;
-height:190px;
-background:#111;
-border:5px solid #292929;
-border-radius:23px;
-padding:6px
-}
-
-.screen{
-width:100%;
-height:100%;
-border-radius:15px;
-background:
-radial-gradient(circle at 50% 30%,#ffe78c,#a8790d 40%,#111 75%);
-position:relative
-}
-
-.notch{
-position:absolute;
-top:5px;
-left:50%;
-transform:translateX(-50%);
-width:35px;
-height:9px;
-background:#000;
-border-radius:10px
-}
-
-/* LAPTOP IMAGE */
-
-.laptop{
-width:190px
-}
-
-.laptop-screen{
-height:120px;
-background:#222;
-border:6px solid #333;
-border-radius:7px 7px 2px 2px;
-padding:5px
-}
-
-.laptop-display{
-height:100%;
-background:linear-gradient(135deg,#111,#e0b52f,#222)
-}
-
-.laptop-base{
-height:12px;
-background:#777;
-border-radius:0 0 15px 15px
-}
-
-.info{
-padding:15px
-}
-
+.info{padding:15px}
 .brand{
-font-size:9px;
-color:#888;
-text-transform:uppercase
+ color:#888;
+ font-size:9px;
+ text-transform:uppercase;
+ letter-spacing:1px
 }
-
 .name{
-font-size:16px;
-margin:7px 0
+ font-size:16px;
+ margin:7px 0
 }
-
 .specs,.colours{
-font-size:10px;
-color:#999;
-line-height:1.5
+ color:#999;
+ font-size:10px;
+ line-height:1.5
 }
-
 .price{
-color:#f5c542;
-font-weight:bold;
-margin:10px 0
+ color:#f5c542;
+ font-weight:bold;
+ margin:10px 0
 }
-
 .card button{
-width:100%;
-padding:10px;
-border:0;
-border-radius:5px;
-background:#f5c542;
-font-weight:bold
+ width:100%;
+ padding:10px;
+ border:0;
+ border-radius:5px;
+ background:#f5c542;
+ font-weight:bold;
+ cursor:pointer
 }
 
-/* CART */
-
+/* CART + ACCOUNT */
 .modal-bg{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.8);
-z-index:100
+ display:none;
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.82);
+ z-index:5000
 }
-
 .modal{
-position:fixed;
-right:0;
-top:0;
-height:100%;
-width:min(420px,100%);
-background:#101010;
-z-index:101;
-padding:20px;
-overflow-y:auto
+ position:fixed;
+ right:0;
+ top:0;
+ height:100%;
+ width:min(430px,100%);
+ background:#101010;
+ padding:22px;
+ overflow-y:auto
 }
-
 .close{
-float:right;
-background:none;
-border:0;
-color:#fff;
-font-size:28px
+ float:right;
+ background:none;
+ border:0;
+ color:#fff;
+ font-size:28px;
+ cursor:pointer
 }
-
 .cart-item{
-border-bottom:1px solid #333;
-padding:15px 0
+ padding:15px 0;
+ border-bottom:1px solid #333
 }
-
 .remove{
-background:none;
-border:0;
-color:#ff6666;
-padding:5px 0
+ border:0;
+ background:none;
+ color:#ff6666;
+ cursor:pointer;
+ margin-top:7px
 }
-
 .total{
-display:flex;
-justify-content:space-between;
-padding:20px 0;
-color:#f5c542;
-font-weight:bold
+ display:flex;
+ justify-content:space-between;
+ padding:20px 0;
+ color:#f5c542;
+ font-weight:bold
 }
-
 .order{
-width:100%;
-padding:13px;
-background:#f5c542;
-border:0;
-border-radius:6px;
-font-weight:bold
+ width:100%;
+ padding:13px;
+ border:0;
+ border-radius:6px;
+ background:#f5c542;
+ font-weight:bold;
+ cursor:pointer
 }
-
-/* ACCOUNT */
-
 .account-box{
-max-width:400px;
-margin:80px auto;
-background:#111;
-border:1px solid #f5c542;
-border-radius:10px;
-padding:25px
+ margin-top:55px;
+ background:#111;
+ border:1px solid #f5c542;
+ border-radius:10px;
+ padding:22px
 }
-
 .account-box input{
-width:100%;
-margin:6px 0
+ display:block;
+ width:100%;
+ margin:8px 0
 }
-
 .account-box button{
-width:100%;
-padding:12px;
-margin-top:8px;
-border-radius:6px;
-border:0;
-background:#f5c542;
-font-weight:bold
+ width:100%;
+ padding:12px;
+ margin-top:8px;
+ border:0;
+ border-radius:6px;
+ background:#f5c542;
+ font-weight:bold;
+ cursor:pointer
 }
-
+#accountMessage{
+ font-size:11px;
+ line-height:1.5;
+ margin-top:12px
+}
 footer{
-border-top:1px solid #222;
-padding:35px 5%;
-color:#777;
-text-align:center
+ border-top:1px solid #222;
+ padding:35px 5%;
+ text-align:center;
+ color:#777
+}
+@media(max-width:600px){
+ .logo{font-size:14px}
+ .actions button{font-size:10px;padding:8px}
+ .hero{padding:50px 5%}
+ .controls{flex-direction:column}
+ .card{
+  flex-basis:225px;
+  min-width:225px
+ }
 }
 </style>
 </head>
@@ -337,25 +266,20 @@ text-align:center
 
 <header>
 <div class="nav">
-
-<div class="logo">
-SAREFATI GADGETS
-</div>
+<div class="logo">SAREFATI GADGETS</div>
 
 <div class="actions">
 <button onclick="openAccount()">👤 ACCOUNT</button>
 <button onclick="openCart()">🛒 CART (<span id="count">0</span>)</button>
 </div>
-
 </div>
 </header>
 
 
 <section class="hero">
-
 <div class="container">
 
-<p class="gold">PREMIUM GADGETS</p>
+<div class="gold">PREMIUM GADGETS</div>
 
 <h1>
 SHOP <span class="gold">SMART.</span><br>
@@ -363,21 +287,19 @@ LIVE <span class="gold">BETTER.</span>
 </h1>
 
 <p>
-Smartphones, laptops and accessories at
-estimated prices. Add products to your cart
-and contact Sarefati Gadgets to confirm
-availability and final pricing.
+Smartphones, laptops and accessories from
+Sarefati Gadgets. Browse our catalogue,
+add products to your cart and contact us
+to confirm availability and final pricing.
 </p>
 
 <a href="#shop" class="btn">SHOP NOW</a>
 
 </div>
-
 </section>
 
 
 <section id="shop">
-
 <div class="container">
 
 <h2 class="title">SHOP GADGETS</h2>
@@ -386,16 +308,21 @@ availability and final pricing.
 
 <input
 id="search"
+type="search"
 placeholder="Search products..."
 oninput="filterProducts()">
 
-<select id="filter" onchange="filterProducts()">
+<select
+id="filter"
+onchange="filterProducts()">
+
 <option value="all">All Products</option>
 <option value="iPhone">iPhone</option>
 <option value="Samsung">Samsung</option>
 <option value="Tecno">Tecno</option>
 <option value="Infinix">Infinix</option>
 <option value="Laptop">Laptop</option>
+
 </select>
 
 </div>
@@ -404,165 +331,133 @@ oninput="filterProducts()">
 <div class="products" id="products">
 
 
-<!-- IPHONE -->
+<!-- iPHONE 11 -->
 
 <div class="card" data-name="iphone 11" data-brand="iPhone">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1592286927505-2fd4f3a0c7a2?auto=format&fit=crop&w=700&q=85"
+alt="iPhone 11">
 </div>
 
 <div class="info">
 <div class="brand">Apple</div>
 <div class="name">iPhone 11</div>
 <div class="specs">64GB / 128GB</div>
-<div class="colours">
-Colours: Black, White, Red, Purple
-</div>
+<div class="colours">Colours: Black, White, Red, Purple</div>
 <div class="price">₦210,000</div>
-
-<button onclick="add('iPhone 11',210000)">
-ADD TO CART
-</button>
+<button onclick="add('iPhone 11',210000)">ADD TO CART</button>
 </div>
 
 </div>
 
+
+<!-- iPHONE 12 -->
 
 <div class="card" data-name="iphone 12" data-brand="iPhone">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1603891128711-11b4b03bb138?auto=format&fit=crop&w=700&q=85"
+alt="iPhone 12">
 </div>
 
 <div class="info">
 <div class="brand">Apple</div>
 <div class="name">iPhone 12</div>
 <div class="specs">64GB / 128GB / 256GB</div>
-<div class="colours">
-Colours: Black, White, Blue, Green
-</div>
+<div class="colours">Colours: Black, White, Blue, Green</div>
 <div class="price">₦270,000</div>
-
-<button onclick="add('iPhone 12',270000)">
-ADD TO CART
-</button>
+<button onclick="add('iPhone 12',270000)">ADD TO CART</button>
 </div>
 
 </div>
 
+
+<!-- iPHONE 13 -->
 
 <div class="card" data-name="iphone 13" data-brand="iPhone">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=700&q=85"
+alt="iPhone 13">
 </div>
 
 <div class="info">
 <div class="brand">Apple</div>
 <div class="name">iPhone 13</div>
 <div class="specs">128GB / 256GB</div>
-<div class="colours">
-Colours: Midnight, Blue, Pink, Red
-</div>
+<div class="colours">Colours: Midnight, Blue, Pink, Red</div>
 <div class="price">₦350,000</div>
-
-<button onclick="add('iPhone 13',350000)">
-ADD TO CART
-</button>
+<button onclick="add('iPhone 13',350000)">ADD TO CART</button>
 </div>
 
 </div>
 
+
+<!-- iPHONE 14 -->
 
 <div class="card" data-name="iphone 14" data-brand="iPhone">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=700&q=85"
+alt="iPhone 14">
 </div>
 
 <div class="info">
 <div class="brand">Apple</div>
 <div class="name">iPhone 14</div>
 <div class="specs">128GB / 256GB</div>
-<div class="colours">
-Colours: Midnight, Purple, Blue, Red
-</div>
+<div class="colours">Colours: Midnight, Purple, Blue, Red</div>
 <div class="price">₦450,000</div>
-
-<button onclick="add('iPhone 14',450000)">
-ADD TO CART
-</button>
+<button onclick="add('iPhone 14',450000)">ADD TO CART</button>
 </div>
 
 </div>
 
+
+<!-- iPHONE 15 -->
 
 <div class="card" data-name="iphone 15" data-brand="iPhone">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=700&q=85"
+alt="iPhone 15">
 </div>
 
 <div class="info">
 <div class="brand">Apple</div>
 <div class="name">iPhone 15</div>
 <div class="specs">128GB / 256GB / 512GB</div>
-<div class="colours">
-Colours: Black, Blue, Green, Yellow, Pink
-</div>
+<div class="colours">Colours: Black, Blue, Green, Yellow, Pink</div>
 <div class="price">₦590,000</div>
-
-<button onclick="add('iPhone 15',590000)">
-ADD TO CART
-</button>
+<button onclick="add('iPhone 15',590000)">ADD TO CART</button>
 </div>
 
 </div>
 
+
+<!-- iPHONE 16 -->
 
 <div class="card" data-name="iphone 16" data-brand="iPhone">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1726492784297-01d6b5b9e1e5?auto=format&fit=crop&w=700&q=85"
+alt="iPhone 16">
 </div>
 
 <div class="info">
 <div class="brand">Apple</div>
 <div class="name">iPhone 16</div>
 <div class="specs">128GB / 256GB / 512GB</div>
-<div class="colours">
-Colours: Black, White, Pink, Teal
-</div>
+<div class="colours">Colours: Black, White, Pink, Teal</div>
 <div class="price">₦720,000</div>
-
-<button onclick="add('iPhone 16',720000)">
-ADD TO CART
-</button>
+<button onclick="add('iPhone 16',720000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -572,12 +467,10 @@ ADD TO CART
 
 <div class="card" data-name="samsung galaxy a26" data-brand="Samsung">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=700&q=85"
+alt="Samsung Galaxy">
 </div>
 
 <div class="info">
@@ -586,10 +479,7 @@ ADD TO CART
 <div class="specs">4GB RAM / 128GB / 5G</div>
 <div class="colours">Colours: Black, White, Mint</div>
 <div class="price">₦330,000</div>
-
-<button onclick="add('Samsung Galaxy A26 5G',330000)">
-ADD TO CART
-</button>
+<button onclick="add('Samsung Galaxy A26 5G',330000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -597,12 +487,10 @@ ADD TO CART
 
 <div class="card" data-name="samsung galaxy a36" data-brand="Samsung">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1610792516307-ea5acd3c3b8f?auto=format&fit=crop&w=700&q=85"
+alt="Samsung Galaxy">
 </div>
 
 <div class="info">
@@ -611,10 +499,7 @@ ADD TO CART
 <div class="specs">8GB RAM / 128GB / 5G</div>
 <div class="colours">Colours: Black, White, Lavender</div>
 <div class="price">₦390,000</div>
-
-<button onclick="add('Samsung Galaxy A36 5G',390000)">
-ADD TO CART
-</button>
+<button onclick="add('Samsung Galaxy A36 5G',390000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -622,12 +507,10 @@ ADD TO CART
 
 <div class="card" data-name="samsung galaxy a56" data-brand="Samsung">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=700&q=85"
+alt="Samsung smartphone">
 </div>
 
 <div class="info">
@@ -636,10 +519,7 @@ ADD TO CART
 <div class="specs">8GB RAM / 128GB / 5G</div>
 <div class="colours">Colours: Graphite, Gray, Olive, Pink</div>
 <div class="price">₦480,000</div>
-
-<button onclick="add('Samsung Galaxy A56 5G',480000)">
-ADD TO CART
-</button>
+<button onclick="add('Samsung Galaxy A56 5G',480000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -649,12 +529,10 @@ ADD TO CART
 
 <div class="card" data-name="tecno spark 40" data-brand="Tecno">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=700&q=85"
+alt="Tecno smartphone">
 </div>
 
 <div class="info">
@@ -663,10 +541,7 @@ ADD TO CART
 <div class="specs">4/8GB RAM / 128/256GB</div>
 <div class="colours">Colours: Black, Gray, Blue, White</div>
 <div class="price">₦185,000</div>
-
-<button onclick="add('Tecno Spark 40',185000)">
-ADD TO CART
-</button>
+<button onclick="add('Tecno Spark 40',185000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -674,12 +549,10 @@ ADD TO CART
 
 <div class="card" data-name="tecno camon 40" data-brand="Tecno">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=700&q=85"
+alt="Tecno smartphone">
 </div>
 
 <div class="info">
@@ -688,10 +561,7 @@ ADD TO CART
 <div class="specs">8GB RAM / 256GB</div>
 <div class="colours">Colours: Black, Green, Silver</div>
 <div class="price">₦260,000</div>
-
-<button onclick="add('Tecno Camon 40',260000)">
-ADD TO CART
-</button>
+<button onclick="add('Tecno Camon 40',260000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -701,12 +571,10 @@ ADD TO CART
 
 <div class="card" data-name="infinix hot 60" data-brand="Infinix">
 
-<div class="image">
-<div class="phone">
-<div class="screen">
-<div class="notch"></div>
-</div>
-</div>
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=700&q=85"
+alt="Infinix smartphone">
 </div>
 
 <div class="info">
@@ -715,10 +583,7 @@ ADD TO CART
 <div class="specs">8GB RAM / 128GB</div>
 <div class="colours">Colours: Black, Blue, Green</div>
 <div class="price">₦250,000</div>
-
-<button onclick="add('Infinix Hot 60 Pro',250000)">
-ADD TO CART
-</button>
+<button onclick="add('Infinix Hot 60 Pro',250000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -728,18 +593,10 @@ ADD TO CART
 
 <div class="card" data-name="hp laptop" data-brand="Laptop">
 
-<div class="image">
-
-<div class="laptop">
-
-<div class="laptop-screen">
-<div class="laptop-display"></div>
-</div>
-
-<div class="laptop-base"></div>
-
-</div>
-
+<div class="product-image">
+<img
+src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85"
+alt="HP laptop">
 </div>
 
 <div class="info">
@@ -748,10 +605,7 @@ ADD TO CART
 <div class="specs">Core i5 / 8GB RAM / 256GB SSD</div>
 <div class="colours">Colours: Silver, Black</div>
 <div class="price">₦650,000</div>
-
-<button onclick="add('HP Laptop',650000)">
-ADD TO CART
-</button>
+<button onclick="add('HP Laptop',650000)">ADD TO CART</button>
 </div>
 
 </div>
@@ -799,8 +653,9 @@ ORDER ON WHATSAPP
 
 <h2 class="gold">CUSTOMER ACCOUNT</h2>
 
-<p>
-Create your customer account or log in.
+<p style="color:#888">
+Create an account or log in to your
+Sarefati Gadgets customer account.
 </p>
 
 <input id="name" placeholder="Full name">
@@ -809,15 +664,15 @@ Create your customer account or log in.
 
 <input id="password" type="password" placeholder="Password">
 
-<button onclick="accountMessage()">
+<button onclick="createAccount()">
 CREATE ACCOUNT
 </button>
 
-<button onclick="accountMessage()">
+<button onclick="loginAccount()">
 LOGIN
 </button>
 
-<p id="accountMessage" class="gold"></p>
+<p id="accountMessage"></p>
 
 </div>
 
@@ -826,10 +681,8 @@ LOGIN
 
 
 <footer>
-
 Sarefati Gadgets © 2026<br>
 Premium Gadgets • Fair Prices
-
 </footer>
 
 
@@ -849,8 +702,6 @@ price:price
 
 updateCart();
 
-alert(name+" added to cart.");
-
 }
 
 
@@ -858,7 +709,7 @@ function updateCart(){
 
 document.getElementById("count").textContent=cart.length;
 
-let box=document.getElementById("cartItems");
+const box=document.getElementById("cartItems");
 
 if(cart.length===0){
 
@@ -868,7 +719,6 @@ box.innerHTML=
 document.getElementById("total").textContent="₦0";
 
 return;
-
 }
 
 let total=0;
@@ -879,19 +729,14 @@ total+=item.price;
 
 return `
 <div class="cart-item">
-
 <strong>${item.name}</strong>
-
 <p class="gold">
 ₦${item.price.toLocaleString()}
 </p>
-
-<button
-class="remove"
+<button class="remove"
 onclick="removeItem(${index})">
 REMOVE
 </button>
-
 </div>
 `;
 
@@ -906,7 +751,6 @@ document.getElementById("total").textContent=
 function removeItem(index){
 
 cart.splice(index,1);
-
 updateCart();
 
 }
@@ -931,16 +775,18 @@ function whatsapp(){
 if(cart.length===0){
 
 alert("Your cart is empty.");
-
 return;
 
 }
 
-let text="Hello Sarefati Gadgets, I want to order:%0A%0A";
+let message=
+"Hello Sarefati Gadgets!%0A%0A"+
+"I would like to order:%0A%0A";
 
 cart.forEach(item=>{
 
-text+="• "+item.name+
+message+=
+"• "+item.name+
 " - ₦"+
 item.price.toLocaleString()+
 "%0A";
@@ -948,7 +794,7 @@ item.price.toLocaleString()+
 });
 
 window.open(
-"https://wa.me/2349169454032?text="+text,
+"https://wa.me/2349169454032?text="+message,
 "_blank"
 );
 
@@ -971,10 +817,100 @@ document.getElementById("accountBg").style.display="none";
 }
 
 
-function accountMessage(){
+function createAccount(){
 
-document.getElementById("accountMessage").textContent=
-"Account system ready. Connect Supabase authentication after the storefront is confirmed working.";
+const name=
+document.getElementById("name").value.trim();
+
+const email=
+document.getElementById("email").value.trim();
+
+const password=
+document.getElementById("password").value;
+
+const message=
+document.getElementById("accountMessage");
+
+if(!name || !email || !password){
+
+message.style.color="#ff7777";
+
+message.textContent=
+"Please enter your name, email and password.";
+
+return;
+
+}
+
+if(password.length<6){
+
+message.style.color="#ff7777";
+
+message.textContent=
+"Password must contain at least 6 characters.";
+
+return;
+
+}
+
+localStorage.setItem(
+"sarefatiAccount",
+JSON.stringify({
+name:name,
+email:email
+})
+);
+
+message.style.color="#6ee7a0";
+
+message.textContent=
+"Account created successfully on this device.";
+
+}
+
+
+function loginAccount(){
+
+const email=
+document.getElementById("email").value.trim();
+
+const password=
+document.getElementById("password").value;
+
+const saved=
+JSON.parse(
+localStorage.getItem("sarefatiAccount") || "null"
+);
+
+const message=
+document.getElementById("accountMessage");
+
+if(!email || !password){
+
+message.style.color="#ff7777";
+
+message.textContent=
+"Enter your email and password.";
+
+return;
+
+}
+
+if(!saved || saved.email!==email){
+
+message.style.color="#ff7777";
+
+message.textContent=
+"No account with that email was created on this device.";
+
+return;
+
+}
+
+message.style.color="#6ee7a0";
+
+message.textContent=
+"Welcome back, "+saved.name+"!";
 
 }
 
@@ -983,39 +919,37 @@ document.getElementById("accountMessage").textContent=
 
 function filterProducts(){
 
-let search=
+const search=
 document.getElementById("search")
-.value
-.toLowerCase();
+.value.toLowerCase();
 
-let filter=
-document.getElementById("filter")
-.value;
+const category=
+document.getElementById("filter").value;
 
-document.querySelectorAll(".card").forEach(card=>{
+document.querySelectorAll(".card")
+.forEach(card=>{
 
-let name=
+const name=
 card.dataset.name.toLowerCase();
 
-let brand=
+const brand=
 card.dataset.brand;
 
-let searchOK=
+const matchesSearch=
 name.includes(search);
 
-let filterOK=
-filter==="all" ||
-brand===filter;
+const matchesCategory=
+category==="all" ||
+brand===category;
 
 card.style.display=
-searchOK && filterOK
+matchesSearch && matchesCategory
 ?"block"
 :"none";
 
 });
 
 }
-
 
 updateCart();
 
