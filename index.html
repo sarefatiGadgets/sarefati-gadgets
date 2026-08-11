@@ -6,785 +6,329 @@
 <title>Sarefati Gadgets</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-  --black:#050505;
-  --dark:#0d0d0d;
-  --card:#121212;
-  --gold:#f5b51b;
-  --gold2:#ffd95a;
-  --white:#fff;
-  --gray:#999;
-  --line:#292929;
-}
+*{box-sizing:border-box}
 
 body{
-  margin:0;
-  background:var(--black);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
+margin:0;
+font-family:Arial,sans-serif;
+background:#050505;
+color:#fff
 }
 
-button,input,select{font:inherit}
-
-button{cursor:pointer}
-
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:#050505;
-  border-bottom:1px solid #3c300b;
+position:sticky;
+top:0;
+z-index:10;
+background:#080808;
+border-bottom:1px solid #c99a18;
+padding:15px
 }
 
 .nav{
-  width:94%;
-  max-width:1200px;
-  min-height:70px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center
 }
 
 .logo{
-  color:var(--gold2);
-  font-weight:900;
-  font-size:18px;
-  letter-spacing:1px;
+font-size:20px;
+font-weight:bold;
+color:#f5c542
 }
 
-.logo small{
-  display:block;
-  color:#777;
-  font-size:8px;
-  letter-spacing:3px;
-  margin-top:3px;
-}
-
-.nav-actions{
-  display:flex;
-  gap:7px;
-  align-items:center;
-}
-
-.nav-btn{
-  border:1px solid var(--gold);
-  background:transparent;
-  color:white;
-  border-radius:7px;
-  padding:9px 11px;
-  font-size:10px;
-  font-weight:bold;
-}
-
-.nav-btn:hover{
-  background:var(--gold);
-  color:#111;
+.actions button{
+background:#111;
+border:1px solid #f5c542;
+color:#fff;
+padding:10px 13px;
+border-radius:6px;
+margin-left:5px
 }
 
 .hero{
-  padding:70px 0;
-  background:
-  radial-gradient(circle at 80% 40%,rgba(245,181,27,.15),transparent 35%);
-}
-
-.container{
-  width:94%;
-  max-width:1200px;
-  margin:auto;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:45px;
-  align-items:center;
-}
-
-.kicker{
-  color:var(--gold);
-  font-size:11px;
-  letter-spacing:3px;
+padding:70px 5%;
+background:linear-gradient(120deg,#050505,#17120a)
 }
 
 .hero h1{
-  font-size:clamp(42px,7vw,76px);
-  line-height:.95;
-  margin:18px 0;
+font-size:55px;
+margin:0 0 15px
 }
 
-.hero h1 span{color:var(--gold)}
+.gold{color:#f5c542}
 
 .hero p{
-  color:#aaa;
-  line-height:1.7;
-  max-width:550px;
+color:#aaa;
+max-width:600px;
+line-height:1.7
 }
 
-.hero-buttons{
-  display:flex;
-  gap:10px;
-  margin-top:25px;
+.btn{
+display:inline-block;
+padding:13px 20px;
+background:#f5c542;
+color:#000;
+font-weight:bold;
+border-radius:6px;
+text-decoration:none;
+margin-top:15px
 }
 
-.gold-btn,
-.outline-btn{
-  padding:13px 19px;
-  border-radius:7px;
-  text-decoration:none;
-  font-size:11px;
-  font-weight:bold;
+section{
+padding:45px 5%
 }
 
-.gold-btn{
-  background:var(--gold);
-  color:#111;
+.container{
+max-width:1200px;
+margin:auto
 }
 
-.outline-btn{
-  color:var(--gold);
-  border:1px solid var(--gold);
-}
-
-.hero-gadget{
-  display:flex;
-  justify-content:center;
-}
-
-/* PHONE ILLUSTRATION */
-
-.phone{
-  width:185px;
-  height:350px;
-  padding:8px;
-  border:5px solid #333;
-  border-radius:32px;
-  background:#111;
-  box-shadow:0 25px 50px #000;
-}
-
-.phone-screen{
-  position:relative;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  border-radius:23px;
-  background:
-    radial-gradient(circle at 50% 25%,#ffe68f,#b47d0b 32%,#111 72%);
-}
-
-.notch{
-  position:absolute;
-  top:8px;
-  left:50%;
-  transform:translateX(-50%);
-  width:58px;
-  height:17px;
-  border-radius:20px;
-  background:#050505;
-}
-
-.trust{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  padding:24px 0;
-}
-
-.trust-row{
-  display:flex;
-  gap:30px;
-  overflow-x:auto;
-}
-
-.trust-item{
-  min-width:190px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-
-.trust-item strong{
-  display:block;
-  font-size:10px;
-}
-
-.trust-item small{
-  color:#777;
-  font-size:9px;
-}
-
-section{padding:55px 0}
-
-.section-title{
-  color:var(--gold);
-  font-size:25px;
-  margin-bottom:25px;
-}
-
-.section-title:after{
-  content:"";
-  display:block;
-  width:45px;
-  height:3px;
-  background:var(--gold);
-  margin-top:8px;
+.title{
+color:#f5c542;
+font-size:27px;
+margin-bottom:20px
 }
 
 .controls{
-  display:flex;
-  gap:10px;
-  margin-bottom:22px;
+display:flex;
+gap:10px;
+margin-bottom:25px
 }
 
-.search,
-.filter{
-  background:#111;
-  border:1px solid var(--line);
-  color:white;
-  border-radius:7px;
-  padding:13px;
-  outline:none;
+input,select{
+background:#111;
+color:#fff;
+border:1px solid #333;
+padding:13px;
+border-radius:6px
 }
 
-.search{flex:1}
-
-.search:focus,
-.filter:focus{
-  border-color:var(--gold);
+input{
+flex:1
 }
 
 /* HORIZONTAL PRODUCTS */
 
-.product-row{
-  width:100%;
-  display:flex;
-  flex-wrap:nowrap;
-  gap:18px;
-  overflow-x:auto;
-  overflow-y:hidden;
-  padding:5px 2px 20px;
-  scroll-snap-type:x mandatory;
+.products{
+display:flex;
+gap:18px;
+overflow-x:auto;
+padding-bottom:20px
 }
 
-.product-row::-webkit-scrollbar{height:8px}
-
-.product-row::-webkit-scrollbar-track{
-  background:#111;
+.products::-webkit-scrollbar{
+height:8px
 }
 
-.product-row::-webkit-scrollbar-thumb{
-  background:var(--gold);
-  border-radius:20px;
+.products::-webkit-scrollbar-thumb{
+background:#f5c542;
+border-radius:10px
 }
 
-.product-card{
-  flex:0 0 255px;
-  width:255px;
-  min-width:255px;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:12px;
-  overflow:hidden;
-  scroll-snap-align:start;
+.card{
+flex:0 0 250px;
+background:#111;
+border:1px solid #292929;
+border-radius:10px;
+overflow:hidden
 }
 
-.product-card:hover{
-  border-color:var(--gold);
+.card:hover{
+border-color:#f5c542
 }
 
-.product-image{
-  height:230px;
-  background:#f0f0f0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.image{
+height:220px;
+background:#eee;
+display:flex;
+justify-content:center;
+align-items:center
 }
 
-/* PRODUCT PHONE */
+/* PHONE IMAGE */
 
-.product-phone{
-  width:108px;
-  height:198px;
-  padding:6px;
-  border:4px solid #222;
-  border-radius:22px;
-  background:#101010;
-  box-shadow:0 15px 25px rgba(0,0,0,.35);
+.phone{
+width:105px;
+height:190px;
+background:#111;
+border:5px solid #292929;
+border-radius:23px;
+padding:6px
 }
 
-.product-phone-screen{
-  position:relative;
-  width:100%;
-  height:100%;
-  border-radius:15px;
-  background:
-    radial-gradient(circle at 50% 30%,#ffe68f,#b17d10 35%,#161616 72%);
+.screen{
+width:100%;
+height:100%;
+border-radius:15px;
+background:
+radial-gradient(circle at 50% 30%,#ffe78c,#a8790d 40%,#111 75%);
+position:relative
 }
 
-.product-phone-notch{
-  position:absolute;
-  top:6px;
-  left:50%;
-  transform:translateX(-50%);
-  width:34px;
-  height:9px;
-  border-radius:15px;
-  background:#050505;
+.notch{
+position:absolute;
+top:5px;
+left:50%;
+transform:translateX(-50%);
+width:35px;
+height:9px;
+background:#000;
+border-radius:10px
 }
 
-/* PRODUCT LAPTOP */
+/* LAPTOP IMAGE */
 
-.product-laptop{
-  width:195px;
+.laptop{
+width:190px
 }
 
 .laptop-screen{
-  height:125px;
-  padding:6px;
-  border:5px solid #292929;
-  border-radius:8px 8px 3px 3px;
-  background:#111;
+height:120px;
+background:#222;
+border:6px solid #333;
+border-radius:7px 7px 2px 2px;
+padding:5px
 }
 
 .laptop-display{
-  width:100%;
-  height:100%;
-  background:
-    linear-gradient(135deg,#111,#d5a51d,#292929);
+height:100%;
+background:linear-gradient(135deg,#111,#e0b52f,#222)
 }
 
 .laptop-base{
-  height:12px;
-  background:#777;
-  border-radius:0 0 15px 15px;
+height:12px;
+background:#777;
+border-radius:0 0 15px 15px
 }
 
-.product-body{
-  padding:15px;
+.info{
+padding:15px
 }
 
 .brand{
-  color:#777;
-  text-transform:uppercase;
-  font-size:9px;
-  letter-spacing:1.5px;
+font-size:9px;
+color:#888;
+text-transform:uppercase
 }
 
-.product-name{
-  font-size:15px;
-  margin:7px 0;
+.name{
+font-size:16px;
+margin:7px 0
 }
 
-.specs{
-  color:#999;
-  font-size:10px;
-  line-height:1.5;
+.specs,.colours{
+font-size:10px;
+color:#999;
+line-height:1.5
 }
-
-.colors{
-  color:#999;
-  font-size:10px;
-  line-height:1.5;
-  margin-top:7px;
-}
-
-.colors b{color:#ddd}
 
 .price{
-  color:var(--gold2);
-  font-weight:bold;
-  font-size:14px;
-  margin:11px 0;
+color:#f5c542;
+font-weight:bold;
+margin:10px 0
 }
 
-.price small{
-  display:block;
-  color:#666;
-  font-size:8px;
-  margin-top:3px;
-}
-
-.card-buttons{
-  display:flex;
-  gap:7px;
-}
-
-.card-buttons button{
-  flex:1;
-  padding:9px 4px;
-  border-radius:6px;
-  font-size:9px;
-  font-weight:bold;
-}
-
-.details-btn{
-  background:transparent;
-  color:white;
-  border:1px solid #555;
-}
-
-.add-btn{
-  background:var(--gold);
-  color:#111;
-  border:1px solid var(--gold);
-}
-
-.empty{
-  color:#777;
-  padding:30px 5px;
-}
-
-/* ACCESSORIES */
-
-.accessory-row{
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-}
-
-.accessory{
-  flex:0 0 180px;
-  background:#111;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:22px;
-  text-align:center;
-}
-
-.accessory-icon{
-  font-size:42px;
-  margin-bottom:10px;
-}
-
-.accessory h3{font-size:12px}
-
-.accessory p{
-  color:var(--gold);
-  font-size:10px;
-  margin-top:7px;
+.card button{
+width:100%;
+padding:10px;
+border:0;
+border-radius:5px;
+background:#f5c542;
+font-weight:bold
 }
 
 /* CART */
 
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  z-index:3000;
-  display:none;
+.modal-bg{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+z-index:100
 }
 
-.overlay.show{display:block}
-
-.cart{
-  position:fixed;
-  top:0;
-  right:-450px;
-  width:min(450px,100%);
-  height:100vh;
-  background:#0b0b0b;
-  z-index:4000;
-  transition:right .25s ease;
-  display:flex;
-  flex-direction:column;
+.modal{
+position:fixed;
+right:0;
+top:0;
+height:100%;
+width:min(420px,100%);
+background:#101010;
+z-index:101;
+padding:20px;
+overflow-y:auto
 }
 
-.cart.show{right:0}
-
-.cart-head{
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
-  border-bottom:1px solid var(--line);
-}
-
-.cart-head h2{color:var(--gold)}
-
-.close-btn{
-  border:0;
-  background:none;
-  color:white;
-  font-size:27px;
-}
-
-.cart-list{
-  flex:1;
-  overflow-y:auto;
-  padding:20px;
+.close{
+float:right;
+background:none;
+border:0;
+color:#fff;
+font-size:28px
 }
 
 .cart-item{
-  border-bottom:1px solid var(--line);
-  padding:15px 0;
+border-bottom:1px solid #333;
+padding:15px 0
 }
 
-.cart-item strong{font-size:13px}
-
-.cart-item p{
-  color:var(--gold2);
-  font-size:11px;
-  margin-top:7px;
-}
-
-.remove-btn{
-  border:0;
-  background:none;
-  color:#ff7777;
-  font-size:10px;
-  margin-top:7px;
-}
-
-.cart-bottom{
-  padding:20px;
-  border-top:1px solid var(--line);
+.remove{
+background:none;
+border:0;
+color:#ff6666;
+padding:5px 0
 }
 
 .total{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-  color:#aaa;
+display:flex;
+justify-content:space-between;
+padding:20px 0;
+color:#f5c542;
+font-weight:bold
 }
 
-.total strong{color:var(--gold2)}
-
-.order-btn,
-.clear-btn{
-  width:100%;
-  padding:13px;
-  border-radius:7px;
-  margin-top:7px;
-  font-weight:bold;
-}
-
-.order-btn{
-  background:var(--gold);
-  color:#111;
-  border:0;
-}
-
-.clear-btn{
-  background:transparent;
-  color:white;
-  border:1px solid #555;
+.order{
+width:100%;
+padding:13px;
+background:#f5c542;
+border:0;
+border-radius:6px;
+font-weight:bold
 }
 
 /* ACCOUNT */
 
-.auth-overlay{
-  position:fixed;
-  inset:0;
-  z-index:6000;
-  background:rgba(0,0,0,.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+.account-box{
+max-width:400px;
+margin:80px auto;
+background:#111;
+border:1px solid #f5c542;
+border-radius:10px;
+padding:25px
 }
 
-.auth-overlay.show{display:flex}
-
-.auth-box{
-  width:min(400px,100%);
-  background:#111;
-  border:1px solid var(--gold);
-  border-radius:12px;
-  padding:28px 22px;
-  position:relative;
+.account-box input{
+width:100%;
+margin:6px 0
 }
 
-.auth-box h2{
-  color:var(--gold2);
-  margin-bottom:8px;
-}
-
-.auth-box p{
-  color:#888;
-  font-size:11px;
-  line-height:1.6;
-  margin-bottom:18px;
-}
-
-.auth-close{
-  position:absolute;
-  right:13px;
-  top:8px;
-  background:none;
-  border:0;
-  color:white;
-  font-size:27px;
-}
-
-.auth-input{
-  display:block;
-  width:100%;
-  padding:13px;
-  margin-bottom:10px;
-  background:#080808;
-  border:1px solid #333;
-  border-radius:7px;
-  color:white;
-  outline:none;
-}
-
-.auth-input:focus{border-color:var(--gold)}
-
-.auth-main{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:7px;
-  background:var(--gold);
-  color:#111;
-  font-weight:bold;
-}
-
-.auth-switch,
-.auth-logout{
-  width:100%;
-  padding:11px;
-  margin-top:9px;
-  background:transparent;
-  border:1px solid #555;
-  border-radius:7px;
-  color:white;
-}
-
-.auth-status{
-  margin-top:12px;
-  font-size:10px;
-  line-height:1.5;
-}
-
-/* ABOUT */
-
-.about{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-
-.about p{
-  max-width:800px;
-  color:#999;
-  line-height:1.8;
-}
-
-.contact-row{
-  display:flex;
-  gap:15px;
-  overflow-x:auto;
-}
-
-.contact{
-  flex:0 0 220px;
-  padding:20px;
-  background:#111;
-  border:1px solid var(--line);
-  border-radius:10px;
-}
-
-.contact strong{
-  color:var(--gold);
-  font-size:11px;
-}
-
-.contact p{
-  color:#999;
-  font-size:11px;
-  line-height:1.7;
-  margin-top:7px;
+.account-box button{
+width:100%;
+padding:12px;
+margin-top:8px;
+border-radius:6px;
+border:0;
+background:#f5c542;
+font-weight:bold
 }
 
 footer{
-  padding:40px 0 20px;
-  border-top:1px solid var(--line);
-}
-
-.footer-row{
-  display:flex;
-  justify-content:space-between;
-  gap:30px;
-}
-
-.footer-row h3{
-  color:var(--gold);
-  font-size:13px;
-  margin-bottom:10px;
-}
-
-.footer-row p{
-  color:#777;
-  font-size:10px;
-  line-height:1.8;
-}
-
-.copy{
-  color:#555;
-  font-size:9px;
-  border-top:1px solid #222;
-  padding-top:18px;
-  margin-top:25px;
-}
-
-.whatsapp{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#25d366;
-  color:white;
-  text-decoration:none;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:25px;
-  z-index:2500;
-}
-
-@media(max-width:750px){
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-gadget{
-    display:none;
-  }
-
-  .nav{
-    min-height:62px;
-  }
-
-  .logo{
-    font-size:14px;
-  }
-
-  .nav-btn{
-    padding:8px;
-    font-size:9px;
-  }
-
-  .hero{
-    padding:50px 0;
-  }
-
-  .controls{
-    flex-direction:column;
-  }
-
-  .product-card{
-    flex-basis:225px;
-    width:225px;
-    min-width:225px;
-  }
-
-  .footer-row{
-    flex-direction:column;
-  }
+border-top:1px solid #222;
+padding:35px 5%;
+color:#777;
+text-align:center
 }
 </style>
 </head>
@@ -792,500 +336,690 @@ footer{
 <body>
 
 <header>
-  <div class="nav">
+<div class="nav">
 
-    <div class="logo">
-      SAREFATI GADGETS
-      <small>PREMIUM GADGETS</small>
-    </div>
-
-    <div class="nav-actions">
-
-      <button class="nav-btn" onclick="openAuth()">
-        👤 ACCOUNT
-      </button>
-
-      <button class="nav-btn" onclick="openCart()">
-        🛒 CART <span id="cartCount">0</span>
-      </button>
-
-    </div>
-
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container hero-grid">
-
-    <div>
-      <div class="kicker">WELCOME TO SAREFATI GADGETS</div>
-
-      <h1>
-        PREMIUM<br>
-        <span>GADGETS.</span><br>
-        FAIR PRICES.
-      </h1>
-
-      <p>
-        Shop smartphones, laptops and accessories
-        from Sarefati Gadgets. Quality gadgets,
-        fair prices and easy ordering.
-      </p>
-
-      <div class="hero-buttons">
-
-        <a href="#shop" class="gold-btn">
-          SHOP NOW
-        </a>
-
-        <a
-          href="https://wa.me/2349169454032"
-          target="_blank"
-          class="outline-btn">
-          WHATSAPP US
-        </a>
-
-      </div>
-    </div>
-
-    <div class="hero-gadget">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="notch"></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="trust">
-  <div class="container trust-row">
-
-    <div class="trust-item">
-      <span>🛡️</span>
-      <div>
-        <strong>QUALITY PRODUCTS</strong>
-        <small>Trusted gadgets</small>
-      </div>
-    </div>
-
-    <div class="trust-item">
-      <span>🚚</span>
-      <div>
-        <strong>FAST DELIVERY</strong>
-        <small>Across Nigeria</small>
-      </div>
-    </div>
-
-    <div class="trust-item">
-      <span>💬</span>
-      <div>
-        <strong>CUSTOMER SUPPORT</strong>
-        <small>We're here to help</small>
-      </div>
-    </div>
-
-  </div>
+<div class="logo">
+SAREFATI GADGETS
 </div>
 
+<div class="actions">
+<button onclick="openAccount()">👤 ACCOUNT</button>
+<button onclick="openCart()">🛒 CART (<span id="count">0</span>)</button>
+</div>
+
+</div>
+</header>
+
+
+<section class="hero">
+
+<div class="container">
+
+<p class="gold">PREMIUM GADGETS</p>
+
+<h1>
+SHOP <span class="gold">SMART.</span><br>
+LIVE <span class="gold">BETTER.</span>
+</h1>
+
+<p>
+Smartphones, laptops and accessories at
+estimated prices. Add products to your cart
+and contact Sarefati Gadgets to confirm
+availability and final pricing.
+</p>
+
+<a href="#shop" class="btn">SHOP NOW</a>
+
+</div>
+
+</section>
+
+
 <section id="shop">
-  <div class="container">
 
-    <h2 class="section-title">SHOP GADGETS</h2>
+<div class="container">
 
-    <div class="controls">
+<h2 class="title">SHOP GADGETS</h2>
 
-      <input
-        id="search"
-        class="search"
-        type="search"
-        placeholder="Search products..."
-        oninput="renderProducts()">
+<div class="controls">
 
-      <select
-        id="category"
-        class="filter"
-        onchange="renderProducts()">
+<input
+id="search"
+placeholder="Search products..."
+oninput="filterProducts()">
 
-        <option value="All">All Products</option>
-        <option value="iPhone">iPhone</option>
-        <option value="Samsung">Samsung</option>
-        <option value="Tecno">Tecno</option>
-        <option value="Infinix">Infinix</option>
-        <option value="Laptop">Laptops</option>
+<select id="filter" onchange="filterProducts()">
+<option value="all">All Products</option>
+<option value="iPhone">iPhone</option>
+<option value="Samsung">Samsung</option>
+<option value="Tecno">Tecno</option>
+<option value="Infinix">Infinix</option>
+<option value="Laptop">Laptop</option>
+</select>
 
-      </select>
+</div>
 
-    </div>
 
-    <div id="productRow" class="product-row"></div>
+<div class="products" id="products">
 
-  </div>
+
+<!-- IPHONE -->
+
+<div class="card" data-name="iphone 11" data-brand="iPhone">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Apple</div>
+<div class="name">iPhone 11</div>
+<div class="specs">64GB / 128GB</div>
+<div class="colours">
+Colours: Black, White, Red, Purple
+</div>
+<div class="price">₦210,000</div>
+
+<button onclick="add('iPhone 11',210000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="iphone 12" data-brand="iPhone">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Apple</div>
+<div class="name">iPhone 12</div>
+<div class="specs">64GB / 128GB / 256GB</div>
+<div class="colours">
+Colours: Black, White, Blue, Green
+</div>
+<div class="price">₦270,000</div>
+
+<button onclick="add('iPhone 12',270000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="iphone 13" data-brand="iPhone">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Apple</div>
+<div class="name">iPhone 13</div>
+<div class="specs">128GB / 256GB</div>
+<div class="colours">
+Colours: Midnight, Blue, Pink, Red
+</div>
+<div class="price">₦350,000</div>
+
+<button onclick="add('iPhone 13',350000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="iphone 14" data-brand="iPhone">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Apple</div>
+<div class="name">iPhone 14</div>
+<div class="specs">128GB / 256GB</div>
+<div class="colours">
+Colours: Midnight, Purple, Blue, Red
+</div>
+<div class="price">₦450,000</div>
+
+<button onclick="add('iPhone 14',450000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="iphone 15" data-brand="iPhone">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Apple</div>
+<div class="name">iPhone 15</div>
+<div class="specs">128GB / 256GB / 512GB</div>
+<div class="colours">
+Colours: Black, Blue, Green, Yellow, Pink
+</div>
+<div class="price">₦590,000</div>
+
+<button onclick="add('iPhone 15',590000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="iphone 16" data-brand="iPhone">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Apple</div>
+<div class="name">iPhone 16</div>
+<div class="specs">128GB / 256GB / 512GB</div>
+<div class="colours">
+Colours: Black, White, Pink, Teal
+</div>
+<div class="price">₦720,000</div>
+
+<button onclick="add('iPhone 16',720000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<!-- SAMSUNG -->
+
+<div class="card" data-name="samsung galaxy a26" data-brand="Samsung">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Samsung</div>
+<div class="name">Galaxy A26 5G</div>
+<div class="specs">4GB RAM / 128GB / 5G</div>
+<div class="colours">Colours: Black, White, Mint</div>
+<div class="price">₦330,000</div>
+
+<button onclick="add('Samsung Galaxy A26 5G',330000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="samsung galaxy a36" data-brand="Samsung">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Samsung</div>
+<div class="name">Galaxy A36 5G</div>
+<div class="specs">8GB RAM / 128GB / 5G</div>
+<div class="colours">Colours: Black, White, Lavender</div>
+<div class="price">₦390,000</div>
+
+<button onclick="add('Samsung Galaxy A36 5G',390000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="samsung galaxy a56" data-brand="Samsung">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Samsung</div>
+<div class="name">Galaxy A56 5G</div>
+<div class="specs">8GB RAM / 128GB / 5G</div>
+<div class="colours">Colours: Graphite, Gray, Olive, Pink</div>
+<div class="price">₦480,000</div>
+
+<button onclick="add('Samsung Galaxy A56 5G',480000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<!-- TECNO -->
+
+<div class="card" data-name="tecno spark 40" data-brand="Tecno">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Tecno</div>
+<div class="name">Spark 40</div>
+<div class="specs">4/8GB RAM / 128/256GB</div>
+<div class="colours">Colours: Black, Gray, Blue, White</div>
+<div class="price">₦185,000</div>
+
+<button onclick="add('Tecno Spark 40',185000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<div class="card" data-name="tecno camon 40" data-brand="Tecno">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Tecno</div>
+<div class="name">Camon 40</div>
+<div class="specs">8GB RAM / 256GB</div>
+<div class="colours">Colours: Black, Green, Silver</div>
+<div class="price">₦260,000</div>
+
+<button onclick="add('Tecno Camon 40',260000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<!-- INFINIX -->
+
+<div class="card" data-name="infinix hot 60" data-brand="Infinix">
+
+<div class="image">
+<div class="phone">
+<div class="screen">
+<div class="notch"></div>
+</div>
+</div>
+</div>
+
+<div class="info">
+<div class="brand">Infinix</div>
+<div class="name">Hot 60 Pro</div>
+<div class="specs">8GB RAM / 128GB</div>
+<div class="colours">Colours: Black, Blue, Green</div>
+<div class="price">₦250,000</div>
+
+<button onclick="add('Infinix Hot 60 Pro',250000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+<!-- LAPTOP -->
+
+<div class="card" data-name="hp laptop" data-brand="Laptop">
+
+<div class="image">
+
+<div class="laptop">
+
+<div class="laptop-screen">
+<div class="laptop-display"></div>
+</div>
+
+<div class="laptop-base"></div>
+
+</div>
+
+</div>
+
+<div class="info">
+<div class="brand">HP</div>
+<div class="name">HP Laptop</div>
+<div class="specs">Core i5 / 8GB RAM / 256GB SSD</div>
+<div class="colours">Colours: Silver, Black</div>
+<div class="price">₦650,000</div>
+
+<button onclick="add('HP Laptop',650000)">
+ADD TO CART
+</button>
+</div>
+
+</div>
+
+
+</div>
+</div>
 </section>
-
-<section>
-  <div class="container">
-
-    <h2 class="section-title">ACCESSORIES</h2>
-
-    <div class="accessory-row">
-
-      <div class="accessory">
-        <div class="accessory-icon">🎧</div>
-        <h3>Wireless Earbuds</h3>
-        <p>₦25,000 est.</p>
-      </div>
-
-      <div class="accessory">
-        <div class="accessory-icon">🔋</div>
-        <h3>Power Bank</h3>
-        <p>₦25,000 est.</p>
-      </div>
-
-      <div class="accessory">
-        <div class="accessory-icon">🔌</div>
-        <h3>Fast Charger</h3>
-        <p>₦12,000 est.</p>
-      </div>
-
-      <div class="accessory">
-        <div class="accessory-icon">📱</div>
-        <h3>Phone Case</h3>
-        <p>₦8,000 est.</p>
-      </div>
-
-      <div class="accessory">
-        <div class="accessory-icon">🛡️</div>
-        <h3>Screen Protector</h3>
-        <p>₦5,000 est.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="container">
-
-    <h2 class="section-title">ABOUT US</h2>
-
-    <p>
-      Sarefati Gadgets is your destination for
-      smartphones, laptops and accessories.
-      Browse our products, add your favourites
-      to your cart and contact us to confirm
-      availability and final pricing.
-    </p>
-
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-
-    <h2 class="section-title">CONTACT US</h2>
-
-    <div class="contact-row">
-
-      <div class="contact">
-        <strong>PHONE</strong>
-        <p>09169454032<br>07070195576</p>
-      </div>
-
-      <div class="contact">
-        <strong>WHATSAPP</strong>
-        <p>09169454032</p>
-      </div>
-
-      <div class="contact">
-        <strong>EMAIL</strong>
-        <p>stephenikpilakaa@gmail.com</p>
-      </div>
-
-      <div class="contact">
-        <strong>LOCATION</strong>
-        <p>
-          Behind Customary Court,<br>
-          Saba Road, Makurdi.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-
-    <div class="footer-row">
-
-      <div>
-        <h3>SAREFATI GADGETS</h3>
-        <p>Premium gadgets.<br>Fair prices.</p>
-      </div>
-
-      <div>
-        <h3>QUICK LINKS</h3>
-        <p>
-          Shop<br>
-          Accessories<br>
-          About<br>
-          Contact
-        </p>
-      </div>
-
-      <div>
-        <h3>CONTACT</h3>
-        <p>
-          09169454032<br>
-          07070195576<br>
-          stephenikpilakaa@gmail.com
-        </p>
-      </div>
-
-    </div>
-
-    <div class="copy">
-      © 2026 Sarefati Gadgets. All rights reserved.
-    </div>
-
-  </div>
-</footer>
 
 
 <!-- CART -->
 
-<div id="cartOverlay" class="overlay" onclick="closeCart()"></div>
+<div id="cartBg" class="modal-bg">
 
-<div id="cartPanel" class="cart">
+<div class="modal">
 
-  <div class="cart-head">
-    <h2>Your Cart</h2>
+<button class="close" onclick="closeCart()">×</button>
 
-    <button
-      class="close-btn"
-      onclick="closeCart()">
-      ×
-    </button>
-  </div>
+<h2 class="gold">YOUR CART</h2>
 
-  <div id="cartList" class="cart-list"></div>
+<div id="cartItems"></div>
 
-  <div class="cart-bottom">
+<div class="total">
+<span>TOTAL</span>
+<span id="total">₦0</span>
+</div>
 
-    <div class="total">
-      <span>Estimated total</span>
-      <strong id="cartTotal">₦0</strong>
-    </div>
+<button class="order" onclick="whatsapp()">
+ORDER ON WHATSAPP
+</button>
 
-    <button
-      class="order-btn"
-      onclick="orderWhatsApp()">
-      ORDER ON WHATSAPP
-    </button>
-
-    <button
-      class="clear-btn"
-      onclick="clearCart()">
-      CLEAR CART
-    </button>
-
-  </div>
-
+</div>
 </div>
 
 
 <!-- ACCOUNT -->
 
-<div id="authOverlay" class="auth-overlay">
+<div id="accountBg" class="modal-bg">
 
-  <div class="auth-box">
+<div class="modal">
 
-    <button
-      class="auth-close"
-      onclick="closeAuth()">
-      ×
-    </button>
+<button class="close" onclick="closeAccount()">×</button>
 
-    <h2 id="authTitle">Customer Login</h2>
+<div class="account-box">
 
-    <p id="authDescription">
-      Login to your Sarefati Gadgets account.
-    </p>
+<h2 class="gold">CUSTOMER ACCOUNT</h2>
 
-    <input
-      id="authName"
-      class="auth-input"
-      type="text"
-      placeholder="Full name"
-      style="display:none">
+<p>
+Create your customer account or log in.
+</p>
 
-    <input
-      id="authEmail"
-      class="auth-input"
-      type="email"
-      placeholder="Email address">
+<input id="name" placeholder="Full name">
 
-    <input
-      id="authPassword"
-      class="auth-input"
-      type="password"
-      placeholder="Password">
+<input id="email" type="email" placeholder="Email address">
 
-    <button
-      id="authButton"
-      class="auth-main"
-      onclick="submitAuth()">
-      LOGIN
-    </button>
+<input id="password" type="password" placeholder="Password">
 
-    <button
-      id="authSwitch"
-      class="auth-switch"
-      onclick="switchAuth()">
-      Create an account
-    </button>
+<button onclick="accountMessage()">
+CREATE ACCOUNT
+</button>
 
-    <button
-      id="logoutButton"
-      class="auth-logout"
-      onclick="logout()"
-      style="display:none">
-      LOG OUT
-    </button>
+<button onclick="accountMessage()">
+LOGIN
+</button>
 
-    <div
-      id="authStatus"
-      class="auth-status">
-    </div>
-
-  </div>
+<p id="accountMessage" class="gold"></p>
 
 </div>
 
-
-<a
-  class="whatsapp"
-  href="https://wa.me/2349169454032"
-  target="_blank">
-  💬
-</a>
+</div>
+</div>
 
 
-<!-- SUPABASE -->
+<footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+Sarefati Gadgets © 2026<br>
+Premium Gadgets • Fair Prices
+
+</footer>
+
 
 <script>
 
-/* =========================
-   PRODUCT DATA
-========================= */
+let cart=[];
 
-const products = [
 
-  {
-    brand:"iPhone",
-    name:"iPhone 11",
-    price:210000,
-    specs:"64GB / 128GB",
-    colors:"Black, White, Red, Purple"
-  },
+/* CART */
 
-  {
-    brand:"iPhone",
-    name:"iPhone 12",
-    price:270000,
-    specs:"64GB / 128GB / 256GB",
-    colors:"Black, White, Blue, Green, Purple"
-  },
+function add(name,price){
 
-  {
-    brand:"iPhone",
-    name:"iPhone 13",
-    price:350000,
-    specs:"128GB / 256GB",
-    colors:"Midnight, Starlight, Blue, Pink, Red"
-  },
+cart.push({
+name:name,
+price:price
+});
 
-  {
-    brand:"iPhone",
-    name:"iPhone 14",
-    price:450000,
-    specs:"128GB / 256GB",
-    colors:"Midnight, Purple, Starlight, Blue, Red"
-  },
+updateCart();
 
-  {
-    brand:"iPhone",
-    name:"iPhone 15",
-    price:590000,
-    specs:"128GB / 256GB / 512GB",
-    colors:"Black, Blue, Green, Yellow, Pink"
-  },
+alert(name+" added to cart.");
 
-  {
-    brand:"iPhone",
-    name:"iPhone 16",
-    price:720000,
-    specs:"128GB / 256GB / 512GB",
-    colors:"Black, White, Pink, Teal"
-  },
+}
 
-  {
-    brand:"Samsung",
-    name:"Galaxy A17",
-    price:220000,
-    specs:"4GB RAM / 128GB",
-    colors:"Black, Blue, Gray"
-  },
 
-  {
-    brand:"Samsung",
-    name:"Galaxy A26 5G",
-    price:330000,
-    specs:"4GB RAM / 128GB / 5G",
-    colors:"Black, White, Mint"
-  },
+function updateCart(){
 
-  {
-    brand:"Samsung",
-    name:"Galaxy A36 5G",
-    price:390000,
-    specs:"8GB RAM / 128GB / 5G",
-    colors:"Black, White, Lavender"
-  },
+document.getElementById("count").textContent=cart.length;
 
-  {
-    brand:"Samsung",
-    name:"Galaxy A56 5G",
-    price:480000,
-    specs:"8GB RAM / 128GB / 5G",
-    colors:"Graphite, Gray, Olive, Pink"
-  },
+let box=document.getElementById("cartItems");
 
-  {
-    brand:"Tecno",
-    name:"Spark 40",
-    price:185000,
-    specs:"4/8GB RAM / 128/256GB",
-    colors:"Black, Gray, Blue, White"
-  },
+if(cart.length===0){
 
-  {
-    brand:"Tecno",
-    name:"Spark 40 Pro",
-    price:235000,
-    specs:"8GB RAM / 128/256GB",
-    colors:"Black, Gray, Blue, White"
-  },
+box.innerHTML=
+"<p style='color:#777;padding:30px 0'>Your cart is empty.</p>";
 
-  {
-    brand:"Tecno",
-    name:"Camon 40",
-    price:260000,
-    specs:"8GB RAM / 256GB",
-    colors:"Black, Green, Silv
+document.getElementById("total").textContent="₦0";
+
+return;
+
+}
+
+let total=0;
+
+box.innerHTML=cart.map((item,index)=>{
+
+total+=item.price;
+
+return `
+<div class="cart-item">
+
+<strong>${item.name}</strong>
+
+<p class="gold">
+₦${item.price.toLocaleString()}
+</p>
+
+<button
+class="remove"
+onclick="removeItem(${index})">
+REMOVE
+</button>
+
+</div>
+`;
+
+}).join("");
+
+document.getElementById("total").textContent=
+"₦"+total.toLocaleString();
+
+}
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+function openCart(){
+
+document.getElementById("cartBg").style.display="block";
+
+}
+
+
+function closeCart(){
+
+document.getElementById("cartBg").style.display="none";
+
+}
+
+
+function whatsapp(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+let text="Hello Sarefati Gadgets, I want to order:%0A%0A";
+
+cart.forEach(item=>{
+
+text+="• "+item.name+
+" - ₦"+
+item.price.toLocaleString()+
+"%0A";
+
+});
+
+window.open(
+"https://wa.me/2349169454032?text="+text,
+"_blank"
+);
+
+}
+
+
+/* ACCOUNT */
+
+function openAccount(){
+
+document.getElementById("accountBg").style.display="block";
+
+}
+
+
+function closeAccount(){
+
+document.getElementById("accountBg").style.display="none";
+
+}
+
+
+function accountMessage(){
+
+document.getElementById("accountMessage").textContent=
+"Account system ready. Connect Supabase authentication after the storefront is confirmed working.";
+
+}
+
+
+/* SEARCH */
+
+function filterProducts(){
+
+let search=
+document.getElementById("search")
+.value
+.toLowerCase();
+
+let filter=
+document.getElementById("filter")
+.value;
+
+document.querySelectorAll(".card").forEach(card=>{
+
+let name=
+card.dataset.name.toLowerCase();
+
+let brand=
+card.dataset.brand;
+
+let searchOK=
+name.includes(search);
+
+let filterOK=
+filter==="all" ||
+brand===filter;
+
+card.style.display=
+searchOK && filterOK
+?"block"
+:"none";
+
+});
+
+}
+
+
+updateCart();
+
+</script>
+
+</body>
+  </html>
