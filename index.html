@@ -2,498 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sarefati Gadgets</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 *{box-sizing:border-box}
-
 :root{
---bg:#070605;
---card:#12100b;
---amber:#ffb300;
---gold:#ffd166;
---muted:#aaa093;
---line:#3b2b14;
+--bg:#070605;--card:#12100b;--amber:#ffb300;--gold:#ffd166;
+--muted:#aaa093;--line:#3b2b14
 }
-
 body{
-margin:0;
-background:var(--bg);
-color:#f7f0e3;
-font-family:Arial,sans-serif;
+margin:0;background:var(--bg);color:#f7f0e3;
+font-family:Arial,sans-serif
 }
-
 body:before{
-content:"";
-position:fixed;
-inset:0;
-z-index:-1;
-background:
-radial-gradient(circle at 10% 5%,#ffb30018,transparent 28%),
-radial-gradient(circle at 90% 30%,#ff8f0010,transparent 30%);
+content:"";position:fixed;inset:0;z-index:-1;
+background:radial-gradient(circle at 10% 5%,#ffb30018,transparent 28%),
+radial-gradient(circle at 90% 30%,#ff8f0010,transparent 30%)
 }
-
-.container{
-width:min(1150px,92%);
-margin:auto;
-}
-
+.container{width:min(1150px,92%);margin:auto}
 header{
-position:sticky;
-top:0;
-z-index:50;
-background:#070605ee;
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--line);
+position:sticky;top:0;z-index:50;background:#070605ee;
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
 }
-
 .nav{
-min-height:70px;
-display:flex;
-align-items:center;
-justify-content:space-between;
+min-height:70px;display:flex;align-items:center;
+justify-content:space-between
 }
-
 .logo{
-color:var(--gold);
-font-weight:900;
-letter-spacing:2px;
-text-decoration:none;
-text-shadow:0 0 15px #ffb30099;
+color:var(--gold);font-weight:900;letter-spacing:2px;
+text-decoration:none;text-shadow:0 0 15px #ffb30099
 }
-
-nav{
-display:flex;
-gap:18px;
-align-items:center;
-}
-
-nav a{
-color:#ddd3c3;
-text-decoration:none;
-font-size:14px;
-}
-
+nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+nav a{color:#ddd3c3;text-decoration:none;font-size:14px}
 button,.button{
-border:1px solid var(--amber);
-background:transparent;
-color:var(--gold);
-border-radius:8px;
-padding:10px 14px;
-font-weight:800;
-cursor:pointer;
+border:1px solid var(--amber);background:transparent;color:var(--gold);
+border-radius:8px;padding:10px 14px;font-weight:800;cursor:pointer
 }
-
 button:hover,.button:hover{
-background:var(--amber);
-color:#111;
-box-shadow:0 0 25px #ffb30066;
+background:var(--amber);color:#111;box-shadow:0 0 25px #ffb30066
 }
-
-.primary{
-background:var(--amber);
-color:#111;
-}
-
-.cart-count{
-background:var(--amber);
-color:#111;
-border-radius:50%;
-padding:2px 6px;
-font-size:11px;
-}
-
+.primary{background:var(--amber);color:#111}
 .hero{
-padding:85px 0 70px;
-border-bottom:1px solid var(--line);
-background:radial-gradient(circle at 80% 25%,#ffb30028,transparent 27%);
+padding:80px 0 65px;border-bottom:1px solid var(--line);
+background:radial-gradient(circle at 80% 25%,#ffb30028,transparent 27%)
 }
-
 .kicker{
-color:var(--gold);
-font-size:12px;
-letter-spacing:2px;
-text-transform:uppercase;
+color:var(--gold);font-size:12px;letter-spacing:2px;text-transform:uppercase
 }
-
-.hero h1{
-font-size:clamp(42px,7vw,76px);
-line-height:1.02;
-margin:18px 0;
-}
-
-.hero p{
-max-width:680px;
-color:var(--muted);
-font-size:17px;
-line-height:1.7;
-}
-
-section{
-padding:60px 0;
-}
-
-.section-title{
-font-size:31px;
-margin:0 0 8px;
-}
-
-.section-subtitle{
-color:var(--muted);
-font-size:13px;
-margin-bottom:25px;
-}
-
-.controls{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:25px;
-}
-
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:18px 0}
+.hero p{max-width:680px;color:var(--muted);font-size:17px;line-height:1.7}
+section{padding:60px 0}
+.section-title{font-size:31px;margin:0 0 8px}
+.section-subtitle{color:var(--muted);font-size:13px;margin-bottom:25px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
 .search{
-flex:1;
-min-width:220px;
-padding:14px;
-background:var(--card);
-border:1px solid var(--line);
-border-radius:8px;
-color:#fff;
-outline:none;
+flex:1;min-width:220px;padding:14px;background:var(--card);
+border:1px solid var(--line);border-radius:8px;color:#fff;outline:none
 }
-
 select{
-padding:14px;
-background:var(--card);
-border:1px solid var(--line);
-border-radius:8px;
-color:#fff;
+padding:14px;background:var(--card);border:1px solid var(--line);
+border-radius:8px;color:#fff
 }
-
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:17px;
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px
 }
-
-.product,.accessory{
+.product,.accessory,.account-box{
 background:linear-gradient(150deg,#17120b,#0c0a07);
-border:1px solid var(--line);
-border-radius:13px;
-overflow:hidden;
-position:relative;
-transition:.2s;
+border:1px solid var(--line);border-radius:13px;overflow:hidden;
+transition:.2s
 }
-
 .product:hover,.accessory:hover{
-transform:translateY(-4px);
-border-color:#ffb30099;
-box-shadow:0 0 28px #ffb30020;
+transform:translateY(-4px);border-color:#ffb30099;
+box-shadow:0 0 28px #ffb30020
 }
-
-.badge{
-position:absolute;
-top:12px;
-left:12px;
-background:var(--amber);
-color:#111;
-padding:5px 8px;
-border-radius:5px;
-font-size:10px;
-font-weight:900;
-z-index:2;
-}
-
 .visual{
-height:205px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:
-radial-gradient(circle,#ffb30020,transparent 48%),
-linear-gradient(145deg,#1d1509,#090806);
+height:190px;display:flex;align-items:center;justify-content:center;
+background:radial-gradient(circle,#ffb30020,transparent 48%),
+linear-gradient(145deg,#1d1509,#090806)
 }
-
-svg{
-width:160px;
-height:175px;
-filter:drop-shadow(0 0 12px #ffb30040);
+.visual svg{width:150px;height:170px;filter:drop-shadow(0 0 12px #ffb30040)}
+.badge{
+position:absolute;top:12px;left:12px;background:var(--amber);
+color:#111;padding:5px 8px;border-radius:5px;font-size:10px;font-weight:900
 }
-
-.info{
-padding:16px;
-}
-
+.product{position:relative}
+.info{padding:16px}
 .brand{
-color:var(--gold);
-font-size:11px;
-letter-spacing:2px;
-text-transform:uppercase;
+color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase
 }
-
-.product h3,.accessory h3{
-margin:7px 0;
-}
-
-.spec,.accessory p{
-color:var(--muted);
-font-size:12px;
-line-height:1.5;
-}
-
-.price{
-color:var(--gold);
-font-weight:900;
-font-size:16px;
-margin:12px 0;
-}
-
-.add{
-width:100%;
-}
-
-.featured,.accessories{
-background:linear-gradient(#0e0b07,#120d07);
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-}
-
-.feature-box{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-}
-
-.feature{
-padding:22px;
-border:1px solid var(--line);
-border-radius:12px;
-background:#0e0b07;
-}
-
-.feature strong{
-display:block;
-color:var(--gold);
-margin-bottom:8px;
-}
-
-.feature span{
-color:var(--muted);
-font-size:13px;
-}
-
-.about{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:35px;
-}
-
-.about p{
-color:var(--muted);
-line-height:1.8;
-}
-
+h3{margin:7px 0}
+.spec,.accessory p{color:var(--muted);font-size:12px;line-height:1.5}
+.price{color:var(--gold);font-weight:900;margin:12px 0}
+.add{width:100%}
+.featured{background:#0e0b07;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.feature-box{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.feature{padding:22px;border:1px solid var(--line);border-radius:12px;background:#0e0b07}
+.feature strong{display:block;color:var(--gold);margin-bottom:8px}
+.feature span{color:var(--muted);font-size:13px}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:35px}
+.about p{color:var(--muted);line-height:1.8}
 .box{
-padding:20px;
-background:var(--card);
-border:1px solid var(--line);
-border-radius:10px;
-margin-bottom:12px;
+padding:20px;background:var(--card);border:1px solid var(--line);
+border-radius:10px;margin-bottom:12px
 }
-
 .box strong{
-display:block;
-color:var(--gold);
-font-size:12px;
-letter-spacing:1px;
-text-transform:uppercase;
-margin-bottom:7px;
+display:block;color:var(--gold);font-size:12px;letter-spacing:1px;
+text-transform:uppercase;margin-bottom:7px
 }
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.contact .box{margin:0}
+footer{padding:30px 0;border-top:1px solid var(--line);color:#77746c;font-size:12px}
+.note{color:#77746c;font-size:11px;line-height:1.6}
 
-.contact{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:14px;
+/* ACCOUNT */
+.account-area{display:none}
+.account-area.show{display:block}
+.account-box{padding:25px;max-width:500px;margin:auto}
+.account-box input{
+width:100%;padding:13px;margin:7px 0 12px;
+background:#0b0907;border:1px solid var(--line);
+border-radius:7px;color:white
 }
-
-.contact .box{
-margin:0;
-}
-
-footer{
-padding:30px 0;
-border-top:1px solid var(--line);
-color:#77746c;
-font-size:12px;
-}
-
-.note{
-color:#77746c;
-font-size:11px;
-line-height:1.6;
-}
+.account-box button{width:100%;margin-top:6px}
+.account-msg{font-size:13px;color:var(--gold);margin-top:15px;line-height:1.5}
+.user-info{color:var(--muted);font-size:13px}
 
 /* CART */
-
 .cart{
-position:fixed;
-top:0;
-right:-430px;
-width:min(430px,100%);
-height:100vh;
-background:#100d08;
-border-left:1px solid var(--line);
-z-index:100;
-transition:.3s;
-display:flex;
-flex-direction:column;
-box-shadow:-12px 0 40px #0008;
+position:fixed;top:0;right:-430px;width:min(430px,100%);
+height:100vh;background:#100d08;border-left:1px solid var(--line);
+z-index:100;transition:.3s;display:flex;flex-direction:column;
+box-shadow:-12px 0 40px #0008
 }
-
-.cart.open{
-right:0;
-}
-
+.cart.open{right:0}
 .carthead{
-padding:20px;
-border-bottom:1px solid var(--line);
-display:flex;
-justify-content:space-between;
+padding:20px;border-bottom:1px solid var(--line);
+display:flex;justify-content:space-between
 }
-
-.carthead h2{
-margin:0;
-color:var(--gold);
-}
-
-.items{
-flex:1;
-overflow:auto;
-padding:15px;
-}
-
-.item{
-padding:14px 0;
-border-bottom:1px solid var(--line);
-}
-
-.item small{
-color:var(--muted);
-}
-
-.qty{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:10px;
-}
-
-.qty button{
-padding:4px 10px;
-}
-
-.remove{
-margin-left:auto;
-border:0;
-background:transparent;
-}
-
-.cartfoot{
-padding:20px;
-border-top:1px solid var(--line);
-}
-
-.total{
-display:flex;
-justify-content:space-between;
-font-weight:900;
-font-size:18px;
-margin-bottom:15px;
-}
-
-.checkout{
-width:100%;
-background:var(--amber);
-color:#111;
-}
-
-.clear{
-width:100%;
-margin-top:8px;
-border-color:var(--line);
-color:var(--muted);
-}
-
-.overlay{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:90;
-}
-
-.overlay.show{
-display:block;
-}
-
+.carthead h2{margin:0;color:var(--gold)}
+.items{flex:1;overflow:auto;padding:15px}
+.item{padding:14px 0;border-bottom:1px solid var(--line)}
+.item small{color:var(--muted)}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}
+.qty button{padding:4px 10px}
+.remove{margin-left:auto;border:0;background:transparent}
+.cartfoot{padding:20px;border-top:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;font-weight:900;font-size:18px;margin-bottom:15px}
+.checkout{width:100%;background:var(--amber);color:#111}
+.clear{width:100%;margin-top:8px;border-color:var(--line);color:var(--muted)}
+.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:90}
+.overlay.show{display:block}
 .wa{
-position:fixed;
-right:18px;
-bottom:18px;
-background:#25d366;
-color:#fff;
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 24px #25d36666;
-z-index:80;
-text-decoration:none;
-font-size:22px;
+position:fixed;right:18px;bottom:18px;background:#25d366;color:#fff;
+width:55px;height:55px;border-radius:50%;display:flex;
+align-items:center;justify-content:center;box-shadow:0 0 24px #25d36666;
+z-index:80;text-decoration:none;font-size:22px
 }
 
 @media(max-width:700px){
-
-nav{
-display:none;
-}
-
-.hero{
-padding:60px 0;
-}
-
-section{
-padding:45px 0;
-}
-
-.grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:10px;
-}
-
-.visual{
-height:175px;
-}
-
-svg{
-transform:scale(.82);
-}
-
-.info{
-padding:12px;
-}
-
-.about{
-grid-template-columns:1fr;
-}
-
-.feature-box{
-grid-template-columns:1fr;
-}
-
+nav a{display:none}
+.hero{padding:60px 0}
+section{padding:45px 0}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.visual{height:165px}
+.info{padding:12px}
+.about{grid-template-columns:1fr}
+.feature-box{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -502,116 +179,110 @@ grid-template-columns:1fr;
 
 <header>
 <div class="container nav">
-
-<a class="logo" href="#">
-SAREFATI GADGETS
-</a>
+<a class="logo" href="#">SAREFATI GADGETS</a>
 
 <nav>
-
 <a href="#shop">Shop</a>
 <a href="#accessories">Accessories</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#account">Account</a>
 
 <button onclick="openCart()">
-🛒 Cart <span class="cart-count" id="count">0</span>
+🛒 Cart <span id="count">0</span>
 </button>
-
 </nav>
-
 </div>
 </header>
 
-
 <section class="hero">
-
 <div class="container">
+<div class="kicker">Makurdi • Nigeria</div>
 
-<div class="kicker">
-Makurdi • Nigeria
-</div>
-
-<h1>
-Premium gadgets.<br>
-Fair prices.
-</h1>
+<h1>Premium gadgets.<br>Fair prices.</h1>
 
 <p>
-Shop phones, laptops, tablets, smartwatches and accessories
+Shop phones, laptops, tablets, smart devices and accessories
 from Sarefati Gadgets.
 </p>
 
-<a class="button primary" href="#shop">
-Shop Now
-</a>
-
-<a class="button"
-target="_blank"
+<a class="button primary" href="#shop">Shop Now</a>
+<a class="button" target="_blank"
 href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">
 WhatsApp Us
 </a>
+</div>
+</section>
+
+<!-- ACCOUNT -->
+<section id="account" class="account-area">
+<div class="container">
+<div class="account-box">
+
+<div id="loggedOut">
+
+<div class="kicker">Customer Account</div>
+<h2 id="authTitle">Create an account</h2>
+
+<input id="email" type="email" placeholder="Email address">
+<input id="password" type="password" placeholder="Password">
+
+<button class="primary" onclick="signUp()" id="signupBtn">
+Create Account
+</button>
+
+<button onclick="signIn()" id="loginBtn">
+Log In
+</button>
+
+<button onclick="resetPassword()">
+Forgot Password?
+</button>
+
+<div class="account-msg" id="authMsg"></div>
 
 </div>
 
+<div id="loggedIn" style="display:none">
+
+<div class="kicker">Welcome back</div>
+<h2>Your Account</h2>
+
+<p class="user-info">
+Logged in as <strong id="userEmail"></strong>
+</p>
+
+<button onclick="signOut()">
+Log Out
+</button>
+
+</div>
+
+</div>
+</div>
 </section>
 
-
 <section id="shop">
-
 <div class="container">
 
-<h2 class="section-title">
-Shop Gadgets
-</h2>
-
+<h2 class="section-title">Shop Gadgets</h2>
 <p class="section-subtitle">
 Choose a brand or search for a specific model.
 </p>
 
 <div class="controls">
 
-<input
-id="search"
-class="search"
+<input id="search" class="search"
 placeholder="Search iPhone 13, Galaxy A17, Spark 40..."
-oninput="render()"
->
+oninput="render()">
 
 <select id="brand" onchange="render()">
-
-<option value="All">
-All Brands
-</option>
-
-<option value="iPhone">
-🍎 Apple / iPhone
-</option>
-
-<option value="Samsung">
-📱 Samsung
-</option>
-
-<option value="Tecno">
-🔵 Tecno
-</option>
-
-<option value="Infinix">
-🟣 Infinix
-</option>
-
-<option value="HP">
-💻 HP
-</option>
-
-<option value="Dell">
-💻 Dell
-</option>
-
-<option value="Lenovo">
-💻 Lenovo
-</option>
-
+<option value="All">All Brands</option>
+<option value="iPhone">🍎 Apple / iPhone</option>
+<option value="Samsung">📱 Samsung</option>
+<option value="Tecno">🔵 Tecno</option>
+<option value="Infinix">🟣 Infinix</option>
+<option value="HP">💻 HP</option>
+<option value="Dell">💻 Dell</option>
+<option value="Lenovo">💻 Lenovo</option>
 </select>
 
 </div>
@@ -619,23 +290,16 @@ All Brands
 <div id="products" class="grid"></div>
 
 <p class="note">
-Prices should be confirmed before payment because stock and Nigerian
-market prices can change.
+Prices are confirmed before payment because stock and Nigerian market
+prices can change.
 </p>
-
 </div>
-
 </section>
 
-
-<section id="accessories" class="accessories">
-
+<section id="accessories">
 <div class="container">
 
-<h2 class="section-title">
-Accessories
-</h2>
-
+<h2 class="section-title">Accessories</h2>
 <p class="section-subtitle">
 Everything you need for your gadgets.
 </p>
@@ -643,528 +307,472 @@ Everything you need for your gadgets.
 <div id="acc" class="grid"></div>
 
 </div>
-
 </section>
 
-
 <section id="about">
-
 <div class="container about">
 
 <div>
-
-<div class="kicker">
-About Sarefati
-</div>
-
-<h2 class="section-title">
-Straightforward gadget shopping.
-</h2>
+<div class="kicker">About Sarefati</div>
+<h2 class="section-title">Straightforward gadget shopping.</h2>
 
 <p>
 Sarefati Gadgets is a Makurdi-based gadget business focused on
 mobile phones, laptops, smart devices and accessories.
 </p>
-
 </div>
 
 <div>
-
 <div class="box">
-
-<strong>
-Location
-</strong>
-
+<strong>Location</strong>
 Behind Customary Court,<br>
 Saba Road, Makurdi.
-
 </div>
 
 <div class="box">
-
-<strong>
-Customer Service
-</strong>
-
+<strong>Customer Service</strong>
 Contact us for current stock and prices.
-
+</div>
 </div>
 
 </div>
-
-</div>
-
 </section>
 
-
 <section id="contact">
-
 <div class="container">
 
-<h2 class="section-title">
-Contact Sarefati Gadgets
-</h2>
-
+<h2 class="section-title">Contact Sarefati Gadgets</h2>
 <br>
 
 <div class="contact">
 
 <div class="box">
-
-<strong>
-WhatsApp / Phone
-</strong>
-
+<strong>WhatsApp / Phone</strong>
 09169454032<br>
 07070195576
-
 </div>
 
 <div class="box">
-
-<strong>
-Email
-</strong>
-
+<strong>Email</strong>
 <a href="mailto:stephenikpilakaa@gmail.com">
 stephenikpilakaa@gmail.com
 </a>
-
 </div>
 
 <div class="box">
-
-<strong>
-TikTok
-</strong>
-
+<strong>TikTok</strong>
 @tertese03
-
 </div>
 
 <div class="box">
-
-<strong>
-Address
-</strong>
-
+<strong>Address</strong>
 Behind Customary Court,<br>
 Saba Road, Makurdi.
-
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
 <footer>
-
 <div class="container">
-
 © 2026 Sarefati Gadgets. All rights reserved.
-
 </div>
-
 </footer>
 
+<a class="wa" target="_blank"
+href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">💬</a>
 
-<a
-class="wa"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">
-
-💬
-
-</a>
-
-
-<div id="overlay"
-class="overlay"
-onclick="closeCart()">
-</div>
-
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
 
 <aside id="cart" class="cart">
 
 <div class="carthead">
-
-<h2>
-Your Cart
-</h2>
-
-<button onclick="closeCart()">
-×
-</button>
-
+<h2>Your Cart</h2>
+<button onclick="closeCart()">×</button>
 </div>
 
-<div id="items" class="items">
-</div>
+<div id="items" class="items"></div>
 
 <div class="cartfoot">
 
 <div class="total">
-
-<span>
-Total
-</span>
-
-<span id="total">
-Price to confirm
-</span>
-
+<span>Total</span>
+<span id="total">Price to confirm</span>
 </div>
 
-<button
-class="checkout"
-onclick="checkout()">
-
+<button class="checkout" onclick="checkout()">
 💬 Order on WhatsApp
-
 </button>
 
-<button
-class="clear"
-onclick="clearCart()">
-
+<button class="clear" onclick="clearCart()">
 Clear Cart
-
 </button>
 
 </div>
-
 </aside>
 
 
 <script>
 
+/* =========================
+   SUPABASE CONNECTION
+========================= */
+
+const SUPABASE_URL =
+"https://lxtuaupqvcekgnlnlopq.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+"sb_publishable_j7rjyILRIfU2kyZ15GCr2A_dEwWlqjF";
+
+const supabaseClient =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_PUBLISHABLE_KEY
+);
+
+
+/* =========================
+   AUTHENTICATION
+========================= */
+
+async function signUp(){
+
+const email =
+document.getElementById("email").value.trim();
+
+const password =
+document.getElementById("password").value;
+
+const msg =
+document.getElementById("authMsg");
+
+if(!email || !password){
+
+msg.textContent =
+"Please enter your email and password.";
+
+return;
+}
+
+if(password.length < 6){
+
+msg.textContent =
+"Password must contain at least 6 characters.";
+
+return;
+}
+
+msg.textContent="Creating your account...";
+
+const {data,error} =
+await supabaseClient.auth.signUp({
+
+email:email,
+password:password,
+
+options:{
+emailRedirectTo:window.location.origin
+}
+
+});
+
+if(error){
+
+msg.textContent=error.message;
+return;
+
+}
+
+if(data.session){
+
+msg.textContent="Account created successfully.";
+
+}else{
+
+msg.textContent=
+"Account created. Check your email to confirm your account.";
+}
+
+}
+
+
+async function signIn(){
+
+const email =
+document.getElementById("email").value.trim();
+
+const password =
+document.getElementById("password").value;
+
+const msg =
+document.getElementById("authMsg");
+
+if(!email || !password){
+
+msg.textContent =
+"Enter your email and password.";
+
+return;
+}
+
+msg.textContent="Logging in...";
+
+const {data,error} =
+await supabaseClient.auth.signInWithPassword({
+
+email:email,
+password:password
+
+});
+
+if(error){
+
+msg.textContent=error.message;
+return;
+
+}
+
+msg.textContent="Login successful.";
+
+showUser(data.user);
+
+}
+
+
+async function signOut(){
+
+await supabaseClient.auth.signOut();
+
+document.getElementById("loggedIn").style.display="none";
+document.getElementById("loggedOut").style.display="block";
+
+document.getElementById("email").value="";
+document.getElementById("password").value="";
+
+}
+
+
+async function resetPassword(){
+
+const email =
+document.getElementById("email").value.trim();
+
+const msg =
+document.getElementById("authMsg");
+
+if(!email){
+
+msg.textContent =
+"Enter your email address first.";
+
+return;
+}
+
+const {error} =
+await supabaseClient.auth.resetPasswordForEmail(
+email,
+{
+redirectTo:window.location.origin
+}
+);
+
+if(error){
+
+msg.textContent=error.message;
+
+}else{
+
+msg.textContent=
+"Password reset instructions have been sent to your email.";
+}
+
+}
+
+
+function showUser(user){
+
+document.getElementById("loggedOut").style.display="none";
+
+document.getElementById("loggedIn").style.display="block";
+
+document.getElementById("userEmail").textContent =
+user.email;
+
+}
+
+
+/* Check existing login */
+
+supabaseClient.auth.getSession()
+.then(({data})=>{
+
+if(data.session){
+
+showUser(data.session.user);
+
+}
+
+});
+
+
+supabaseClient.auth.onAuthStateChange(
+(event,session)=>{
+
+if(session){
+
+showUser(session.user);
+
+}
+
+});
+
+
+/* =========================
+   PRODUCT VISUALS
+========================= */
 
 const phone=`
 <svg viewBox="0 0 160 200">
-
-<rect
-x="38"
-y="8"
-width="84"
-height="184"
-rx="18"
-fill="#080808"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<rect
-x="46"
-y="27"
-width="68"
-height="145"
-rx="10"
+<rect x="38" y="8" width="84" height="184" rx="18"
+fill="#080808" stroke="#ffb300" stroke-width="3"/>
+<rect x="46" y="27" width="68" height="145" rx="10"
 fill="#1b1408"/>
-
-<circle
-cx="80"
-cy="18"
-r="3"
-fill="#ffb300"/>
-
-</svg>
-`;
-
+<circle cx="80" cy="18" r="3" fill="#ffb300"/>
+</svg>`;
 
 const laptop=`
 <svg viewBox="0 0 200 160">
-
-<rect
-x="28"
-y="12"
-width="144"
-height="100"
-rx="8"
-fill="#080808"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<rect
-x="38"
-y="22"
-width="124"
-height="80"
-rx="4"
+<rect x="28" y="12" width="144" height="100" rx="8"
+fill="#080808" stroke="#ffb300" stroke-width="3"/>
+<rect x="38" y="22" width="124" height="80" rx="4"
 fill="#1a1308"/>
-
-<path
-d="M18 119h164l-14 25H32z"
-fill="#16110a"
-stroke="#ffb300"
-stroke-width="2"/>
-
-</svg>
-`;
-
+<path d="M18 119h164l-14 25H32z"
+fill="#16110a" stroke="#ffb300" stroke-width="2"/>
+</svg>`;
 
 const tablet=`
 <svg viewBox="0 0 170 200">
-
-<rect
-x="25"
-y="8"
-width="120"
-height="184"
-rx="15"
-fill="#080808"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<rect
-x="35"
-y="28"
-width="100"
-height="140"
-rx="7"
+<rect x="25" y="8" width="120" height="184" rx="15"
+fill="#080808" stroke="#ffb300" stroke-width="3"/>
+<rect x="35" y="28" width="100" height="140" rx="7"
 fill="#1a1308"/>
-
-</svg>
-`;
-
+</svg>`;
 
 const watch=`
 <svg viewBox="0 0 180 200">
-
-<rect
-x="47"
-y="48"
-width="86"
-height="105"
-rx="25"
-fill="#080808"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<rect
-x="62"
-y="63"
-width="56"
-height="70"
-rx="13"
+<rect x="47" y="48" width="86" height="105" rx="25"
+fill="#080808" stroke="#ffb300" stroke-width="3"/>
+<rect x="62" y="63" width="56" height="70" rx="13"
 fill="#1d1508"/>
-
-<circle
-cx="90"
-cy="98"
-r="17"
-fill="none"
-stroke="#ffb300"
-stroke-width="3"/>
-
-</svg>
-`;
-
+<circle cx="90" cy="98" r="17" fill="none"
+stroke="#ffb300" stroke-width="3"/>
+</svg>`;
 
 const earbuds=`
 <svg viewBox="0 0 200 150">
-
-<rect
-x="62"
-y="48"
-width="76"
-height="70"
-rx="22"
-fill="#17120a"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<circle
-cx="82"
-cy="78"
-r="13"
-fill="#090806"
-stroke="#ffb300"
-stroke-width="2"/>
-
-<circle
-cx="118"
-cy="78"
-r="13"
-fill="#090806"
-stroke="#ffb300"
-stroke-width="2"/>
-
-</svg>
-`;
-
+<rect x="62" y="48" width="76" height="70" rx="22"
+fill="#17120a" stroke="#ffb300" stroke-width="3"/>
+<circle cx="82" cy="78" r="13" fill="#090806"
+stroke="#ffb300" stroke-width="2"/>
+<circle cx="118" cy="78" r="13" fill="#090806"
+stroke="#ffb300" stroke-width="2"/>
+</svg>`;
 
 const charger=`
 <svg viewBox="0 0 180 180">
-
-<rect
-x="48"
-y="45"
-width="84"
-height="100"
-rx="12"
-fill="#16110a"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<rect
-x="62"
-y="25"
-width="14"
-height="30"
-rx="3"
+<rect x="48" y="45" width="84" height="100" rx="12"
+fill="#16110a" stroke="#ffb300" stroke-width="3"/>
+<rect x="62" y="25" width="14" height="30" rx="3"
 fill="#ffb300"/>
-
-<rect
-x="104"
-y="25"
-width="14"
-height="30"
-rx="3"
+<rect x="104" y="25" width="14" height="30" rx="3"
 fill="#ffb300"/>
-
-</svg>
-`;
-
+</svg>`;
 
 const power=`
 <svg viewBox="0 0 160 190">
-
-<rect
-x="38"
-y="18"
-width="84"
-height="154"
-rx="18"
-fill="#12100b"
-stroke="#ffb300"
-stroke-width="3"/>
-
-<rect
-x="56"
-y="42"
-width="48"
-height="35"
-rx="7"
+<rect x="38" y="18" width="84" height="154" rx="18"
+fill="#12100b" stroke="#ffb300" stroke-width="3"/>
+<rect x="56" y="42" width="48" height="35" rx="7"
 fill="#231806"/>
-
-</svg>
-`;
+</svg>`;
 
 
-/* PRODUCT CATALOGUE */
+/* =========================
+   PRODUCTS
+========================= */
 
 const products=[
 
 ["iPhone","Apple","iPhone 11","64GB / 128GB","POPULAR",phone],
-
 ["iPhone","Apple","iPhone 12","64GB / 128GB / 256GB","POPULAR",phone],
-
 ["iPhone","Apple","iPhone 13","128GB / 256GB","BEST SELLER",phone],
-
 ["iPhone","Apple","iPhone 14","128GB / 256GB","POPULAR",phone],
-
 ["iPhone","Apple","iPhone 15","128GB / 256GB","HOT DEAL",phone],
-
 ["iPhone","Apple","iPhone 16","128GB / 256GB","NEW",phone],
 
 ["Samsung","Samsung","Galaxy A17","Budget smartphone","POPULAR",phone],
-
 ["Samsung","Samsung","Galaxy A26 5G","5G smartphone","HOT DEAL",phone],
-
-["Samsung","Samsung","Galaxy A36 5G","Mid-range 5G smartphone","POPULAR",phone],
-
-["Samsung","Samsung","Galaxy A56 5G","Premium A-series smartphone","POPULAR",phone],
+["Samsung","Samsung","Galaxy A36 5G","Mid-range 5G","POPULAR",phone],
+["Samsung","Samsung","Galaxy A56 5G","Premium A-series","POPULAR",phone],
 
 ["Tecno","Tecno","Spark 40","4GB / 128GB or higher","BEST SELLER",phone],
-
 ["Tecno","Tecno","Spark 40 Pro","8GB / 128GB","HOT DEAL",phone],
-
 ["Tecno","Tecno","Spark 40 Pro+","8GB / 256GB","PREMIUM",phone],
-
 ["Tecno","Tecno","Camon 40","Camera smartphone","POPULAR",phone],
-
 ["Tecno","Tecno","Camon 40 Pro","Premium camera smartphone","HOT DEAL",phone],
 
 ["Infinix","Infinix","Hot 60i","Budget smartphone","BEST SELLER",phone],
-
 ["Infinix","Infinix","Hot 60 Pro","Mid-range smartphone","POPULAR",phone],
-
 ["Infinix","Infinix","Hot 70","Hot-series smartphone","NEW",phone],
-
 ["Infinix","Infinix","Note 60 Pro","Premium Note smartphone","PREMIUM",phone],
 
-["HP","HP","HP Laptop","RAM / SSD options available","POPULAR",laptop],
+["HP","HP","HP Laptop","RAM / SSD options","POPULAR",laptop],
+["Dell","Dell","Dell Laptop","RAM / SSD options","POPULAR",laptop],
+["Lenovo","Lenovo","Lenovo Laptop","RAM / SSD options","POPULAR",laptop],
 
-["Dell","Dell","Dell Laptop","RAM / SSD options available","POPULAR",laptop],
-
-["Lenovo","Lenovo","Lenovo Laptop","RAM / SSD options available","POPULAR",laptop],
-
-["Tablet","Android","Android Tablet","Multiple sizes and storage","POPULAR",tablet],
-
-["Smartwatch","Smartwatch","Smart Watch","Multiple models available","POPULAR",watch]
+["Tablet","Android","Android Tablet","Multiple sizes/storage","POPULAR",tablet],
+["Smartwatch","Smartwatch","Smart Watch","Multiple models","POPULAR",watch]
 
 ];
-
 
 const accessories=[
 
 ["Fast Charger","Fast charging adapters",charger],
-
 ["Phone Case","Protective phone cases",phone],
-
 ["Screen Protector","Screen protection",tablet],
-
 ["Wireless Earbuds","Wireless audio",earbuds],
-
 ["Power Bank","Portable charging",power],
-
 ["USB Cable","Charging and data cable",charger],
-
 ["Smartwatch","Smart wearable devices",watch]
 
 ];
 
-
 let cart=[];
 
 
+/* =========================
+   STORE
+========================= */
+
 function render(){
 
-let q=document
-.getElementById("search")
-.value
-.toLowerCase();
+let q=document.getElementById("search").value.toLowerCase();
 
-let brand=document
-.getElementById("brand")
-.value;
+let brand=document.getElementById("brand").value;
 
-document
-.getElementById("products")
-.innerHTML=
+document.getElementById("products").innerHTML=
 
-products
-
-.map((p,i)=>({p,i}))
+products.map((p,i)=>({p,i}))
 
 .filter(x=>{
 
 let p=x.p;
 
-let text=p
-.join(" ")
-.toLowerCase();
+let text=p.join(" ").toLowerCase();
 
-let searchMatch=text.includes(q);
-
-let brandMatch=
-brand==="All" ||
-p[0]===brand;
-
-return searchMatch && brandMatch;
+return text.includes(q) &&
+(brand==="All" || p[0]===brand);
 
 })
 
@@ -1173,48 +781,28 @@ return searchMatch && brandMatch;
 let p=x.p;
 
 return `
-
 <article class="product">
 
-<div class="badge">
-${p[4]}
-</div>
+<div class="badge">${p[4]}</div>
 
-<div class="visual">
-${p[5]}
-</div>
+<div class="visual">${p[5]}</div>
 
 <div class="info">
 
-<div class="brand">
-${p[1]}
-</div>
+<div class="brand">${p[1]}</div>
 
-<h3>
-${p[1]} ${p[2]}
-</h3>
+<h3>${p[1]} ${p[2]}</h3>
 
-<div class="spec">
-${p[3]}
-</div>
+<div class="spec">${p[3]}</div>
 
-<div class="price">
-Check Current Price
-</div>
+<div class="price">Check Current Price</div>
 
-<button
-class="add"
-onclick="add(${x.i})">
-
+<button class="add" onclick="add(${x.i})">
 🛒 Add to Cart
-
 </button>
 
 </div>
-
-</article>
-
-`;
+</article>`;
 
 }).join("");
 
@@ -1223,38 +811,25 @@ onclick="add(${x.i})">
 
 function renderAcc(){
 
-document
-.getElementById("acc")
-.innerHTML=
+document.getElementById("acc").innerHTML=
 
-accessories
-.map((a,i)=>`
+accessories.map((a,i)=>`
 
 <article class="accessory">
 
-<div class="visual">
-${a[2]}
-</div>
+<div class="visual">${a[2]}</div>
 
 <div class="info">
 
-<h3>
-${a[0]}
-</h3>
+<h3>${a[0]}</h3>
 
-<p>
-${a[1]}
-</p>
+<p>${a[1]}</p>
 
-<button
-onclick="addAcc(${i})">
-
+<button onclick="addAcc(${i})">
 Add to Cart
-
 </button>
 
 </div>
-
 </article>
 
 `).join("");
@@ -1266,32 +841,18 @@ function add(i){
 
 let p=products[i];
 
-let e=cart.find(
-x=>x.name===p[2]
-);
+let e=cart.find(x=>x.name===p[2]);
 
-if(e){
+if(e)e.qty++;
 
-e.qty++;
-
-}else{
-
-cart.push({
-
+else cart.push({
 brand:p[1],
-
 name:p[2],
-
 spec:p[3],
-
 qty:1
-
 });
 
-}
-
 update();
-
 openCart();
 
 }
@@ -1301,32 +862,18 @@ function addAcc(i){
 
 let a=accessories[i];
 
-let e=cart.find(
-x=>x.name===a[0]
-);
+let e=cart.find(x=>x.name===a[0]);
 
-if(e){
+if(e)e.qty++;
 
-e.qty++;
-
-}else{
-
-cart.push({
-
+else cart.push({
 brand:"Accessory",
-
 name:a[0],
-
 spec:a[1],
-
 qty:1
-
 });
 
-}
-
 update();
-
 openCart();
 
 }
@@ -1334,30 +881,20 @@ openCart();
 
 function update(){
 
-document
-.getElementById("count")
-.textContent=
+document.getElementById("count").textContent =
+cart.reduce((s,x)=>s+x.qty,0);
 
-cart.reduce(
-(s,x)=>s+x.qty,
-0
-);
-
-let box=
-document.getElementById("items");
+let box=document.getElementById("items");
 
 if(!cart.length){
 
 box.innerHTML=
 "<p style='color:#aaa093'>Your cart is empty.</p>";
 
-document
-.getElementById("total")
-.textContent=
+document.getElementById("total").textContent=
 "Price to confirm";
 
 return;
-
 }
 
 box.innerHTML=
@@ -1366,161 +903,14 @@ cart.map((x,i)=>`
 
 <div class="item">
 
-<b>
-${x.brand} ${x.name}
-</b>
+<b>${x.brand} ${x.name}</b><br>
 
-<br>
-
-<small>
-${x.spec}
-</small>
+<small>${x.spec}</small>
 
 <div style="color:#ffd166;margin-top:5px">
-
 Price to confirm
-
 </div>
 
 <div class="qty">
 
-<button
-onclick="qty(${i},-1)">
-−
-</button>
-
-${x.qty}
-
-<button
-onclick="qty(${i},1)">
-+
-</button>
-
-<button
-class="remove"
-onclick="del(${i})">
-
-Remove
-
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-document
-.getElementById("total")
-.textContent=
-"Price to confirm";
-
-}
-
-
-function qty(i,n){
-
-cart[i].qty+=n;
-
-if(cart[i].qty<1){
-
-cart.splice(i,1);
-
-}
-
-update();
-
-}
-
-
-function del(i){
-
-cart.splice(i,1);
-
-update();
-
-}
-
-
-function clearCart(){
-
-cart=[];
-
-update();
-
-}
-
-
-function openCart(){
-
-document
-.getElementById("cart")
-.classList.add("open");
-
-document
-.getElementById("overlay")
-.classList.add("show");
-
-}
-
-
-function closeCart(){
-
-document
-.getElementById("cart")
-.classList.remove("open");
-
-document
-.getElementById("overlay")
-.classList.remove("show");
-
-}
-
-
-function checkout(){
-
-if(!cart.length){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-let message=
-"Hello Sarefati Gadgets!%0A%0A"+
-"I would like to order:%0A";
-
-cart.forEach(x=>{
-
-message+=
-"- "+x.brand+
-" "+x.name+
-" ("+x.spec+") x "+
-x.qty+"%0A";
-
-});
-
-message+=
-"%0APlease confirm availability and final price.%0A"+
-"Thank you!";
-
-window.open(
-"https://wa.me/2349169454032?text="+
-message,
-"_blank"
-);
-
-}
-
-
-render();
-
-renderAcc();
-
-update();
-
-</script>
-
-</body>
-  </html>
+<button onclick="qty(${i},-1)">−</button
