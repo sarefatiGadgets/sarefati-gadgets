@@ -2,60 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Sarefati Gadgets | Premium Gadgets</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarefati Gadgets</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+--black:#050505;
+--dark:#0d0d0d;
+--card:#121212;
+--gold:#f5b51b;
+--lightgold:#ffd95a;
+--white:#fff;
+--gray:#999;
+--border:#292929;
+}
+
 html{scroll-behavior:smooth}
+
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:#050505;
+background:var(--black);
 color:#fff;
 }
-:root{
---gold:#f5b51b;
---gold2:#ffd85c;
---dark:#0b0b0b;
---card:#111;
---border:#292929;
---muted:#999;
-}
 
-.container{
-width:94%;
-max-width:1250px;
-margin:auto;
-}
-
-/* HEADER */
 header{
 position:sticky;
 top:0;
-z-index:999;
-background:rgba(5,5,5,.97);
-border-bottom:1px solid #493700;
+z-index:1000;
+background:#050505;
+border-bottom:1px solid #3d300b;
 }
 
-.nav{
-height:72px;
+.navbar{
+width:94%;
+max-width:1200px;
+margin:auto;
+min-height:70px;
 display:flex;
 align-items:center;
 justify-content:space-between;
+gap:15px;
 }
 
 .logo{
+color:var(--lightgold);
 text-decoration:none;
-color:var(--gold2);
+font-size:18px;
 font-weight:900;
-font-size:19px;
 letter-spacing:1px;
 }
 
-.logo small{
+.logo span{
 display:block;
+color:#777;
 font-size:8px;
-color:#888;
 letter-spacing:3px;
 margin-top:3px;
 }
@@ -63,156 +65,181 @@ margin-top:3px;
 nav{
 display:flex;
 align-items:center;
-gap:24px;
+gap:10px;
 }
 
 nav a{
 color:#ddd;
 text-decoration:none;
-font-size:12px;
+font-size:11px;
 font-weight:bold;
 }
 
 nav a:hover{color:var(--gold)}
 
-.cart-btn{
-background:transparent;
+.account-btn,
+.cart-button{
 border:1px solid var(--gold);
+background:transparent;
 color:#fff;
-padding:9px 13px;
 border-radius:7px;
+padding:9px 11px;
 cursor:pointer;
-}
-
-.cart-count{
-background:var(--gold);
-color:#111;
-padding:3px 7px;
-border-radius:20px;
+font-weight:bold;
 font-size:10px;
 }
 
-/* HERO */
-.hero{
-min-height:510px;
-display:flex;
-align-items:center;
-background:
-radial-gradient(circle at 80% 45%,rgba(245,181,27,.14),transparent 35%),
-#050505;
-border-bottom:1px solid var(--border);
+.cart-number{
+background:var(--gold);
+color:#111;
+border-radius:20px;
+padding:3px 6px;
 }
 
-.hero-grid{
+.hero{
+padding:70px 0;
+border-bottom:1px solid var(--border);
+background:radial-gradient(circle at 80% 40%,rgba(245,181,27,.13),transparent 35%);
+}
+
+.hero-inner{
+width:94%;
+max-width:1200px;
+margin:auto;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:35px;
+gap:40px;
 align-items:center;
 }
 
-.hero-tag{
+.small-title{
 color:var(--gold);
 font-size:11px;
 letter-spacing:3px;
 }
 
 .hero h1{
-font-size:clamp(43px,6vw,76px);
-line-height:.96;
-margin:17px 0;
+font-size:clamp(42px,7vw,75px);
+line-height:.95;
+margin:18px 0;
 }
 
 .hero h1 span{color:var(--gold)}
 
 .hero p{
-max-width:560px;
 color:#aaa;
+max-width:550px;
 line-height:1.7;
 }
 
-.hero-buttons{
+.buttons{
 display:flex;
 gap:10px;
-margin-top:26px;
-flex-wrap:wrap;
+margin-top:25px;
 }
 
-.btn{
+.button{
+display:inline-block;
 padding:13px 20px;
 border-radius:7px;
+text-decoration:none;
 font-size:12px;
 font-weight:bold;
-text-decoration:none;
-display:inline-block;
 }
 
-.btn-gold{
+.button-gold{
 background:var(--gold);
 color:#111;
 }
 
-.btn-outline{
+.button-outline{
+color:var(--gold);
 border:1px solid var(--gold);
-color:var(--gold2);
 }
 
-.hero-image{
+.hero-product{
 display:flex;
 justify-content:center;
-align-items:center;
 }
 
-.hero-image img{
+.hero-phone{
+width:190px;
+height:360px;
+background:#171717;
+border:5px solid #303030;
+border-radius:32px;
+padding:9px;
+box-shadow:0 25px 50px rgba(0,0,0,.8);
+}
+
+.hero-screen{
 width:100%;
-max-width:500px;
-height:350px;
-object-fit:contain;
-filter:drop-shadow(0 25px 35px #000);
+height:100%;
+border-radius:22px;
+background:radial-gradient(circle at 50% 30%,#ffe58b,#8b6407 35%,#111 75%);
+position:relative;
 }
 
-/* TRUST */
+.camera{
+position:absolute;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+width:55px;
+height:17px;
+border-radius:20px;
+background:#050505;
+}
+
 .trust{
-padding:25px 0;
 border-bottom:1px solid var(--border);
+padding:25px 0;
 }
 
-.trust-row{
+.trust-inner{
+width:94%;
+max-width:1200px;
+margin:auto;
 display:flex;
-justify-content:space-between;
-gap:20px;
-overflow:auto;
+gap:30px;
+overflow-x:auto;
 }
 
-.trust-item{
+.trust-box{
+min-width:190px;
 display:flex;
 align-items:center;
 gap:10px;
-min-width:190px;
 }
 
 .trust-icon{font-size:25px}
-.trust-item strong{
+
+.trust-box strong{
 font-size:11px;
 display:block;
 }
-.trust-item span{
-font-size:10px;
+
+.trust-box small{
+display:block;
 color:#777;
+margin-top:4px;
 }
 
-/* SECTIONS */
-section{
-padding:55px 0;
+section{padding:55px 0}
+
+.container{
+width:94%;
+max-width:1200px;
+margin:auto;
 }
 
-.title{
-font-size:25px;
+.heading{
 color:var(--gold);
-text-transform:uppercase;
+font-size:25px;
 margin-bottom:25px;
 }
 
-.title:after{
+.heading:after{
 content:"";
 display:block;
 width:45px;
@@ -221,7 +248,6 @@ background:var(--gold);
 margin-top:8px;
 }
 
-/* SEARCH */
 .controls{
 display:flex;
 gap:10px;
@@ -230,130 +256,177 @@ margin-bottom:25px;
 
 .search{
 flex:1;
-background:#101010;
+background:#111;
+color:#fff;
 border:1px solid var(--border);
 border-radius:7px;
 padding:14px;
-color:#fff;
 outline:none;
 }
 
-select{
-background:#101010;
+.filter{
+background:#111;
+color:#fff;
 border:1px solid var(--border);
 border-radius:7px;
 padding:14px;
-color:#fff;
 }
 
-/* HORIZONTAL CATALOGUE */
-.product-row{
+.products{
+width:100%;
 display:flex;
-gap:16px;
+flex-direction:row;
+flex-wrap:nowrap;
+gap:18px;
 overflow-x:auto;
+overflow-y:hidden;
 padding:5px 2px 20px;
 scroll-snap-type:x mandatory;
 }
 
-.product-row::-webkit-scrollbar{
-height:7px;
-}
-
-.product-row::-webkit-scrollbar-track{
+.products::-webkit-scrollbar{height:8px}
+.products::-webkit-scrollbar-track{
 background:#111;
+border-radius:20px;
 }
-
-.product-row::-webkit-scrollbar-thumb{
-background:#705300;
+.products::-webkit-scrollbar-thumb{
+background:var(--gold);
 border-radius:20px;
 }
 
-/* PRODUCT */
 .product{
-flex:0 0 245px;
-min-width:245px;
-background:#0d0d0d;
+flex:0 0 250px;
+width:250px;
+min-width:250px;
+background:var(--card);
 border:1px solid var(--border);
-border-radius:10px;
+border-radius:12px;
 overflow:hidden;
 scroll-snap-align:start;
-transition:.2s;
 }
 
-.product:hover{
-border-color:var(--gold);
-transform:translateY(-4px);
-}
+.product:hover{border-color:var(--gold)}
 
-.product-photo{
-height:245px;
-background:#f5f5f5;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-}
-
-.product-photo img{
+.product-picture{
 width:100%;
-height:100%;
-object-fit:contain;
-padding:10px;
+height:230px;
+background:#eee;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
 }
 
-.product-info{
-padding:14px;
+.phone-picture{
+width:115px;
+height:205px;
+background:#181818;
+border:4px solid #333;
+border-radius:22px;
+position:relative;
+box-shadow:0 15px 25px rgba(0,0,0,.35);
 }
+
+.phone-screen{
+position:absolute;
+top:7px;
+left:7px;
+right:7px;
+bottom:7px;
+border-radius:15px;
+background:radial-gradient(circle at 50% 25%,#ffe48b,#9a710c 30%,#191919 70%);
+}
+
+.phone-notch{
+position:absolute;
+top:7px;
+left:50%;
+transform:translateX(-50%);
+width:35px;
+height:10px;
+background:#050505;
+border-radius:20px;
+}
+
+.laptop-picture{width:190px}
+
+.laptop-screen{
+height:120px;
+background:#181818;
+border:5px solid #333;
+border-radius:7px 7px 3px 3px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.laptop-display{
+width:90%;
+height:85%;
+background:linear-gradient(135deg,#333,#c89618,#111);
+border-radius:3px;
+}
+
+.laptop-base{
+height:10px;
+background:#777;
+border-radius:0 0 15px 15px;
+}
+
+.product-info{padding:15px}
 
 .brand{
-color:#888;
+color:#777;
 font-size:9px;
-text-transform:uppercase;
 letter-spacing:1.5px;
+text-transform:uppercase;
 }
 
 .product h3{
-font-size:14px;
+font-size:15px;
 margin:7px 0;
 }
 
 .spec{
-font-size:11px;
 color:#999;
-line-height:1.6;
+font-size:11px;
+line-height:1.5;
 }
 
-.colors{
+.colours{
+color:#999;
 font-size:10px;
-color:#aaa;
+line-height:1.5;
 margin-top:7px;
 }
 
-.colors b{color:#ddd}
+.colours b{color:#ddd}
 
 .price{
-margin:10px 0;
-color:var(--gold2);
+color:var(--lightgold);
 font-size:14px;
 font-weight:bold;
+margin:11px 0;
 }
 
 .estimated{
+display:block;
+color:#666;
 font-size:8px;
-color:#777;
 font-weight:normal;
+margin-top:3px;
 }
 
-.actions{
+.product-actions{
 display:flex;
 gap:6px;
 }
 
-.actions button{
+.product-actions button{
 flex:1;
 padding:9px 4px;
-border-radius:5px;
-border:1px solid #755600;
+border-radius:6px;
+border:1px solid #765800;
 background:transparent;
 color:#fff;
 font-size:9px;
@@ -361,41 +434,40 @@ font-weight:bold;
 cursor:pointer;
 }
 
-.actions button:last-child{
+.product-actions button:last-child{
 background:var(--gold);
 color:#111;
 }
 
-/* ACCESSORIES */
-.accessory-row{
+.accessories{
 display:flex;
-gap:14px;
+gap:15px;
 overflow-x:auto;
 padding-bottom:15px;
 }
 
 .accessory{
 flex:0 0 180px;
-background:#101010;
+background:#111;
 border:1px solid var(--border);
-border-radius:9px;
-padding:22px 12px;
+border-radius:10px;
+padding:22px;
 text-align:center;
 }
 
 .accessory-icon{
-font-size:48px;
+font-size:45px;
 margin-bottom:10px;
 }
 
 .accessory h3{font-size:12px}
+
 .accessory p{
 color:var(--gold);
 font-size:10px;
 margin-top:7px;
 }
 
-/* ABOUT */
 .about{
 border-top:1px solid var(--border);
 border-bottom:1px solid var(--border);
@@ -407,81 +479,108 @@ color:#999;
 line-height:1.8;
 }
 
-/* CONTACT */
-.contact-row{
+.contacts{
 display:flex;
 gap:15px;
 overflow-x:auto;
 }
 
-.contact-box{
-flex:1;
-min-width:230px;
-padding:22px;
-background:#101010;
+.contact{
+min-width:220px;
+background:#111;
 border:1px solid var(--border);
-border-radius:9px;
+border-radius:10px;
+padding:20px;
 }
 
-.contact-box strong{
+.contact strong{
 color:var(--gold);
 font-size:12px;
 }
 
-.contact-box p{
+.contact p{
 color:#999;
 font-size:12px;
-line-height:1.8;
-margin-top:10px;
+line-height:1.7;
+margin-top:8px;
 }
 
-/* CART */
+footer{
+border-top:1px solid var(--border);
+padding:40px 0 20px;
+}
+
+.footer{
+display:flex;
+justify-content:space-between;
+gap:30px;
+}
+
+.footer h3{
+color:var(--gold);
+font-size:13px;
+margin-bottom:10px;
+}
+
+.footer p{
+color:#777;
+font-size:11px;
+line-height:1.8;
+}
+
+.copy{
+margin-top:30px;
+padding-top:20px;
+border-top:1px solid #222;
+color:#555;
+font-size:10px;
+}
+
 .overlay{
 display:none;
 position:fixed;
 inset:0;
-background:#000b;
+background:rgba(0,0,0,.75);
 z-index:1500;
 }
 
-.overlay.show{display:block}
+.overlay.active{display:block}
 
 .cart{
 position:fixed;
-right:-430px;
 top:0;
+right:-430px;
 width:min(430px,100%);
 height:100vh;
 background:#0c0c0c;
-border-left:1px solid #444;
 z-index:2000;
 transition:.3s;
 display:flex;
 flex-direction:column;
 }
 
-.cart.open{right:0}
+.cart.active{right:0}
 
-.cart-head{
+.cart-header{
 padding:20px;
-border-bottom:1px solid var(--border);
 display:flex;
 justify-content:space-between;
+border-bottom:1px solid var(--border);
 }
 
-.cart-head h2{color:var(--gold)}
+.cart-header h2{color:var(--gold)}
 
 .close{
 background:none;
 border:0;
 color:#fff;
-font-size:26px;
+font-size:25px;
 cursor:pointer;
 }
 
 .cart-items{
 flex:1;
-overflow:auto;
+overflow-y:auto;
 padding:20px;
 }
 
@@ -490,169 +589,216 @@ padding:15px 0;
 border-bottom:1px solid var(--border);
 }
 
-.cart-item small{color:#888}
+.cart-item small{color:#777}
 
 .remove{
+margin-top:8px;
 background:none;
 border:0;
 color:#ff7777;
 cursor:pointer;
-margin-top:8px;
 }
 
-.cart-bottom{
+.cart-footer{
 padding:20px;
 border-top:1px solid var(--border);
 }
 
-.cart-bottom button{
+.cart-footer button{
 width:100%;
-padding:14px;
-margin-top:8px;
+padding:13px;
+margin-top:7px;
 border-radius:7px;
 cursor:pointer;
 }
 
-.order{
+.whatsapp-order{
 background:var(--gold);
 border:0;
+color:#111;
 font-weight:bold;
 }
 
-.clear{
+.clear-cart{
 background:transparent;
 border:1px solid #555;
 color:#fff;
 }
 
-/* FOOTER */
-footer{
-padding:45px 0 20px;
-border-top:1px solid var(--border);
-}
-
-.footer-grid{
-display:flex;
-justify-content:space-between;
-gap:30px;
-}
-
-.footer-column{
-max-width:300px;
-}
-
-.footer-column h3{
-color:var(--gold);
-font-size:13px;
-margin-bottom:12px;
-}
-
-.footer-column p{
-color:#777;
-font-size:11px;
-line-height:1.8;
-}
-
-.copyright{
-margin-top:35px;
-padding-top:20px;
-border-top:1px solid #222;
-color:#555;
-font-size:10px;
-}
-
-/* WHATSAPP */
 .whatsapp{
 position:fixed;
 right:18px;
 bottom:18px;
-width:56px;
-height:56px;
+width:55px;
+height:55px;
 border-radius:50%;
 background:#25d366;
 color:#fff;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 text-decoration:none;
 font-size:25px;
 z-index:1200;
 }
 
-/* MOBILE */
+/* LOGIN */
+
+.auth-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.88);
+z-index:5000;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+
+.auth-overlay.active{display:flex}
+
+.auth-box{
+width:100%;
+max-width:400px;
+background:#111;
+border:1px solid var(--gold);
+border-radius:12px;
+padding:30px 22px;
+position:relative;
+box-shadow:0 20px 60px #000;
+}
+
+.auth-box h2{
+color:var(--lightgold);
+margin-bottom:8px;
+}
+
+.auth-box p{
+color:#888;
+font-size:12px;
+margin-bottom:20px;
+line-height:1.5;
+}
+
+.auth-close{
+position:absolute;
+right:15px;
+top:10px;
+background:none;
+border:0;
+color:#fff;
+font-size:28px;
+cursor:pointer;
+}
+
+.auth-input{
+width:100%;
+padding:13px;
+margin-bottom:10px;
+border-radius:7px;
+border:1px solid #333;
+background:#080808;
+color:#fff;
+outline:none;
+}
+
+.auth-input:focus{border-color:var(--gold)}
+
+.auth-submit{
+width:100%;
+padding:13px;
+background:var(--gold);
+border:0;
+border-radius:7px;
+color:#111;
+font-weight:bold;
+cursor:pointer;
+}
+
+.auth-switch,
+.auth-logout{
+width:100%;
+margin-top:10px;
+padding:11px;
+border-radius:7px;
+background:transparent;
+border:1px solid #555;
+color:#fff;
+cursor:pointer;
+}
+
+.auth-status{
+margin-top:12px;
+font-size:11px;
+line-height:1.5;
+}
+
 @media(max-width:800px){
 
 nav a{display:none}
 
-.hero{
-padding:55px 0;
-}
-
-.hero-grid{
+.hero-inner{
 grid-template-columns:1fr;
 }
 
-.hero-image img{
-height:270px;
-}
+.hero{padding:55px 0}
 
 .controls{
 flex-direction:column;
 }
 
 .product{
-flex:0 0 215px;
-min-width:215px;
+flex:0 0 225px;
+width:225px;
+min-width:225px;
 }
 
-.product-photo{
-height:215px;
-}
+.product-picture{height:215px}
 
-.footer-grid{
+.footer{
 flex-direction:column;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
+<div class="navbar">
 
 <a href="#" class="logo">
 SAREFATI GADGETS
-<small>PREMIUM GADGETS</small>
+<span>PREMIUM GADGETS</span>
 </a>
 
 <nav>
+
 <a href="#shop">SHOP</a>
 <a href="#accessories">ACCESSORIES</a>
 <a href="#about">ABOUT</a>
 <a href="#contact">CONTACT</a>
 
-<button class="cart-btn" onclick="openCart()">
-🛒 CART <span class="cart-count" id="cartCount">0</span>
+<button class="account-btn" onclick="openAuth()">
+👤 ACCOUNT
 </button>
-</nav>
 
+<button class="cart-button" onclick="openCart()">
+🛒 CART
+<span class="cart-number" id="cartNumber">0</span>
+</button>
+
+</nav>
 </div>
 </header>
 
-
-<!-- HERO -->
-
 <section class="hero">
-
-<div class="container hero-grid">
+<div class="hero-inner">
 
 <div>
-
-<div class="hero-tag">
-WELCOME TO SAREFATI GADGETS
-</div>
+<div class="small-title">WELCOME TO SAREFATI GADGETS</div>
 
 <h1>
 PREMIUM<br>
@@ -663,93 +809,81 @@ FAIR PRICES.
 <p>
 Shop smartphones, laptops and accessories
 from Sarefati Gadgets. Quality gadgets,
-competitive prices and easy ordering.
+great prices and easy ordering.
 </p>
 
-<div class="hero-buttons">
+<div class="buttons">
+<a href="#shop" class="button button-gold">SHOP NOW</a>
 
-<a href="#shop" class="btn btn-gold">
-SHOP NOW
-</a>
-
-<a
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets"
+<a href="https://wa.me/2349169454032"
 target="_blank"
-class="btn btn-outline">
+class="button button-outline">
 WHATSAPP US
 </a>
+</div>
+</div>
 
+<div class="hero-product">
+<div class="hero-phone">
+<div class="hero-screen">
+<div class="camera"></div>
+</div>
+</div>
 </div>
 
 </div>
-
-<div class="hero-image">
-
-<img
-src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=900&q=85"
-alt="Premium smartphone">
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- TRUST -->
-
 <div class="trust">
+<div class="trust-inner">
 
-<div class="container trust-row">
-
-<div class="trust-item">
+<div class="trust-box">
 <div class="trust-icon">🛡️</div>
 <div>
-<strong>ORIGINAL PRODUCTS</strong>
-<span>Quality gadgets</span>
+<strong>QUALITY PRODUCTS</strong>
+<small>Trusted gadgets</small>
 </div>
 </div>
 
-<div class="trust-item">
+<div class="trust-box">
 <div class="trust-icon">🚚</div>
 <div>
 <strong>FAST DELIVERY</strong>
-<span>Across Nigeria</span>
+<small>Across Nigeria</small>
 </div>
 </div>
 
-<div class="trust-item">
+<div class="trust-box">
 <div class="trust-icon">💬</div>
 <div>
 <strong>CUSTOMER SUPPORT</strong>
-<span>We're here to help</span>
+<small>We're here to help</small>
 </div>
 </div>
 
 </div>
-
 </div>
-
-
-<!-- SHOP -->
 
 <section id="shop">
-
 <div class="container">
 
-<h2 class="title">Shop Gadgets</h2>
+<h2 class="heading">SHOP GADGETS</h2>
 
 <div class="controls">
 
 <input
-class="search"
 id="search"
-placeholder="Search phones, laptops..."
-oninput="renderProducts()">
+class="search"
+type="text"
+placeholder="Search phones or laptops..."
+oninput="showProducts()">
 
-<select id="brand" onchange="renderProducts()">
+<select
+id="filter"
+class="filter"
+onchange="showProducts()">
 
-<option value="All">All Brands</option>
+<option value="All">All Products</option>
 <option value="iPhone">iPhone</option>
 <option value="Samsung">Samsung</option>
 <option value="Tecno">Tecno</option>
@@ -760,22 +894,17 @@ oninput="renderProducts()">
 
 </div>
 
-<div id="products" class="product-row"></div>
+<div id="products" class="products"></div>
 
 </div>
-
 </section>
 
-
-<!-- ACCESSORIES -->
-
 <section id="accessories">
-
 <div class="container">
 
-<h2 class="title">Accessories</h2>
+<h2 class="heading">ACCESSORIES</h2>
 
-<div class="accessory-row">
+<div class="accessories">
 
 <div class="accessory">
 <div class="accessory-icon">🎧</div>
@@ -808,61 +937,48 @@ oninput="renderProducts()">
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- ABOUT -->
-
-<section class="about" id="about">
-
+<section id="about" class="about">
 <div class="container">
 
-<h2 class="title">About Sarefati Gadgets</h2>
+<h2 class="heading">ABOUT US</h2>
 
 <p>
-Sarefati Gadgets is your trusted destination for
-smartphones, laptops and accessories. Browse our
-catalogue, compare products and contact us directly
-to confirm availability and final prices.
+Sarefati Gadgets is your trusted destination
+for smartphones, laptops and accessories.
+Browse our catalogue, select what you want
+and contact us directly to confirm availability
+and final pricing.
 </p>
 
 </div>
-
 </section>
-
-
-<!-- CONTACT -->
 
 <section id="contact">
-
 <div class="container">
 
-<h2 class="title">Contact Us</h2>
+<h2 class="heading">CONTACT US</h2>
 
-<div class="contact-row">
+<div class="contacts">
 
-<div class="contact-box">
+<div class="contact">
 <strong>PHONE</strong>
-<p>
-09169454032<br>
-07070195576
-</p>
+<p>09169454032<br>07070195576</p>
 </div>
 
-<div class="contact-box">
+<div class="contact">
 <strong>WHATSAPP</strong>
 <p>09169454032</p>
 </div>
 
-<div class="contact-box">
+<div class="contact">
 <strong>EMAIL</strong>
 <p>stephenikpilakaa@gmail.com</p>
 </div>
 
-<div class="contact-box">
+<div class="contact">
 <strong>LOCATION</strong>
 <p>
 Behind Customary Court,<br>
@@ -871,29 +987,20 @@ Saba Road, Makurdi.
 </div>
 
 </div>
-
 </div>
-
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
-
 <div class="container">
 
-<div class="footer-grid">
+<div class="footer">
 
-<div class="footer-column">
+<div>
 <h3>SAREFATI GADGETS</h3>
-<p>
-Premium gadgets. Fair prices.
-Your trusted gadget plug.
-</p>
+<p>Premium gadgets.<br>Fair prices.</p>
 </div>
 
-<div class="footer-column">
+<div>
 <h3>QUICK LINKS</h3>
 <p>
 Shop<br>
@@ -903,7 +1010,7 @@ Contact
 </p>
 </div>
 
-<div class="footer-column">
+<div>
 <h3>CONTACT</h3>
 <p>
 09169454032<br>
@@ -914,67 +1021,128 @@ stephenikpilakaa@gmail.com
 
 </div>
 
-<div class="copyright">
+<div class="copy">
 © 2026 Sarefati Gadgets. All rights reserved.
 </div>
 
 </div>
-
 </footer>
-
 
 <!-- CART -->
 
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
 
-<aside class="cart" id="cart">
+<div id="cart" class="cart">
 
-<div class="cart-head">
+<div class="cart-header">
 <h2>Your Cart</h2>
+
 <button class="close" onclick="closeCart()">×</button>
 </div>
 
-<div class="cart-items" id="cartItems"></div>
+<div id="cartItems" class="cart-items"></div>
 
-<div class="cart-bottom">
+<div class="cart-footer">
 
-<button class="order" onclick="orderWhatsApp()">
+<button class="whatsapp-order"
+onclick="orderWhatsApp()">
 ORDER ON WHATSAPP
 </button>
 
-<button class="clear" onclick="clearCart()">
+<button class="clear-cart"
+onclick="clearCart()">
 CLEAR CART
 </button>
 
 </div>
+</div>
 
-</aside>
+<!-- LOGIN / SIGNUP -->
 
+<div id="authOverlay" class="auth-overlay">
+
+<div class="auth-box">
+
+<button class="auth-close"
+onclick="closeAuth()">×</button>
+
+<h2 id="authTitle">Customer Login</h2>
+
+<p id="authMessage">
+Login to your Sarefati Gadgets account.
+</p>
+
+<input
+id="authName"
+class="auth-input"
+type="text"
+placeholder="Full name"
+style="display:none">
+
+<input
+id="authEmail"
+class="auth-input"
+type="email"
+placeholder="Email address">
+
+<input
+id="authPassword"
+class="auth-input"
+type="password"
+placeholder="Password">
+
+<button
+id="authSubmit"
+class="auth-submit"
+onclick="submitAuth()">
+LOGIN
+</button>
+
+<button
+id="authSwitch"
+class="auth-switch"
+onclick="switchAuth()">
+Create an account
+</button>
+
+<button
+id="logoutButton"
+class="auth-logout"
+onclick="logout()"
+style="display:none">
+LOG OUT
+</button>
+
+<div id="authStatus"
+class="auth-status">
+</div>
+
+</div>
+</div>
 
 <a
 class="whatsapp"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets"
+href="https://wa.me/2349169454032"
 target="_blank">
 💬
 </a>
 
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
-/* =====================================================
-   PRODUCT CATALOGUE
-   Prices are estimates and can be changed here.
-===================================================== */
+/* PRODUCTS */
 
-const products = [
+const products=[
 
 {
 brand:"iPhone",
 name:"iPhone 11",
 price:210000,
 spec:"64GB / 128GB",
-colors:"Black, White, Red, Purple, Green, Yellow",
-image:"https://images.unsplash.com/photo-1592286927505-1def25115558?auto=format&fit=crop&w=800&q=85"
+colors:"Black, White, Red, Purple"
 },
 
 {
@@ -982,8 +1150,7 @@ brand:"iPhone",
 name:"iPhone 12",
 price:270000,
 spec:"64GB / 128GB / 256GB",
-colors:"Black, White, Blue, Green, Purple, Red",
-image:"https://images.unsplash.com/photo-1603891128711-11b4b03bb138?auto=format&fit=crop&w=800&q=85"
+colors:"Black, White, Blue, Green, Purple"
 },
 
 {
@@ -991,8 +1158,7 @@ brand:"iPhone",
 name:"iPhone 13",
 price:350000,
 spec:"128GB / 256GB",
-colors:"Midnight, Starlight, Blue, Pink, Red, Green",
-image:"https://images.unsplash.com/photo-1632661674596-df8be070a5c5?auto=format&fit=crop&w=800&q=85"
+colors:"Midnight, Starlight, Blue, Pink, Red"
 },
 
 {
@@ -1000,8 +1166,7 @@ brand:"iPhone",
 name:"iPhone 14",
 price:450000,
 spec:"128GB / 256GB",
-colors:"Midnight, Purple, Starlight, Blue, Red",
-image:"https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?auto=format&fit=crop&w=800&q=85"
+colors:"Midnight, Purple, Starlight, Blue, Red"
 },
 
 {
@@ -1009,8 +1174,7 @@ brand:"iPhone",
 name:"iPhone 15",
 price:590000,
 spec:"128GB / 256GB / 512GB",
-colors:"Black, Blue, Green, Yellow, Pink",
-image:"https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Blue, Green, Yellow, Pink"
 },
 
 {
@@ -1018,8 +1182,7 @@ brand:"iPhone",
 name:"iPhone 16",
 price:720000,
 spec:"128GB / 256GB / 512GB",
-colors:"Black, White, Pink, Teal, Ultramarine",
-image:"https://images.unsplash.com/photo-1726663285394-2e4c0e6e9e3d?auto=format&fit=crop&w=800&q=85"
+colors:"Black, White, Pink, Teal"
 },
 
 {
@@ -1027,8 +1190,7 @@ brand:"Samsung",
 name:"Galaxy A17",
 price:220000,
 spec:"4GB RAM / 128GB",
-colors:"Black, Blue, Gray",
-image:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Blue, Gray"
 },
 
 {
@@ -1036,8 +1198,7 @@ brand:"Samsung",
 name:"Galaxy A26 5G",
 price:330000,
 spec:"4GB RAM / 128GB / 5G",
-colors:"Black, White, Mint",
-image:"https://images.unsplash.com/photo-1610945264803-cb9d2c5e7b1a?auto=format&fit=crop&w=800&q=85"
+colors:"Black, White, Mint"
 },
 
 {
@@ -1045,8 +1206,7 @@ brand:"Samsung",
 name:"Galaxy A36 5G",
 price:390000,
 spec:"8GB RAM / 128GB / 5G",
-colors:"Black, White, Lavender, Lime",
-image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=85"
+colors:"Black, White, Lavender"
 },
 
 {
@@ -1054,8 +1214,7 @@ brand:"Samsung",
 name:"Galaxy A56 5G",
 price:480000,
 spec:"8GB RAM / 128GB / 5G",
-colors:"Awesome Graphite, Lightgray, Olive, Pink",
-image:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=85"
+colors:"Graphite, Gray, Olive, Pink"
 },
 
 {
@@ -1063,8 +1222,7 @@ brand:"Tecno",
 name:"Spark 40",
 price:185000,
 spec:"4/8GB RAM / 128/256GB",
-colors:"Ink Black, Titanium Grey, Mirage Blue, Veil White",
-image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Gray, Blue, White"
 },
 
 {
@@ -1072,8 +1230,7 @@ brand:"Tecno",
 name:"Spark 40 Pro",
 price:235000,
 spec:"8GB RAM / 128/256GB",
-colors:"Black, Grey, Blue, White",
-image:"https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Gray, Blue, White"
 },
 
 {
@@ -1081,8 +1238,7 @@ brand:"Tecno",
 name:"Camon 40",
 price:260000,
 spec:"8GB RAM / 256GB",
-colors:"Black, Green, Silver",
-image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Green, Silver"
 },
 
 {
@@ -1090,8 +1246,7 @@ brand:"Infinix",
 name:"Hot 60i",
 price:200000,
 spec:"4GB RAM / 128GB",
-colors:"Black, Blue, Silver, Green",
-image:"https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Blue, Silver, Green"
 },
 
 {
@@ -1099,8 +1254,7 @@ brand:"Infinix",
 name:"Hot 60 Pro",
 price:250000,
 spec:"8GB RAM / 128GB",
-colors:"Black, Blue, Green",
-image:"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=85"
+colors:"Black, Blue, Green"
 },
 
 {
@@ -1108,8 +1262,7 @@ brand:"Laptop",
 name:"HP Laptop",
 price:650000,
 spec:"Core i5 / 8GB RAM / 256GB SSD",
-colors:"Silver, Black",
-image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85"
+colors:"Silver, Black"
 },
 
 {
@@ -1117,8 +1270,7 @@ brand:"Laptop",
 name:"Dell Laptop",
 price:680000,
 spec:"Core i5 / 8GB RAM / 256GB SSD",
-colors:"Silver, Black",
-image:"https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=800&q=85"
+colors:"Silver, Black"
 },
 
 {
@@ -1126,318 +1278,163 @@ brand:"Laptop",
 name:"Lenovo Laptop",
 price:620000,
 spec:"Core i5 / 8GB RAM / 256GB SSD",
-colors:"Grey, Black",
-image:"https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=85"
+colors:"Gray, Black"
 }
 
 ];
 
 
-/* CART */
+/* PRODUCT PICTURES */
 
-let cart=JSON.parse(
-localStorage.getItem("sarefatiCart")||"[]"
-);
+function phonePicture(){
+return `
+<div class="phone-picture">
+<div class="phone-screen">
+<div class="phone-notch"></div>
+</div>
+</div>
+`;
+}
 
-
-function naira(number){
-return "₦"+number.toLocaleString("en-NG");
+function laptopPicture(){
+return `
+<div class="laptop-picture">
+<div class="laptop-screen">
+<div class="laptop-display"></div>
+</div>
+<div class="laptop-base"></div>
+</div>
+`;
 }
 
 
-function renderProducts(){
+/* MONEY */
 
-const search=document
-.getElementById("search")
-.value
-.toLowerCase();
+function money(value){
+return "₦"+value.toLocaleString("en-NG");
+}
 
-const brand=document
-.getElementById("brand")
-.value;
 
-const filtered=products.filter(p=>{
+/* PRODUCTS */
+
+function showProducts(){
+
+const search=
+document.getElementById("search")
+.value.toLowerCase();
+
+const filter=
+document.getElementById("filter").value;
+
+const results=products.filter(product=>{
 
 const text=(
-p.brand+" "+
-p.name+" "+
-p.spec+" "+
-p.colors
+product.brand+" "+
+product.name+" "+
+product.spec+" "+
+product.colors
 ).toLowerCase();
 
 return text.includes(search) &&
-(brand==="All"||p.brand===brand);
+(filter==="All" || product.brand===filter);
 
 });
 
+const container=document.getElementById("products");
 
-const box=document.getElementById("products");
+if(!results.length){
 
-if(!filtered.length){
-
-box.innerHTML=
-"<p style='color:#888'>No products found.</p>";
+container.innerHTML=`
+<div style="color:#888;padding:30px">
+No products found.
+</div>`;
 
 return;
-
 }
 
+container.innerHTML=results.map(product=>{
 
-box.innerHTML=filtered.map(p=>`
+const originalIndex=products.indexOf(product);
 
-<article class="product">
+const picture=
+product.brand==="Laptop"
+?laptopPicture()
+:phonePicture();
 
-<div class="product-photo">
+return `
+<div class="product">
 
-<img
-src="${p.image}"
-alt="${p.name}"
-loading="lazy"
-onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=85';">
-
+<div class="product-picture">
+${picture}
 </div>
 
 <div class="product-info">
 
-<div class="brand">${p.brand}</div>
-
-<h3>${p.name}</h3>
-
-<div class="spec">
-${p.spec}
+<div class="brand">
+${product.brand}
 </div>
 
-<div class="colors">
-<b>Colours:</b> ${p.colors}
+<h3>${product.name}</h3>
+
+<div class="spec">
+${product.spec}
+</div>
+
+<div class="colours">
+<b>Colours:</b>
+${product.colors}
 </div>
 
 <div class="price">
-${naira(p.price)}
-<span class="estimated">EST. PRICE</span>
+${money(product.price)}
+<span class="estimated">
+ESTIMATED PRICE
+</span>
 </div>
 
-<div class="actions">
+<div class="product-actions">
 
-<button onclick="details('${p.name}')">
+<button onclick="details(${originalIndex})">
 DETAILS
 </button>
 
-<button onclick="addToCart(
-'${p.name}',
-'${p.brand}',
-'${p.spec}',
-${p.price}
-)">
-🛒 ADD
+<button onclick="addToCart(${originalIndex})">
+ADD
 </button>
 
 </div>
 
 </div>
+</div>
+`;
 
-</article>
-
-`).join("");
+}).join("");
 
 }
 
 
-/* CART FUNCTIONS */
+/* CART */
 
-function addToCart(name,brand,spec,price){
+let cart=[];
 
-const found=cart.find(x=>x.name===name);
+function addToCart(index){
 
-if(found){
-found.qty++;
+const product=products[index];
+
+const existing=cart.find(
+item=>item.name===product.name
+);
+
+if(existing){
+existing.quantity++;
 }else{
 cart.push({
-name,
-brand,
-spec,
-price,
-qty:1
+name:product.name,
+brand:product.brand,
+price:product.price,
+spec:product.spec,
+quantity:1
 });
 }
 
-saveCart();
-updateCart();
-openCart();
-
-}
-
-
-function saveCart(){
-
-localStorage.setItem(
-"sarefatiCart",
-JSON.stringify(cart)
-);
-
-}
-
-
-function updateCart(){
-
-document.getElementById("cartCount")
-.textContent=
-cart.reduce((sum,x)=>sum+x.qty,0);
-
-const box=document.getElementById("cartItems");
-
-if(!cart.length){
-
-box.innerHTML=`
-<p style="
-color:#777;
-text-align:center;
-margin-top:60px">
-Your cart is empty.
-</p>`;
-return;
-
-}
-
-
-box.innerHTML=cart.map((item,index)=>`
-
-<div class="cart-item">
-
-<strong>
-${item.brand} ${item.name}
-</strong>
-
-<br>
-
-<small>
-${item.spec}
-</small>
-
-<div style="color:#ffd85c;margin-top:7px">
-${naira(item.price)}
-× ${item.qty}
-</div>
-
-<button
-class="remove"
-onclick="removeItem(${index})">
-Remove
-</button>
-
-</div>
-
-`).join("");
-
-}
-
-
-function removeItem(index){
-
-cart.splice(index,1);
-saveCart();
-updateCart();
-
-}
-
-
-function clearCart(){
-
-cart=[];
-saveCart();
-updateCart();
-
-}
-
-
-function openCart(){
-
-document.getElementById("cart")
-.classList.add("open");
-
-document.getElementById("overlay")
-.classList.add("show");
-
-}
-
-
-function closeCart(){
-
-document.getElementById("cart")
-.classList.remove("open");
-
-document.getElementById("overlay")
-.classList.remove("show");
-
-}
-
-
-function orderWhatsApp(){
-
-if(!cart.length){
-
-alert("Your cart is empty.");
-return;
-
-}
-
-let message=
-"Hello Sarefati Gadgets!%0A%0A"+
-"I would like to order:%0A%0A";
-
-let total=0;
-
-cart.forEach(item=>{
-
-total+=item.price*item.qty;
-
-message+=
-"• "+item.brand+" "+item.name+
-" x"+item.qty+
-" — "+naira(item.price)+
-"%0A";
-
-});
-
-message+=
-"%0AEstimated total: "+
-naira(total)+
-"%0A%0APlease confirm current prices and availability.";
-
-window.open(
-"https://wa.me/2349169454032?text="+message,
-"_blank"
-);
-
-}
-
-
-function details(name){
-
-const p=products.find(x=>x.name===name);
-
-if(!p)return;
-
-alert(
-p.name+
-"\n\n"+
-"Brand: "+p.brand+
-"\n"+
-"Specs: "+p.spec+
-"\n"+
-"Colours: "+p.colors+
-"\n"+
-"Estimated price: "+naira(p.price)+
-"\n\n"+
-"Please contact Sarefati Gadgets to confirm the current price and availability."
-);
-
-}
-
-
-renderProducts();
-updateCart();
-
-</script>
-
-</body>
-</html>
+update
