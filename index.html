@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sarefati Gadgets | Phones & Accessories</title>
-<meta name="description" content="Sarefati Gadgets - Phones and mobile accessories in Makurdi, Nigeria.">
 
 <style>
 :root{
   --black:#090908;
-  --black2:#11110f;
-  --black3:#171713;
+  --panel:#11110f;
+  --panel2:#171713;
   --gold:#b39a62;
   --gold-light:#d0bb82;
   --white:#f1eee7;
@@ -69,7 +68,8 @@ header{
 
 nav{
   display:flex;
-  gap:25px;
+  gap:22px;
+  align-items:center;
 }
 
 nav a{
@@ -81,13 +81,32 @@ nav a:hover{
   color:var(--gold-light);
 }
 
+.cart-button{
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--gold-light);
+  padding:9px 13px;
+  border-radius:7px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.cart-count{
+  background:var(--gold);
+  color:#111;
+  border-radius:50%;
+  padding:2px 6px;
+  font-size:11px;
+  margin-left:4px;
+}
+
 /* HERO */
 
 .hero{
-  padding:85px 0 75px;
+  padding:82px 0 70px;
   border-bottom:1px solid var(--line);
   background:
-    radial-gradient(circle at 80% 15%,rgba(179,154,98,.08),transparent 30%);
+  radial-gradient(circle at 80% 15%,rgba(179,154,98,.08),transparent 30%);
 }
 
 .kicker{
@@ -126,11 +145,6 @@ nav a:hover{
   color:#111;
 }
 
-.button:hover{
-  background:var(--gold-light);
-  color:#111;
-}
-
 /* SECTIONS */
 
 section{
@@ -161,7 +175,7 @@ section{
   flex:1;
   min-width:220px;
   padding:14px;
-  background:var(--black2);
+  background:var(--panel);
   border:1px solid var(--line);
   border-radius:7px;
   color:white;
@@ -170,7 +184,7 @@ section{
 
 select{
   padding:14px;
-  background:var(--black2);
+  background:var(--panel);
   border:1px solid var(--line);
   border-radius:7px;
   color:white;
@@ -185,28 +199,20 @@ select{
 }
 
 .product{
-  background:var(--black2);
+  background:var(--panel);
   border:1px solid var(--line);
   border-radius:12px;
   overflow:hidden;
-  transition:.2s;
-}
-
-.product:hover{
-  border-color:#5b5036;
-  transform:translateY(-2px);
 }
 
 .product-image{
-  height:215px;
-  background:
-    linear-gradient(145deg,#1b1b17,#0c0c0b);
+  height:205px;
+  background:linear-gradient(145deg,#1b1b17,#0c0c0b);
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* Simple elegant phone illustration */
 .phone{
   width:86px;
   height:170px;
@@ -214,7 +220,6 @@ select{
   border-radius:18px;
   background:#090909;
   position:relative;
-  box-shadow:0 15px 30px rgba(0,0,0,.5);
 }
 
 .phone:before{
@@ -237,8 +242,7 @@ select{
   top:23px;
   bottom:9px;
   border-radius:11px;
-  background:
-    linear-gradient(150deg,#292820,#0b0b0a);
+  background:linear-gradient(150deg,#292820,#0b0b0a);
 }
 
 .product-info{
@@ -266,23 +270,23 @@ select{
 
 .price{
   color:var(--gold-light);
-  font-size:18px;
+  font-size:17px;
   font-weight:bold;
   margin:12px 0;
 }
 
-.order{
-  display:block;
-  text-align:center;
-  border:1px solid var(--gold);
-  color:var(--gold-light);
+.add-cart{
+  width:100%;
   padding:10px;
+  border:1px solid var(--gold);
   border-radius:7px;
-  font-size:13px;
+  background:transparent;
+  color:var(--gold-light);
   font-weight:bold;
+  cursor:pointer;
 }
 
-.order:hover{
+.add-cart:hover{
   background:var(--gold);
   color:#111;
 }
@@ -290,7 +294,7 @@ select{
 /* ACCESSORIES */
 
 .accessories{
-  background:var(--black2);
+  background:var(--panel);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
@@ -303,7 +307,7 @@ select{
 
 .accessory{
   padding:20px;
-  background:var(--black3);
+  background:var(--panel2);
   border:1px solid var(--line);
   border-radius:10px;
 }
@@ -315,6 +319,151 @@ select{
 .accessory p{
   color:var(--muted);
   font-size:13px;
+}
+
+.accessory button{
+  width:100%;
+  padding:10px;
+  border:1px solid var(--gold);
+  border-radius:7px;
+  background:transparent;
+  color:var(--gold-light);
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* CART */
+
+.cart-panel{
+  position:fixed;
+  top:0;
+  right:-430px;
+  width:min(430px,100%);
+  height:100vh;
+  background:#10100e;
+  border-left:1px solid var(--line);
+  z-index:300;
+  transition:right .3s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-panel.open{
+  right:0;
+}
+
+.cart-header{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+}
+
+.cart-header h2{
+  margin:0;
+}
+
+.close-cart{
+  background:none;
+  border:0;
+  color:white;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:15px;
+}
+
+.cart-item{
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.cart-item-title{
+  font-weight:bold;
+}
+
+.cart-item-price{
+  color:var(--gold-light);
+  margin-top:5px;
+  font-size:13px;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.quantity button{
+  width:30px;
+  height:30px;
+  border:1px solid var(--line);
+  background:var(--panel2);
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.remove{
+  margin-left:auto;
+  border:0 !important;
+  color:#b99b72 !important;
+  width:auto !important;
+  background:none !important;
+}
+
+.cart-footer{
+  padding:20px;
+  border-top:1px solid var(--line);
+}
+
+.cart-total{
+  display:flex;
+  justify-content:space-between;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.checkout{
+  width:100%;
+  padding:14px;
+  background:var(--gold);
+  color:#111;
+  border:0;
+  border-radius:7px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.clear-cart{
+  width:100%;
+  margin-top:8px;
+  padding:10px;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--muted);
+  border-radius:7px;
+}
+
+/* CART OVERLAY */
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:250;
+}
+
+.overlay.show{
+  display:block;
 }
 
 /* ABOUT */
@@ -333,7 +482,7 @@ select{
 .info-box{
   padding:20px;
   border:1px solid var(--line);
-  background:var(--black2);
+  background:var(--panel);
   border-radius:10px;
   margin-bottom:12px;
 }
@@ -357,7 +506,7 @@ select{
 
 .contact-box{
   padding:20px;
-  background:var(--black2);
+  background:var(--panel);
   border:1px solid var(--line);
   border-radius:10px;
 }
@@ -422,14 +571,6 @@ footer{
     font-size:15px;
   }
 
-  .price{
-    font-size:16px;
-  }
-
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-
 }
 </style>
 </head>
@@ -437,22 +578,30 @@ footer{
 <body>
 
 <header>
+
 <div class="container nav">
 
-<a href="#" class="logo">SAREFATI GADGETS</a>
+<a href="#" class="logo">
+SAREFATI GADGETS
+</a>
 
 <nav>
 <a href="#shop">Shop</a>
 <a href="#accessories">Accessories</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
+
+<button class="cart-button" onclick="openCart()">
+🛒 Cart
+<span class="cart-count" id="cartCount">0</span>
+</button>
+
 </nav>
 
 </div>
+
 </header>
 
-
-<!-- HERO -->
 
 <section class="hero">
 
@@ -469,8 +618,8 @@ Fair prices.
 
 <p>
 Quality mobile phones and accessories from Sarefati Gadgets.
-Browse our catalogue and contact us directly on WhatsApp to confirm
-availability and the latest price before payment.
+Browse our catalogue, add products to your cart and send your
+order directly to WhatsApp.
 </p>
 
 <a href="#shop" class="button primary">
@@ -489,19 +638,17 @@ WhatsApp Us
 </section>
 
 
-<!-- SHOP -->
-
 <section id="shop">
 
 <div class="container">
 
 <h2 class="section-title">
-Featured Phones
+Shop Phones
 </h2>
 
 <p class="section-subtitle">
-Competitive reference prices. Confirm exact model, storage,
-condition and availability before payment.
+Add products to your cart and send your order to WhatsApp.
+Confirm availability and final price before payment.
 </p>
 
 
@@ -517,25 +664,11 @@ oninput="renderProducts()"
 
 <select id="brand" onchange="renderProducts()">
 
-<option value="All">
-All Brands
-</option>
-
-<option value="Samsung">
-Samsung
-</option>
-
-<option value="Tecno">
-Tecno
-</option>
-
-<option value="Infinix">
-Infinix
-</option>
-
-<option value="iPhone">
-iPhone
-</option>
+<option value="All">All Brands</option>
+<option value="Samsung">Samsung</option>
+<option value="Tecno">Tecno</option>
+<option value="Infinix">Infinix</option>
+<option value="iPhone">iPhone</option>
 
 </select>
 
@@ -545,18 +678,14 @@ iPhone
 <div id="products" class="products"></div>
 
 <p class="note">
-Prices shown are indicative target prices based on Nigerian market
-positioning. Prices can change because of supplier cost, exchange rates,
-storage configuration and phone condition. Please confirm the final
-price with Sarefati Gadgets before payment.
+Prices are indicative. Final prices depend on current supplier pricing,
+storage, condition and availability.
 </p>
 
 </div>
 
 </section>
 
-
-<!-- ACCESSORIES -->
 
 <section id="accessories" class="accessories">
 
@@ -567,86 +696,58 @@ Accessories
 </h2>
 
 <p class="section-subtitle">
-Ask us about available accessories for your phone.
+Add accessories to your cart too.
 </p>
+
 
 <div class="accessory-grid">
 
 <div class="accessory">
 <h3>Chargers & Adapters</h3>
-<p>Fast chargers, charging heads and adapters.</p>
-
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%20need%20a%20charger%20or%20adapter.">
-Check Availability
-</a>
+<p>Fast chargers and adapters.</p>
+<button onclick="addAccessory('Charger / Adapter','Check price')">
+Add to Cart
+</button>
 </div>
-
 
 <div class="accessory">
 <h3>Phone Cases</h3>
-<p>Protective cases for popular phone models.</p>
-
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%20need%20a%20phone%20case.">
-Check Availability
-</a>
+<p>Protective cases for popular models.</p>
+<button onclick="addAccessory('Phone Case','Check price')">
+Add to Cart
+</button>
 </div>
-
 
 <div class="accessory">
 <h3>Screen Protectors</h3>
 <p>Protection for different phone screens.</p>
-
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%20need%20a%20screen%20protector.">
-Check Availability
-</a>
+<button onclick="addAccessory('Screen Protector','Check price')">
+Add to Cart
+</button>
 </div>
-
 
 <div class="accessory">
-<h3>Earphones & Earbuds</h3>
-<p>Wired and wireless audio accessories.</p>
-
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%20need%20earphones%20or%20earbuds.">
-Check Availability
-</a>
+<h3>Earbuds</h3>
+<p>Wireless and wired audio accessories.</p>
+<button onclick="addAccessory('Earbuds','Check price')">
+Add to Cart
+</button>
 </div>
-
 
 <div class="accessory">
 <h3>Power Banks</h3>
-<p>Portable power solutions for phones and other devices.</p>
-
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%20need%20a%20power%20bank.">
-Check Availability
-</a>
+<p>Portable power for your devices.</p>
+<button onclick="addAccessory('Power Bank','Check price')">
+Add to Cart
+</button>
 </div>
-
 
 <div class="accessory">
 <h3>USB Cables</h3>
-<p>Charging and data cables for popular devices.</p>
-
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%20need%20a%20USB%20cable.">
-Check Availability
-</a>
+<p>Charging and data cables.</p>
+<button onclick="addAccessory('USB Cable','Check price')">
+Add to Cart
+</button>
 </div>
 
 </div>
@@ -655,8 +756,6 @@ Check Availability
 
 </section>
 
-
-<!-- ABOUT -->
 
 <section id="about">
 
@@ -674,13 +773,13 @@ Straightforward gadget shopping.
 
 <p>
 Sarefati Gadgets is a Makurdi-based gadget business focused on
-mobile phones and accessories. Our aim is simple: offer customers
-good products, competitive prices and direct communication.
+mobile phones and accessories. Our goal is simple: competitive
+pricing, clear information and direct communication.
 </p>
 
 <p>
-We encourage customers to confirm the exact model, storage,
-condition, warranty and final price before payment.
+Customers should confirm the exact model, storage, condition,
+warranty and final price before payment.
 </p>
 
 </div>
@@ -697,13 +796,11 @@ Saba Road, Makurdi.
 
 </div>
 
-
 <div class="info-box">
 
 <strong>Customer service</strong>
 
-Contact us directly on WhatsApp
-for current stock and prices.
+WhatsApp us for current stock and prices.
 
 </div>
 
@@ -713,8 +810,6 @@ for current stock and prices.
 
 </section>
 
-
-<!-- CONTACT -->
 
 <section id="contact">
 
@@ -729,42 +824,27 @@ Contact Sarefati Gadgets
 <div class="contact-grid">
 
 <div class="contact-box">
-
 <strong>WhatsApp / Phone</strong>
-
 09169454032<br>
 07070195576
-
 </div>
 
-
 <div class="contact-box">
-
 <strong>Email</strong>
-
 <a href="mailto:stephenikpilakaa@gmail.com">
 stephenikpilakaa@gmail.com
 </a>
-
 </div>
 
-
 <div class="contact-box">
-
 <strong>TikTok</strong>
-
 @tertese03
-
 </div>
 
-
 <div class="contact-box">
-
 <strong>Address</strong>
-
 Behind Customary Court,<br>
 Saba Road, Makurdi.
-
 </div>
 
 </div>
@@ -785,6 +865,76 @@ Saba Road, Makurdi.
 </footer>
 
 
+<!-- CART OVERLAY -->
+
+<div
+class="overlay"
+id="overlay"
+onclick="closeCart()">
+</div>
+
+
+<!-- CART -->
+
+<div
+class="cart-panel"
+id="cartPanel">
+
+<div class="cart-header">
+
+<h2>Your Cart</h2>
+
+<button
+class="close-cart"
+onclick="closeCart()">
+×
+</button>
+
+</div>
+
+
+<div
+class="cart-items"
+id="cartItems">
+
+</div>
+
+
+<div class="cart-footer">
+
+<div class="cart-total">
+
+<span>Total</span>
+
+<span id="cartTotal">
+₦0
+</span>
+
+</div>
+
+
+<button
+class="checkout"
+onclick="checkoutWhatsApp()">
+
+💬 Order on WhatsApp
+
+</button>
+
+
+<button
+class="clear-cart"
+onclick="clearCart()">
+
+Clear Cart
+
+</button>
+
+</div>
+
+</div>
+
+
 <script>
 
 const products = [
@@ -793,211 +943,213 @@ const products = [
 brand:"Samsung",
 name:"Galaxy A06",
 spec:"4GB / 128GB",
-price:"From ₦140,000"
+price:140000,
+displayPrice:"From ₦140,000"
 },
 
 {
 brand:"Samsung",
 name:"Galaxy A07",
 spec:"4GB / 64GB",
-price:"From ₦135,000"
+price:135000,
+displayPrice:"From ₦135,000"
 },
 
 {
 brand:"Samsung",
 name:"Galaxy A07",
 spec:"4GB / 128GB",
-price:"From ₦150,000"
+price:150000,
+displayPrice:"From ₦150,000"
 },
 
 {
 brand:"Samsung",
 name:"Galaxy A16",
 spec:"4GB / 128GB",
-price:"From ₦185,000"
+price:185000,
+displayPrice:"From ₦185,000"
 },
 
 {
 brand:"Samsung",
 name:"Galaxy A17",
 spec:"4GB / 128GB",
-price:"From ₦240,000"
+price:240000,
+displayPrice:"From ₦240,000"
 },
 
 {
 brand:"Samsung",
 name:"Galaxy A26 5G",
 spec:"6GB / 128GB",
-price:"From ₦300,000"
+price:300000,
+displayPrice:"From ₦300,000"
 },
-
 
 {
 brand:"Tecno",
 name:"Spark 40",
 spec:"4GB / 128GB",
-price:"From ₦165,000"
+price:165000,
+displayPrice:"From ₦165,000"
 },
 
 {
 brand:"Tecno",
 name:"Spark 40 Pro",
 spec:"8GB / 256GB",
-price:"From ₦220,000"
+price:220000,
+displayPrice:"From ₦220,000"
 },
 
 {
 brand:"Tecno",
 name:"Spark 40 Pro+",
 spec:"8GB / 256GB",
-price:"From ₦280,000"
+price:280000,
+displayPrice:"From ₦280,000"
 },
 
 {
 brand:"Tecno",
 name:"Camon 40",
 spec:"8GB / 128GB",
-price:"From ₦220,000"
+price:220000,
+displayPrice:"From ₦220,000"
 },
 
 {
 brand:"Tecno",
 name:"Camon 40 Pro",
 spec:"8GB / 256GB",
-price:"From ₦290,000"
+price:290000,
+displayPrice:"From ₦290,000"
 },
 
 {
 brand:"Tecno",
 name:"Pova 7",
 spec:"8GB / 256GB",
-price:"From ₦250,000"
+price:250000,
+displayPrice:"From ₦250,000"
 },
-
 
 {
 brand:"Infinix",
 name:"Hot 60i",
 spec:"4GB / 128GB",
-price:"From ₦165,000"
+price:165000,
+displayPrice:"From ₦165,000"
 },
 
 {
 brand:"Infinix",
 name:"Hot 60",
 spec:"8GB / 128GB",
-price:"From ₦220,000"
+price:220000,
+displayPrice:"From ₦220,000"
 },
 
 {
 brand:"Infinix",
 name:"Hot 60 Pro",
 spec:"8GB / 256GB",
-price:"From ₦260,000"
+price:260000,
+displayPrice:"From ₦260,000"
 },
 
 {
 brand:"Infinix",
 name:"Hot 70",
 spec:"8GB / 128GB",
-price:"From ₦200,000"
+price:200000,
+displayPrice:"From ₦200,000"
 },
-
 
 {
 brand:"iPhone",
 name:"iPhone 11",
 spec:"64GB / 128GB",
-price:"Check Current Price"
+price:0,
+displayPrice:"Check Current Price"
 },
 
 {
 brand:"iPhone",
 name:"iPhone 12",
 spec:"64GB / 128GB",
-price:"Check Current Price"
+price:0,
+displayPrice:"Check Current Price"
 },
 
 {
 brand:"iPhone",
 name:"iPhone 13",
 spec:"128GB",
-price:"Check Current Price"
+price:0,
+displayPrice:"Check Current Price"
 },
 
 {
 brand:"iPhone",
 name:"iPhone 14",
 spec:"128GB",
-price:"Check Current Price"
+price:0,
+displayPrice:"Check Current Price"
 },
 
 {
 brand:"iPhone",
 name:"iPhone 15",
 spec:"128GB",
-price:"Check Current Price"
+price:0,
+displayPrice:"Check Current Price"
 }
 
 ];
 
 
+let cart=[];
+
+
+/* PRODUCTS */
+
 function renderProducts(){
 
-const search =
+const search=
 document.getElementById("search")
 .value
 .toLowerCase();
 
-const brand =
+const brand=
 document.getElementById("brand")
 .value;
 
 
-const filtered =
+const filtered=
 products.filter(function(product){
 
-const text =
+const text=
 (product.brand+" "+product.name+" "+product.spec)
 .toLowerCase();
 
-const matchesSearch =
-text.includes(search);
-
-const matchesBrand =
-brand==="All" ||
-product.brand===brand;
-
-return matchesSearch && matchesBrand;
+return
+text.includes(search) &&
+(brand==="All" || product.brand===brand);
 
 });
 
 
-const container =
+const container=
 document.getElementById("products");
 
 
-if(filtered.length===0){
-
 container.innerHTML=
-"<p>No matching product found.</p>";
+filtered.map(function(product,index){
 
-return;
-
-}
-
-
-container.innerHTML =
-filtered.map(function(product){
-
-const message =
-encodeURIComponent(
-"Hello Sarefati Gadgets, I am interested in "+
-product.brand+" "+
-product.name+
-" ("+product.spec+"). Please send me the current price and availability."
-);
-
+const originalIndex=
+products.indexOf(product);
 
 return `
 
@@ -1025,15 +1177,16 @@ ${product.spec}
 </div>
 
 <div class="price">
-${product.price}
+${product.displayPrice}
 </div>
 
-<a
-class="order"
-target="_blank"
-href="https://wa.me/2349169454032?text=${message}">
-Check Availability
-</a>
+<button
+class="add-cart"
+onclick="addProduct(${originalIndex})">
+
+🛒 Add to Cart
+
+</button>
 
 </div>
 
@@ -1046,7 +1199,309 @@ Check Availability
 }
 
 
+/* ADD PHONE */
+
+function addProduct(index){
+
+const product=products[index];
+
+const existing=
+cart.find(item=>
+item.name===product.name &&
+item.spec===product.spec &&
+item.brand===product.brand
+);
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+
+brand:product.brand,
+name:product.name,
+spec:product.spec,
+price:product.price,
+displayPrice:product.displayPrice,
+quantity:1
+
+});
+
+}
+
+updateCart();
+
+openCart();
+
+}
+
+
+/* ADD ACCESSORY */
+
+function addAccessory(name,priceText){
+
+const existing=
+cart.find(item=>
+item.name===name
+);
+
+if(existing){
+
+existing.quantity++;
+
+}else{
+
+cart.push({
+
+brand:"Accessory",
+name:name,
+spec:"Available options",
+price:0,
+displayPrice:priceText,
+quantity:1
+
+});
+
+}
+
+updateCart();
+
+openCart();
+
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+const count=
+cart.reduce(
+(total,item)=>total+item.quantity,
+0
+);
+
+document.getElementById("cartCount")
+.textContent=count;
+
+
+const container=
+document.getElementById("cartItems");
+
+
+if(cart.length===0){
+
+container.innerHTML=
+"<p style='color:#aaa69b'>Your cart is empty.</p>";
+
+document.getElementById("cartTotal")
+.textContent="₦0";
+
+return;
+
+}
+
+
+container.innerHTML=
+cart.map(function(item,index){
+
+return `
+
+<div class="cart-item">
+
+<div class="cart-item-title">
+${item.brand} ${item.name}
+</div>
+
+<div style="color:#aaa69b;font-size:12px">
+${item.spec}
+</div>
+
+<div class="cart-item-price">
+
+${item.price>0
+? "₦"+formatMoney(item.price)
+: item.displayPrice}
+
+</div>
+
+
+<div class="quantity">
+
+<button onclick="changeQuantity(${index},-1)">
+−
+</button>
+
+<span>
+${item.quantity}
+</span>
+
+<button onclick="changeQuantity(${index},1)">
++
+</button>
+
+<button
+class="remove"
+onclick="removeItem(${index})">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+
+const total=
+cart.reduce(function(sum,item){
+
+return sum+(item.price*item.quantity);
+
+},0);
+
+
+document.getElementById("cartTotal")
+.textContent=
+total>0
+?"₦"+formatMoney(total)
+:"Price to confirm";
+
+}
+
+
+/* MONEY */
+
+function formatMoney(number){
+
+return number.toLocaleString("en-NG");
+
+}
+
+
+/* QUANTITY */
+
+function changeQuantity(index,amount){
+
+cart[index].quantity+=amount;
+
+if(cart[index].quantity<=0){
+
+cart.splice(index,1);
+
+}
+
+updateCart();
+
+}
+
+
+/* REMOVE */
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+/* CLEAR */
+
+function clearCart(){
+
+cart=[];
+
+updateCart();
+
+}
+
+
+/* OPEN CART */
+
+function openCart(){
+
+document
+.getElementById("cartPanel")
+.classList.add("open");
+
+document
+.getElementById("overlay")
+.classList.add("show");
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+document
+.getElementById("cartPanel")
+.classList.remove("open");
+
+document
+.getElementById("overlay")
+.classList.remove("show");
+
+}
+
+
+/* WHATSAPP CHECKOUT */
+
+function checkoutWhatsApp(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+
+let message=
+"Hello Sarefati Gadgets!%0A%0A"+
+"I would like to order:%0A";
+
+
+cart.forEach(function(item){
+
+message+=
+"- "+
+item.brand+" "+
+item.name+
+" ("+item.spec+") x "+
+item.quantity+
+"%0A";
+
+});
+
+
+message+=
+"%0APlease confirm availability and the final price. Thank you!";
+
+
+window.open(
+"https://wa.me/2349169454032?text="+message,
+"_blank"
+);
+
+}
+
+
+/* START */
+
 renderProducts();
+
+updateCart();
 
 </script>
 
