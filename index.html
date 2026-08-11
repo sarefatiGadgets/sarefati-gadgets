@@ -1,19 +1,19 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sarefati Gadgets</title>
 
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 
 body{
 margin:0;
+font-family:Arial,sans-serif;
 background:#050505;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif
+color:white
 }
 
 header{
@@ -30,35 +30,28 @@ max-width:1200px;
 margin:auto;
 display:flex;
 justify-content:space-between;
-align-items:center;
-gap:10px
+align-items:center
 }
 
 .logo{
 font-size:20px;
-font-weight:900;
-color:#f5c542;
-letter-spacing:1px
+font-weight:bold;
+color:#f5c542
 }
 
-.actions{
-display:flex;
-gap:7px
-}
-
-.actions button{
+.nav button{
 background:#111;
-color:#fff;
 border:1px solid #f5c542;
-border-radius:7px;
-padding:10px 12px;
+color:white;
+padding:10px;
+border-radius:6px;
+margin-left:5px;
 cursor:pointer
 }
 
 .hero{
 padding:70px 5%;
-background:
-radial-gradient(circle at 80% 25%,#3a2b08 0,#050505 45%)
+background:radial-gradient(circle at 80% 20%,#392b08,#050505 50%)
 }
 
 .container{
@@ -66,12 +59,14 @@ max-width:1200px;
 margin:auto
 }
 
-.gold{color:#f5c542}
+.gold{
+color:#f5c542
+}
 
 .hero h1{
 font-size:clamp(42px,8vw,75px);
 line-height:.95;
-margin:12px 0
+margin:15px 0
 }
 
 .hero p{
@@ -80,15 +75,15 @@ color:#aaa;
 line-height:1.7
 }
 
-.shop-btn{
+.shopBtn{
 display:inline-block;
-margin-top:15px;
 background:#f5c542;
 color:#000;
-font-weight:bold;
 padding:14px 22px;
-border-radius:7px;
-text-decoration:none
+border-radius:6px;
+font-weight:bold;
+text-decoration:none;
+margin-top:15px
 }
 
 section{
@@ -96,9 +91,10 @@ padding:45px 5%
 }
 
 .title{
-color:#f5c542;
-font-size:28px
+color:#f5c542
 }
+
+/* SEARCH */
 
 .controls{
 display:flex;
@@ -109,24 +105,24 @@ margin:20px 0
 .controls input,
 .controls select{
 background:#111;
-color:#fff;
+color:white;
 border:1px solid #333;
-padding:13px;
-border-radius:7px
+border-radius:6px;
+padding:13px
 }
 
 .controls input{
 flex:1
 }
 
-/* HORIZONTAL PRODUCTS */
+/* PRODUCTS */
 
 .products{
 display:flex;
 flex-wrap:nowrap;
-gap:18px;
 overflow-x:auto;
-padding:5px 3px 20px
+gap:18px;
+padding:5px 2px 20px
 }
 
 .products::-webkit-scrollbar{
@@ -140,31 +136,21 @@ border-radius:20px
 
 .card{
 flex:0 0 255px;
-width:255px;
 background:#111;
 border:1px solid #292929;
 border-radius:10px;
-overflow:hidden;
-transition:.2s
-}
-
-.card:hover{
-border-color:#f5c542;
-transform:translateY(-2px)
-}
-
-/* PRODUCT IMAGE */
-
-.product-image{
-height:225px;
-background:#f4f4f4;
-display:flex;
-align-items:center;
-justify-content:center;
 overflow:hidden
 }
 
-.product-image img{
+.productImage{
+height:225px;
+background:#eee;
+display:flex;
+align-items:center;
+justify-content:center
+}
+
+.productImage img{
 width:100%;
 height:100%;
 object-fit:contain;
@@ -178,12 +164,10 @@ padding:15px
 .brand{
 font-size:9px;
 color:#888;
-text-transform:uppercase;
-letter-spacing:1px
+text-transform:uppercase
 }
 
 .name{
-font-size:17px;
 font-weight:bold;
 margin:7px 0
 }
@@ -196,113 +180,106 @@ line-height:1.6
 }
 
 .price{
-font-size:16px;
-font-weight:bold;
 color:#f5c542;
+font-weight:bold;
 margin:10px 0
 }
 
-.add{
+.addBtn{
 width:100%;
 border:0;
+border-radius:6px;
+padding:11px;
 background:#f5c542;
 color:#000;
 font-weight:bold;
-padding:11px;
-border-radius:6px;
 cursor:pointer
 }
 
 /* MODALS */
 
-.modal-bg{
+.modal{
 display:none;
 position:fixed;
+z-index:5000;
 inset:0;
-background:rgba(0,0,0,.85);
-z-index:5000
+background:rgba(0,0,0,.85)
 }
 
-.modal{
+.panel{
 position:absolute;
 right:0;
 top:0;
-width:min(430px,100%);
 height:100%;
-overflow-y:auto;
+width:min(430px,100%);
 background:#101010;
-padding:22px
+padding:22px;
+overflow-y:auto
 }
 
 .close{
 float:right;
 background:none;
 border:0;
-color:#fff;
+color:white;
 font-size:30px;
 cursor:pointer
 }
 
 /* CART */
 
-.cart-item{
+.cartItem{
 border-bottom:1px solid #333;
 padding:15px 0
 }
 
-.cart-item strong{
-display:block
-}
-
-.remove{
+.removeBtn{
 background:none;
 border:0;
-color:#ff6868;
+color:#ff7777;
 cursor:pointer;
-padding:5px 0
+margin-top:7px
 }
 
 .total{
 display:flex;
 justify-content:space-between;
-padding:20px 0;
+color:#f5c542;
 font-weight:bold;
-color:#f5c542
+padding:20px 0
 }
 
-.whatsapp{
+.orderBtn{
 width:100%;
 padding:14px;
 border:0;
-border-radius:7px;
+border-radius:6px;
 background:#f5c542;
-color:#000;
 font-weight:bold;
 cursor:pointer
 }
 
 /* ACCOUNT */
 
-.account-box{
-margin-top:55px;
-padding:22px;
-background:#111;
+.accountBox{
+margin-top:50px;
 border:1px solid #f5c542;
-border-radius:10px
+border-radius:10px;
+padding:20px
 }
 
-.account-box input{
-display:block;
+.accountBox input{
 width:100%;
+display:block;
 background:#050505;
-color:#fff;
+color:white;
 border:1px solid #333;
 padding:13px;
 border-radius:6px;
 margin:9px 0
 }
 
-.account-box button{
+.accountBox button{
 width:100%;
 padding:12px;
 margin-top:8px;
@@ -313,23 +290,15 @@ font-weight:bold;
 cursor:pointer
 }
 
-#accountMessage{
-margin-top:15px;
+.message{
 font-size:12px;
+margin-top:15px;
 line-height:1.6
-}
-
-.success{
-color:#6ee7a0
-}
-
-.error{
-color:#ff7070
 }
 
 footer{
 border-top:1px solid #222;
-padding:35px 5%;
+padding:35px;
 text-align:center;
 color:#777
 }
@@ -340,13 +309,9 @@ color:#777
 font-size:14px
 }
 
-.actions button{
+.nav button{
 font-size:10px;
 padding:8px
-}
-
-.hero{
-padding:55px 5%
 }
 
 .controls{
@@ -354,8 +319,7 @@ flex-direction:column
 }
 
 .card{
-flex-basis:230px;
-width:230px
+flex-basis:230px
 }
 
 }
@@ -372,7 +336,7 @@ width:230px
 SAREFATI GADGETS
 </div>
 
-<div class="actions">
+<div>
 
 <button onclick="openAccount()">
 👤 ACCOUNT
@@ -403,13 +367,11 @@ LIVE <span class="gold">BETTER.</span>
 </h1>
 
 <p>
-Quality smartphones, laptops and gadgets
-from Sarefati Gadgets. Browse our products,
-add your favourites to your cart and contact
-us to confirm availability and final pricing.
+Premium smartphones, laptops and gadgets
+from Sarefati Gadgets.
 </p>
 
-<a href="#shop" class="shop-btn">
+<a class="shopBtn" href="#shop">
 SHOP NOW
 </a>
 
@@ -429,26 +391,43 @@ SHOP GADGETS
 <div class="controls">
 
 <input
-id="search"
+id="searchBox"
 type="search"
 placeholder="Search products..."
 >
 
-<select id="category">
+<select id="categoryBox">
 
-<option value="all">All Products</option>
-<option value="iPhone">iPhone</option>
-<option value="Samsung">Samsung</option>
-<option value="Tecno">Tecno</option>
-<option value="Infinix">Infinix</option>
-<option value="Laptop">Laptop</option>
+<option value="all">
+All Products
+</option>
+
+<option value="iPhone">
+iPhone
+</option>
+
+<option value="Samsung">
+Samsung
+</option>
+
+<option value="Tecno">
+Tecno
+</option>
+
+<option value="Infinix">
+Infinix
+</option>
+
+<option value="Laptop">
+Laptop
+</option>
 
 </select>
 
 </div>
 
 
-<div class="products">
+<div class="products" id="productList">
 
 
 <!-- IPHONE 11 -->
@@ -457,12 +436,12 @@ placeholder="Search products..."
 data-name="iphone 11"
 data-brand="iPhone">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="iPhone 11"
 src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot; viewBox=&quot;0 0 400 400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eeeeee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;30&quot; fill=&quot;#222&quot;/><rect x=&quot;137&quot; y=&quot;58&quot; width=&quot;126&quot; height=&quot;285&quot; rx=&quot;20&quot; fill=&quot;#111&quot;/><text x=&quot;200&quot; y=&quot;205&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>iPhone 11</text></svg>')"
+alt="iPhone 11"
+onerror="imageFallback(this,'iPhone 11')"
 >
 
 </div>
@@ -470,12 +449,24 @@ onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg x
 <div class="info">
 
 <div class="brand">Apple</div>
-<div class="name">iPhone 11</div>
-<div class="specs">64GB / 128GB</div>
-<div class="colours">Black, White, Red, Purple</div>
-<div class="price">₦210,000</div>
 
-<button class="add"
+<div class="name">
+iPhone 11
+</div>
+
+<div class="specs">
+64GB / 128GB
+</div>
+
+<div class="colours">
+Black, White, Red, Purple
+</div>
+
+<div class="price">
+₦210,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('iPhone 11',210000)">
 ADD TO CART
 </button>
@@ -490,29 +481,42 @@ ADD TO CART
 data-name="iphone 12"
 data-brand="iPhone">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="iPhone 12"
 src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#111&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>iPhone 12</text></svg>')"
+alt="iPhone 12"
+onerror="imageFallback(this,'iPhone 12')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Apple</div>
-<div class="name">iPhone 12</div>
-<div class="specs">64GB / 128GB / 256GB</div>
-<div class="colours">Black, White, Blue, Green</div>
-<div class="price">₦270,000</div>
 
-<button class="add"
+<div class="brand">Apple</div>
+
+<div class="name">
+iPhone 12
+</div>
+
+<div class="specs">
+64GB / 128GB / 256GB
+</div>
+
+<div class="colours">
+Black, White, Blue, Green
+</div>
+
+<div class="price">
+₦270,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('iPhone 12',270000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -522,29 +526,42 @@ ADD TO CART
 data-name="iphone 13"
 data-brand="iPhone">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="iPhone 13"
 src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>iPhone 13</text></svg>')"
+alt="iPhone 13"
+onerror="imageFallback(this,'iPhone 13')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Apple</div>
-<div class="name">iPhone 13</div>
-<div class="specs">128GB / 256GB</div>
-<div class="colours">Midnight, Blue, Pink, Red</div>
-<div class="price">₦350,000</div>
 
-<button class="add"
+<div class="brand">Apple</div>
+
+<div class="name">
+iPhone 13
+</div>
+
+<div class="specs">
+128GB / 256GB
+</div>
+
+<div class="colours">
+Midnight, Blue, Pink, Red
+</div>
+
+<div class="price">
+₦350,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('iPhone 13',350000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -554,29 +571,42 @@ ADD TO CART
 data-name="iphone 14"
 data-brand="iPhone">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="iPhone 14"
 src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#202020&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>iPhone 14</text></svg>')"
+alt="iPhone 14"
+onerror="imageFallback(this,'iPhone 14')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Apple</div>
-<div class="name">iPhone 14</div>
-<div class="specs">128GB / 256GB</div>
-<div class="colours">Midnight, Purple, Blue, Red</div>
-<div class="price">₦450,000</div>
 
-<button class="add"
+<div class="brand">Apple</div>
+
+<div class="name">
+iPhone 14
+</div>
+
+<div class="specs">
+128GB / 256GB
+</div>
+
+<div class="colours">
+Midnight, Purple, Blue, Red
+</div>
+
+<div class="price">
+₦450,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('iPhone 14',450000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -586,29 +616,42 @@ ADD TO CART
 data-name="iphone 15"
 data-brand="iPhone">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="iPhone 15"
 src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#111&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>iPhone 15</text></svg>')"
+alt="iPhone 15"
+onerror="imageFallback(this,'iPhone 15')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Apple</div>
-<div class="name">iPhone 15</div>
-<div class="specs">128GB / 256GB / 512GB</div>
-<div class="colours">Black, Blue, Green, Yellow, Pink</div>
-<div class="price">₦590,000</div>
 
-<button class="add"
+<div class="brand">Apple</div>
+
+<div class="name">
+iPhone 15
+</div>
+
+<div class="specs">
+128GB / 256GB / 512GB
+</div>
+
+<div class="colours">
+Black, Blue, Green, Yellow, Pink
+</div>
+
+<div class="price">
+₦590,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('iPhone 15',590000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -618,121 +661,177 @@ ADD TO CART
 data-name="iphone 16"
 data-brand="iPhone">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="iPhone 16"
 src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#151515&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>iPhone 16</text></svg>')"
+alt="iPhone 16"
+onerror="imageFallback(this,'iPhone 16')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Apple</div>
-<div class="name">iPhone 16</div>
-<div class="specs">128GB / 256GB / 512GB</div>
-<div class="colours">Black, White, Pink, Teal</div>
-<div class="price">₦720,000</div>
 
-<button class="add"
+<div class="brand">Apple</div>
+
+<div class="name">
+iPhone 16
+</div>
+
+<div class="specs">
+128GB / 256GB / 512GB
+</div>
+
+<div class="colours">
+Black, White, Pink, Teal
+</div>
+
+<div class="price">
+₦720,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('iPhone 16',720000)">
 ADD TO CART
 </button>
-</div>
 
 </div>
+</div>
 
 
-<!-- SAMSUNG -->
+<!-- SAMSUNG A26 -->
 
 <div class="card"
 data-name="samsung galaxy a26"
 data-brand="Samsung">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="Samsung Galaxy"
 src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a26-5g-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;23&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>Galaxy A26</text></svg>')"
+alt="Samsung Galaxy A26"
+onerror="imageFallback(this,'Galaxy A26')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Samsung</div>
-<div class="name">Galaxy A26 5G</div>
-<div class="specs">4GB RAM / 128GB / 5G</div>
-<div class="colours">Black, White, Mint</div>
-<div class="price">₦330,000</div>
 
-<button class="add"
+<div class="brand">Samsung</div>
+
+<div class="name">
+Galaxy A26 5G
+</div>
+
+<div class="specs">
+4GB RAM / 128GB / 5G
+</div>
+
+<div class="colours">
+Black, White, Mint
+</div>
+
+<div class="price">
+₦330,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('Samsung Galaxy A26 5G',330000)">
 ADD TO CART
 </button>
-</div>
 
 </div>
+</div>
 
+
+<!-- SAMSUNG A36 -->
 
 <div class="card"
 data-name="samsung galaxy a36"
 data-brand="Samsung">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="Samsung Galaxy A36"
 src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a36-5g-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;23&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>Galaxy A36</text></svg>')"
+alt="Samsung Galaxy A36"
+onerror="imageFallback(this,'Galaxy A36')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Samsung</div>
-<div class="name">Galaxy A36 5G</div>
-<div class="specs">8GB RAM / 128GB / 5G</div>
-<div class="colours">Black, White, Lavender</div>
-<div class="price">₦390,000</div>
 
-<button class="add"
+<div class="brand">Samsung</div>
+
+<div class="name">
+Galaxy A36 5G
+</div>
+
+<div class="specs">
+8GB RAM / 128GB / 5G
+</div>
+
+<div class="colours">
+Black, White, Lavender
+</div>
+
+<div class="price">
+₦390,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('Samsung Galaxy A36 5G',390000)">
 ADD TO CART
 </button>
-</div>
 
 </div>
+</div>
 
+
+<!-- SAMSUNG A56 -->
 
 <div class="card"
 data-name="samsung galaxy a56"
 data-brand="Samsung">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="Samsung Galaxy A56"
 src="https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a56-5g-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;23&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>Galaxy A56</text></svg>')"
+alt="Samsung Galaxy A56"
+onerror="imageFallback(this,'Galaxy A56')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Samsung</div>
-<div class="name">Galaxy A56 5G</div>
-<div class="specs">8GB RAM / 128GB / 5G</div>
-<div class="colours">Graphite, Gray, Olive, Pink</div>
-<div class="price">₦480,000</div>
 
-<button class="add"
+<div class="brand">Samsung</div>
+
+<div class="name">
+Galaxy A56 5G
+</div>
+
+<div class="specs">
+8GB RAM / 128GB / 5G
+</div>
+
+<div class="colours">
+Graphite, Gray, Olive, Pink
+</div>
+
+<div class="price">
+₦480,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('Samsung Galaxy A56 5G',480000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -742,29 +841,42 @@ ADD TO CART
 data-name="tecno spark 40"
 data-brand="Tecno">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="Tecno Spark"
 src="https://fdn2.gsmarena.com/vv/pics/tecno/tecno-spark-40-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;23&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>TECNO SPARK</text></svg>')"
+alt="Tecno Spark 40"
+onerror="imageFallback(this,'Tecno Spark 40')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Tecno</div>
-<div class="name">Spark 40</div>
-<div class="specs">4/8GB RAM / 128/256GB</div>
-<div class="colours">Black, Gray, Blue, White</div>
-<div class="price">₦185,000</div>
 
-<button class="add"
+<div class="brand">Tecno</div>
+
+<div class="name">
+Spark 40
+</div>
+
+<div class="specs">
+4/8GB RAM / 128/256GB
+</div>
+
+<div class="colours">
+Black, Gray, Blue, White
+</div>
+
+<div class="price">
+₦185,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('Tecno Spark 40',185000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -774,29 +886,42 @@ ADD TO CART
 data-name="tecno camon 40"
 data-brand="Tecno">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="Tecno Camon"
 src="https://fdn2.gsmarena.com/vv/pics/tecno/tecno-camon-40-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;23&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>TECNO CAMON</text></svg>')"
+alt="Tecno Camon 40"
+onerror="imageFallback(this,'Tecno Camon 40')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Tecno</div>
-<div class="name">Camon 40</div>
-<div class="specs">8GB RAM / 256GB</div>
-<div class="colours">Black, Green, Silver</div>
-<div class="price">₦260,000</div>
 
-<button class="add"
+<div class="brand">Tecno</div>
+
+<div class="name">
+Camon 40
+</div>
+
+<div class="specs">
+8GB RAM / 256GB
+</div>
+
+<div class="colours">
+Black, Green, Silver
+</div>
+
+<div class="price">
+₦260,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('Tecno Camon 40',260000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -806,29 +931,42 @@ ADD TO CART
 data-name="infinix hot 60"
 data-brand="Infinix">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="Infinix Hot"
 src="https://fdn2.gsmarena.com/vv/pics/infinix/infinix-hot-60-pro-1.jpg"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;400&quot; height=&quot;400&quot;><rect width=&quot;400&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;125&quot; y=&quot;45&quot; width=&quot;150&quot; height=&quot;310&quot; rx=&quot;25&quot; fill=&quot;#222&quot;/><text x=&quot;200&quot; y=&quot;210&quot; fill=&quot;#f5c542&quot; font-size=&quot;23&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>INFINIX HOT</text></svg>')"
+alt="Infinix Hot 60"
+onerror="imageFallback(this,'Infinix Hot 60')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">Infinix</div>
-<div class="name">Hot 60 Pro</div>
-<div class="specs">8GB RAM / 128GB</div>
-<div class="colours">Black, Blue, Green</div>
-<div class="price">₦250,000</div>
 
-<button class="add"
+<div class="brand">Infinix</div>
+
+<div class="name">
+Hot 60 Pro
+</div>
+
+<div class="specs">
+8GB RAM / 128GB
+</div>
+
+<div class="colours">
+Black, Blue, Green
+</div>
+
+<div class="price">
+₦250,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('Infinix Hot 60 Pro',250000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -838,29 +976,42 @@ ADD TO CART
 data-name="hp laptop"
 data-brand="Laptop">
 
-<div class="product-image">
+<div class="productImage">
 
 <img
-alt="HP Laptop"
 src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=85"
-onerror="this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;500&quot; height=&quot;400&quot;><rect width=&quot;500&quot; height=&quot;400&quot; fill=&quot;#eee&quot;/><rect x=&quot;80&quot; y=&quot;55&quot; width=&quot;340&quot; height=&quot;225&quot; rx=&quot;10&quot; fill=&quot;#222&quot;/><rect x=&quot;95&quot; y=&quot;70&quot; width=&quot;310&quot; height=&quot;195&quot; fill=&quot;#111&quot;/><rect x=&quot;45&quot; y=&quot;285&quot; width=&quot;410&quot; height=&quot;22&quot; rx=&quot;10&quot; fill=&quot;#777&quot;/><text x=&quot;250&quot; y=&quot;175&quot; fill=&quot;#f5c542&quot; font-size=&quot;28&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial&quot;>HP LAPTOP</text></svg>')"
+alt="HP Laptop"
+onerror="imageFallback(this,'HP Laptop')"
 >
 
 </div>
 
 <div class="info">
-<div class="brand">HP</div>
-<div class="name">HP Laptop</div>
-<div class="specs">Core i5 / 8GB RAM / 256GB SSD</div>
-<div class="colours">Silver, Black</div>
-<div class="price">₦650,000</div>
 
-<button class="add"
+<div class="brand">HP</div>
+
+<div class="name">
+HP Laptop
+</div>
+
+<div class="specs">
+Core i5 / 8GB RAM / 256GB SSD
+</div>
+
+<div class="colours">
+Silver, Black
+</div>
+
+<div class="price">
+₦650,000
+</div>
+
+<button class="addBtn"
 onclick="addToCart('HP Laptop',650000)">
 ADD TO CART
 </button>
-</div>
 
+</div>
 </div>
 
 
@@ -869,4 +1020,587 @@ ADD TO CART
 </section>
 
 
-<!-- CART W
+<!-- CART -->
+
+<div id="cartModal" class="modal">
+
+<div class="panel">
+
+<button class="close" onclick="closeCart()">×</button>
+
+<h2 class="gold">
+YOUR CART
+</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+
+<span>TOTAL</span>
+
+<span id="cartTotal">
+₦0
+</span>
+
+</div>
+
+<button class="orderBtn"
+onclick="orderWhatsApp()">
+
+ORDER ON WHATSAPP
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ACCOUNT -->
+
+<div id="accountModal" class="modal">
+
+<div class="panel">
+
+<button class="close" onclick="closeAccount()">×</button>
+
+<div class="accountBox">
+
+<h2 class="gold">
+ACCOUNT CENTRE
+</h2>
+
+<input
+id="accountName"
+placeholder="Full name"
+>
+
+<input
+id="accountEmail"
+type="email"
+placeholder="Email"
+>
+
+<input
+id="accountPassword"
+type="password"
+placeholder="Password"
+>
+
+<button onclick="createAccount()">
+CREATE ACCOUNT
+</button>
+
+<button onclick="loginAccount()">
+LOGIN
+</button>
+
+<div
+id="accountMessage"
+class="message">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<footer>
+
+Sarefati Gadgets © 2026<br>
+Premium Gadgets • Fair Prices
+
+</footer>
+
+
+<script>
+
+/* ==================================================
+   PRODUCT IMAGE FALLBACK
+================================================== */
+
+function imageFallback(img,name){
+
+img.onerror=null;
+
+const svg=
+'<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">'+
+'<rect width="500" height="500" fill="#eeeeee"/>'+
+'<rect x="150" y="55" width="200" height="390" rx="35" fill="#181818"/>'+
+'<rect x="165" y="75" width="170" height="350" rx="25" fill="#050505"/>'+
+'<text x="250" y="260" fill="#f5c542" font-size="25" text-anchor="middle" font-family="Arial">'+
+name+
+'</text></svg>';
+
+img.src=
+'data:image/svg+xml;charset=UTF-8,'+
+encodeURIComponent(svg);
+
+}
+
+
+/* ==================================================
+   CART
+================================================== */
+
+let cart=[];
+
+function addToCart(name,price){
+
+cart.push({
+name:name,
+price:price
+});
+
+saveCart();
+
+renderCart();
+
+alert(name+" added to cart.");
+
+}
+
+function saveCart(){
+
+localStorage.setItem(
+"sarefati_cart",
+JSON.stringify(cart)
+);
+
+}
+
+function loadCart(){
+
+try{
+
+const saved=
+localStorage.getItem("sarefati_cart");
+
+if(saved){
+
+cart=JSON.parse(saved);
+
+}
+
+}catch(e){
+
+cart=[];
+
+}
+
+renderCart();
+
+}
+
+function renderCart(){
+
+const count=
+document.getElementById("cartCount");
+
+const box=
+document.getElementById("cartItems");
+
+const totalBox=
+document.getElementById("cartTotal");
+
+count.textContent=cart.length;
+
+if(cart.length===0){
+
+box.innerHTML=
+"<p style='color:#888;padding:25px 0'>Your cart is empty.</p>";
+
+totalBox.textContent="₦0";
+
+return;
+
+}
+
+let total=0;
+
+let html="";
+
+cart.forEach(function(item,index){
+
+total+=Number(item.price);
+
+html+=`
+
+<div class="cartItem">
+
+<strong>
+${escapeText(item.name)}
+</strong>
+
+<div class="gold">
+₦${Number(item.price).toLocaleString()}
+</div>
+
+<button
+class="removeBtn"
+onclick="removeFromCart(${index})">
+
+REMOVE
+
+</button>
+
+</div>
+
+`;
+
+});
+
+box.innerHTML=html;
+
+totalBox.textContent=
+"₦"+total.toLocaleString();
+
+}
+
+function removeFromCart(index){
+
+cart.splice(index,1);
+
+saveCart();
+
+renderCart();
+
+}
+
+function openCart(){
+
+document.getElementById("cartModal")
+.style.display="block";
+
+renderCart();
+
+}
+
+function closeCart(){
+
+document.getElementById("cartModal")
+.style.display="none";
+
+}
+
+
+/* ==================================================
+   WHATSAPP
+================================================== */
+
+function orderWhatsApp(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+let text=
+"Hello Sarefati Gadgets!%0A%0A"+
+"I would like to order:%0A%0A";
+
+let total=0;
+
+cart.forEach(function(item){
+
+total+=Number(item.price);
+
+text+=
+"• "+
+encodeURIComponent(item.name)+
+" - ₦"+
+Number(item.price).toLocaleString()+
+"%0A";
+
+});
+
+text+=
+"%0ATotal: ₦"+
+total.toLocaleString();
+
+window.open(
+"https://wa.me/2349169454032?text="+text,
+"_blank"
+);
+
+}
+
+
+/* ==================================================
+   ACCOUNT CENTRE
+   LOCAL ACCOUNT SYSTEM
+================================================== */
+
+function openAccount(){
+
+document.getElementById("accountModal")
+.style.display="block";
+
+showAccount();
+
+}
+
+function closeAccount(){
+
+document.getElementById("accountModal")
+.style.display="none";
+
+}
+
+function createAccount(){
+
+const name=
+document.getElementById("accountName")
+.value.trim();
+
+const email=
+document.getElementById("accountEmail")
+.value.trim();
+
+const password=
+document.getElementById("accountPassword")
+.value;
+
+const message=
+document.getElementById("accountMessage");
+
+
+if(!name||!email||!password){
+
+message.className="message error";
+
+message.textContent=
+"Please fill in all the fields.";
+
+return;
+
+}
+
+if(password.length<6){
+
+message.className="message error";
+
+message.textContent=
+"Password must contain at least 6 characters.";
+
+return;
+
+}
+
+const account={
+name:name,
+email:email,
+password:password
+};
+
+localStorage.setItem(
+"sarefati_account",
+JSON.stringify(account)
+);
+
+localStorage.setItem(
+"sarefati_logged_in",
+"true"
+);
+
+message.className=
+"message success";
+
+message.textContent=
+"Account created successfully.";
+
+showAccount();
+
+}
+
+function loginAccount(){
+
+const email=
+document.getElementById("accountEmail")
+.value.trim();
+
+const password=
+document.getElementById("accountPassword")
+.value;
+
+const message=
+document.getElementById("accountMessage");
+
+let saved;
+
+try{
+
+saved=
+JSON.parse(
+localStorage.getItem("sarefati_account")
+);
+
+}catch(e){
+
+saved=null;
+
+}
+
+if(!saved){
+
+message.className="message error";
+
+message.textContent=
+"No account found. Create an account first.";
+
+return;
+
+}
+
+if(
+saved.email!==email ||
+saved.password!==password
+){
+
+message.className="message error";
+
+message.textContent=
+"Incorrect email or password.";
+
+return;
+
+}
+
+localStorage.setItem(
+"sarefati_logged_in",
+"true"
+);
+
+message.className=
+"message success";
+
+message.textContent=
+"Login successful.";
+
+showAccount();
+
+}
+
+function showAccount(){
+
+const message=
+document.getElementById("accountMessage");
+
+let saved=null;
+
+try{
+
+saved=
+JSON.parse(
+localStorage.getItem("sarefati_account")
+);
+
+}catch(e){
+
+saved=null;
+
+}
+
+const logged=
+localStorage.getItem(
+"sarefati_logged_in"
+)==="true";
+
+if(saved&&logged){
+
+message.className=
+"message success";
+
+message.innerHTML=`
+
+<strong>
+WELCOME, ${escapeText(saved.name)}
+</strong>
+
+<br><br>
+
+<span style="color:#888">
+${escapeText(saved.email)}
+</span>
+
+<br><br>
+
+<button
+onclick="logoutAccount()">
+
+LOG OUT
+
+</button>
+
+`;
+
+return;
+
+}
+
+message.className="message";
+
+message.innerHTML=
+"<span style='color:#888'>Create an account or log in.</span>";
+
+}
+
+function logoutAccount(){
+
+localStorage.setItem(
+"sarefati_logged_in",
+"false"
+);
+
+showAccount();
+
+}
+
+
+/* ==================================================
+   SEARCH + CATEGORY FILTER
+================================================== */
+
+function filterProducts(){
+
+const search=
+document
+.getElementById("searchBox")
+.value
+.toLowerCase()
+.trim();
+
+const category=
+document
+.getElementById("categoryBox")
+.value;
+
+const cards=
+document.querySelectorAll(".card");
+
+cards.forEach(function(card){
+
+const name=
+card
+.getAttribute("data-name")
+.toLowerCase();
+
+const brand=
+card
+.getAttribute("data-brand");
+
+const matchesSearch=
+name.includes(search);
+
+const matchesCategory=
+category==="all" ||
+brand===category;
+
+if(matchesSearch&&matchesCategory){
+
+card.style.di
