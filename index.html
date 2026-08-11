@@ -3,38 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarefati Gadgets | Phones & Accessories</title>
+<title>Sarefati Gadgets</title>
 
 <style>
 :root{
-  --black:#090908;
-  --panel:#11110f;
-  --panel2:#171713;
-  --gold:#b39a62;
-  --gold-light:#d0bb82;
-  --white:#f1eee7;
-  --muted:#aaa69b;
-  --line:#2a2923;
+  --bg:#070605;
+  --card:#12100b;
+  --amber:#ffb300;
+  --gold:#ffd166;
+  --muted:#aaa093;
+  --line:#3b2b14;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  background:var(--black);
-  color:var(--white);
-  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:#f7f0e3;
+  font-family:Arial,sans-serif;
+  overflow-x:hidden;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 10% 5%,#ffb30018,transparent 28%),
+    radial-gradient(circle at 90% 35%,#ff8f0010,transparent 28%);
 }
 
 .container{
@@ -42,110 +42,110 @@ a{
   margin:auto;
 }
 
-/* HEADER */
-
 header{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(9,9,8,.97);
+  z-index:20;
+  background:#070605ed;
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
+  box-shadow:0 0 25px #ffb30018;
 }
 
 .nav{
-  min-height:68px;
+  min-height:70px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
 .logo{
-  color:var(--gold-light);
-  font-size:18px;
-  font-weight:800;
-  letter-spacing:1.5px;
+  color:var(--gold);
+  font-weight:900;
+  letter-spacing:2px;
+  text-shadow:0 0 15px #ffb30099;
 }
 
 nav{
   display:flex;
-  gap:22px;
+  gap:18px;
   align-items:center;
 }
 
 nav a{
-  color:#d5d1c8;
+  color:#ddd3c3;
   font-size:14px;
 }
 
 nav a:hover{
-  color:var(--gold-light);
+  color:var(--gold);
+  text-shadow:0 0 10px #ffb30088;
 }
 
-.cart-button{
-  border:1px solid var(--gold);
+button,.button{
+  border:1px solid var(--amber);
   background:transparent;
-  color:var(--gold-light);
-  padding:9px 13px;
-  border-radius:7px;
+  color:var(--gold);
+  border-radius:8px;
+  padding:10px 14px;
+  font-weight:800;
   cursor:pointer;
-  font-weight:bold;
+  box-shadow:0 0 13px #ffb30020;
+  transition:.2s;
+}
+
+button:hover,.button:hover{
+  background:var(--amber);
+  color:#111;
+  box-shadow:0 0 25px #ffb30066;
+}
+
+.button{
+  display:inline-block;
+  margin:8px;
+}
+
+.primary{
+  background:var(--amber);
+  color:#111;
+  box-shadow:0 0 24px #ffb30055;
 }
 
 .cart-count{
-  background:var(--gold);
+  background:var(--amber);
   color:#111;
   border-radius:50%;
   padding:2px 6px;
   font-size:11px;
-  margin-left:4px;
 }
 
-/* HERO */
-
 .hero{
-  padding:82px 0 70px;
+  padding:85px 0 70px;
   border-bottom:1px solid var(--line);
   background:
-  radial-gradient(circle at 80% 15%,rgba(179,154,98,.08),transparent 30%);
+    radial-gradient(circle at 78% 25%,#ffb30028,transparent 25%);
 }
 
 .kicker{
-  color:var(--gold-light);
+  color:var(--gold);
   font-size:12px;
   letter-spacing:2px;
   text-transform:uppercase;
 }
 
 .hero h1{
-  max-width:800px;
-  font-size:clamp(40px,7vw,72px);
-  line-height:1.03;
+  font-size:clamp(42px,7vw,76px);
+  line-height:1.02;
   margin:18px 0;
+  text-shadow:0 0 28px #ffb30030;
 }
 
 .hero p{
-  max-width:650px;
+  max-width:680px;
   color:var(--muted);
   font-size:17px;
   line-height:1.7;
 }
-
-.button{
-  display:inline-block;
-  padding:13px 19px;
-  margin:10px 8px 0 0;
-  border:1px solid var(--gold);
-  border-radius:7px;
-  font-size:14px;
-  font-weight:bold;
-}
-
-.button.primary{
-  background:var(--gold);
-  color:#111;
-}
-
-/* SECTIONS */
 
 section{
   padding:60px 0;
@@ -162,313 +162,116 @@ section{
   margin-bottom:25px;
 }
 
-/* SEARCH */
-
 .controls{
   display:flex;
   gap:10px;
-  margin-bottom:25px;
   flex-wrap:wrap;
+  margin-bottom:25px;
 }
 
 .search{
   flex:1;
   min-width:220px;
   padding:14px;
-  background:var(--panel);
+  background:var(--card);
   border:1px solid var(--line);
-  border-radius:7px;
-  color:white;
-  outline:none;
+  border-radius:8px;
+  color:#fff;
+  outline:0;
+}
+
+.search:focus{
+  border-color:var(--amber);
+  box-shadow:0 0 15px #ffb30025;
 }
 
 select{
   padding:14px;
-  background:var(--panel);
+  background:var(--card);
   border:1px solid var(--line);
-  border-radius:7px;
-  color:white;
+  border-radius:8px;
+  color:#fff;
 }
 
-/* PRODUCTS */
-
-.products{
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:17px;
 }
 
-.product{
-  background:var(--panel);
+.product,.accessory{
+  background:linear-gradient(150deg,#17120b,#0c0a07);
   border:1px solid var(--line);
-  border-radius:12px;
+  border-radius:13px;
   overflow:hidden;
+  transition:.2s;
 }
 
-.product-image{
-  height:205px;
-  background:linear-gradient(145deg,#1b1b17,#0c0c0b);
+.product:hover,.accessory:hover{
+  transform:translateY(-4px);
+  border-color:#ffb30099;
+  box-shadow:0 0 28px #ffb30020;
+}
+
+.visual{
+  height:215px;
   display:flex;
   align-items:center;
   justify-content:center;
+  background:
+    radial-gradient(circle,#ffb30020,transparent 48%),
+    linear-gradient(145deg,#1d1509,#090806);
 }
 
-.phone{
-  width:86px;
-  height:170px;
-  border:3px solid #56534b;
-  border-radius:18px;
-  background:#090909;
-  position:relative;
+svg{
+  width:160px;
+  height:175px;
+  filter:drop-shadow(0 0 12px #ffb30040);
 }
 
-.phone:before{
-  content:"";
-  position:absolute;
-  top:8px;
-  left:50%;
-  transform:translateX(-50%);
-  width:28px;
-  height:4px;
-  background:#4c4a44;
-  border-radius:5px;
-}
-
-.phone:after{
-  content:"";
-  position:absolute;
-  left:8px;
-  right:8px;
-  top:23px;
-  bottom:9px;
-  border-radius:11px;
-  background:linear-gradient(150deg,#292820,#0b0b0a);
-}
-
-.product-info{
+.info{
   padding:16px;
 }
 
 .brand{
-  color:var(--gold-light);
-  font-size:10px;
-  letter-spacing:1.5px;
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:2px;
   text-transform:uppercase;
-  font-weight:bold;
 }
 
-.product h3{
-  margin:6px 0;
-  font-size:17px;
+.product h3,.accessory h3{
+  margin:7px 0;
 }
 
-.spec{
+.spec,.accessory p{
   color:var(--muted);
   font-size:12px;
-  min-height:34px;
 }
 
 .price{
-  color:var(--gold-light);
+  color:var(--gold);
+  font-weight:900;
   font-size:17px;
-  font-weight:bold;
   margin:12px 0;
+  text-shadow:0 0 9px #ffb30044;
 }
 
-.add-cart{
+.add{
   width:100%;
-  padding:10px;
-  border:1px solid var(--gold);
-  border-radius:7px;
-  background:transparent;
-  color:var(--gold-light);
-  font-weight:bold;
-  cursor:pointer;
 }
-
-.add-cart:hover{
-  background:var(--gold);
-  color:#111;
-}
-
-/* ACCESSORIES */
 
 .accessories{
-  background:var(--panel);
+  background:linear-gradient(#0e0b07,#120d07);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
 
-.accessory-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:15px;
+.accessory .visual{
+  height:140px;
 }
 
-.accessory{
-  padding:20px;
-  background:var(--panel2);
-  border:1px solid var(--line);
-  border-radius:10px;
-}
-
-.accessory h3{
-  margin-top:0;
-}
-
-.accessory p{
-  color:var(--muted);
-  font-size:13px;
-}
-
-.accessory button{
-  width:100%;
-  padding:10px;
-  border:1px solid var(--gold);
-  border-radius:7px;
-  background:transparent;
-  color:var(--gold-light);
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* CART */
-
-.cart-panel{
-  position:fixed;
-  top:0;
-  right:-430px;
-  width:min(430px,100%);
-  height:100vh;
-  background:#10100e;
-  border-left:1px solid var(--line);
-  z-index:300;
-  transition:right .3s ease;
-  display:flex;
-  flex-direction:column;
-}
-
-.cart-panel.open{
-  right:0;
-}
-
-.cart-header{
-  padding:20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid var(--line);
-}
-
-.cart-header h2{
-  margin:0;
-}
-
-.close-cart{
-  background:none;
-  border:0;
-  color:white;
-  font-size:25px;
-  cursor:pointer;
-}
-
-.cart-items{
-  flex:1;
-  overflow-y:auto;
-  padding:15px;
-}
-
-.cart-item{
-  padding:14px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.cart-item-title{
-  font-weight:bold;
-}
-
-.cart-item-price{
-  color:var(--gold-light);
-  margin-top:5px;
-  font-size:13px;
-}
-
-.quantity{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:10px;
-}
-
-.quantity button{
-  width:30px;
-  height:30px;
-  border:1px solid var(--line);
-  background:var(--panel2);
-  color:white;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-.remove{
-  margin-left:auto;
-  border:0 !important;
-  color:#b99b72 !important;
-  width:auto !important;
-  background:none !important;
-}
-
-.cart-footer{
-  padding:20px;
-  border-top:1px solid var(--line);
-}
-
-.cart-total{
-  display:flex;
-  justify-content:space-between;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-.checkout{
-  width:100%;
-  padding:14px;
-  background:var(--gold);
-  color:#111;
-  border:0;
-  border-radius:7px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.clear-cart{
-  width:100%;
-  margin-top:8px;
-  padding:10px;
-  background:transparent;
-  border:1px solid var(--line);
-  color:var(--muted);
-  border-radius:7px;
-}
-
-/* CART OVERLAY */
-
-.overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.65);
-  z-index:250;
-}
-
-.overlay.show{
-  display:block;
-}
-
-/* ABOUT */
-
-.about-grid{
+.about{
   display:grid;
   grid-template-columns:1.2fr .8fr;
   gap:35px;
@@ -479,45 +282,31 @@ select{
   line-height:1.8;
 }
 
-.info-box{
+.box{
   padding:20px;
+  background:var(--card);
   border:1px solid var(--line);
-  background:var(--panel);
   border-radius:10px;
   margin-bottom:12px;
 }
 
-.info-box strong{
+.box strong{
   display:block;
-  color:var(--gold-light);
+  color:var(--gold);
   font-size:12px;
   letter-spacing:1px;
   text-transform:uppercase;
   margin-bottom:7px;
 }
 
-/* CONTACT */
-
-.contact-grid{
+.contact{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
   gap:14px;
 }
 
-.contact-box{
-  padding:20px;
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:10px;
-}
-
-.contact-box strong{
-  display:block;
-  color:var(--gold-light);
-  font-size:12px;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  margin-bottom:8px;
+.contact .box{
+  margin:0;
 }
 
 footer{
@@ -528,16 +317,132 @@ footer{
 }
 
 .note{
-  margin-top:20px;
   color:#77746c;
   font-size:11px;
   line-height:1.6;
 }
 
-/* MOBILE */
+.cart{
+  position:fixed;
+  top:0;
+  right:-430px;
+  width:min(430px,100%);
+  height:100vh;
+  background:#100d08;
+  border-left:1px solid var(--line);
+  z-index:40;
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
+  box-shadow:-12px 0 40px #0008;
+}
+
+.cart.open{
+  right:0;
+}
+
+.carthead{
+  padding:20px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+}
+
+.carthead h2{
+  margin:0;
+  color:var(--gold);
+}
+
+.items{
+  flex:1;
+  overflow:auto;
+  padding:15px;
+}
+
+.item{
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.item small{
+  color:var(--muted);
+}
+
+.qty{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.qty button{
+  padding:4px 10px;
+}
+
+.remove{
+  margin-left:auto;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+
+.cartfoot{
+  padding:20px;
+  border-top:1px solid var(--line);
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  font-weight:900;
+  font-size:18px;
+  margin-bottom:15px;
+}
+
+.checkout{
+  width:100%;
+  background:var(--amber);
+  color:#111;
+  box-shadow:0 0 24px #ffb30055;
+}
+
+.clear{
+  width:100%;
+  margin-top:8px;
+  border-color:var(--line);
+  color:var(--muted);
+  box-shadow:none;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000b;
+  z-index:30;
+}
+
+.overlay.show{
+  display:block;
+}
+
+.wa{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  background:#25d366;
+  color:#fff;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 24px #25d36666;
+  z-index:25;
+}
 
 @media(max-width:700px){
-
   nav{
     display:none;
   }
@@ -550,27 +455,26 @@ footer{
     padding:45px 0;
   }
 
-  .products{
+  .grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:10px;
   }
 
-  .product-image{
+  .visual{
     height:175px;
   }
 
-  .phone{
+  svg{
     transform:scale(.82);
   }
 
-  .product-info{
+  .info{
     padding:12px;
   }
 
-  .product h3{
-    font-size:15px;
+  .about{
+    grid-template-columns:1fr;
   }
-
 }
 </style>
 </head>
@@ -578,10 +482,9 @@ footer{
 <body>
 
 <header>
-
 <div class="container nav">
 
-<a href="#" class="logo">
+<a class="logo" href="#">
 SAREFATI GADGETS
 </a>
 
@@ -591,20 +494,16 @@ SAREFATI GADGETS
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 
-<button class="cart-button" onclick="openCart()">
-🛒 Cart
-<span class="cart-count" id="cartCount">0</span>
+<button onclick="openCart()">
+🛒 Cart <span class="cart-count" id="count">0</span>
 </button>
-
 </nav>
 
 </div>
-
 </header>
 
 
 <section class="hero">
-
 <div class="container">
 
 <div class="kicker">
@@ -612,78 +511,67 @@ Makurdi • Nigeria
 </div>
 
 <h1>
-Reliable gadgets.<br>
+Premium gadgets.<br>
 Fair prices.
 </h1>
 
 <p>
-Quality mobile phones and accessories from Sarefati Gadgets.
-Browse our catalogue, add products to your cart and send your
-order directly to WhatsApp.
+Phones, laptops, tablets and everyday accessories from Sarefati Gadgets.
+Add products to your cart and send your order directly to WhatsApp.
 </p>
 
-<a href="#shop" class="button primary">
-Browse Phones
+<a class="button primary" href="#shop">
+Browse Gadgets
 </a>
 
-<a
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets%2C%20I%27d%20like%20to%20make%20an%20enquiry."
+<a class="button"
 target="_blank"
-class="button">
+href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">
 WhatsApp Us
 </a>
 
 </div>
-
 </section>
 
 
 <section id="shop">
-
 <div class="container">
 
 <h2 class="section-title">
-Shop Phones
+Shop Gadgets
 </h2>
 
 <p class="section-subtitle">
-Add products to your cart and send your order to WhatsApp.
-Confirm availability and final price before payment.
+Phones, laptops, tablets and smart devices.
 </p>
-
 
 <div class="controls">
 
 <input
-type="text"
 id="search"
 class="search"
-placeholder="Search phones..."
-oninput="renderProducts()"
+placeholder="Search phones, laptops, tablets..."
+oninput="render()"
 >
 
-<select id="brand" onchange="renderProducts()">
-
-<option value="All">All Brands</option>
-<option value="Samsung">Samsung</option>
-<option value="Tecno">Tecno</option>
-<option value="Infinix">Infinix</option>
-<option value="iPhone">iPhone</option>
-
+<select id="cat" onchange="render()">
+<option>All</option>
+<option>Phones</option>
+<option>Laptops</option>
+<option>Tablets</option>
+<option>Smartwatches</option>
 </select>
 
 </div>
 
-
-<div id="products" class="products"></div>
+<div id="products" class="grid"></div>
 
 <p class="note">
 Prices are indicative. Final prices depend on current supplier pricing,
-storage, condition and availability.
+specifications, condition and availability.
 </p>
 
 </div>
-
 </section>
 
 
@@ -696,70 +584,18 @@ Accessories
 </h2>
 
 <p class="section-subtitle">
-Add accessories to your cart too.
+Chargers, cases, earbuds, power banks and more.
 </p>
 
-
-<div class="accessory-grid">
-
-<div class="accessory">
-<h3>Chargers & Adapters</h3>
-<p>Fast chargers and adapters.</p>
-<button onclick="addAccessory('Charger / Adapter','Check price')">
-Add to Cart
-</button>
-</div>
-
-<div class="accessory">
-<h3>Phone Cases</h3>
-<p>Protective cases for popular models.</p>
-<button onclick="addAccessory('Phone Case','Check price')">
-Add to Cart
-</button>
-</div>
-
-<div class="accessory">
-<h3>Screen Protectors</h3>
-<p>Protection for different phone screens.</p>
-<button onclick="addAccessory('Screen Protector','Check price')">
-Add to Cart
-</button>
-</div>
-
-<div class="accessory">
-<h3>Earbuds</h3>
-<p>Wireless and wired audio accessories.</p>
-<button onclick="addAccessory('Earbuds','Check price')">
-Add to Cart
-</button>
-</div>
-
-<div class="accessory">
-<h3>Power Banks</h3>
-<p>Portable power for your devices.</p>
-<button onclick="addAccessory('Power Bank','Check price')">
-Add to Cart
-</button>
-</div>
-
-<div class="accessory">
-<h3>USB Cables</h3>
-<p>Charging and data cables.</p>
-<button onclick="addAccessory('USB Cable','Check price')">
-Add to Cart
-</button>
-</div>
+<div id="acc" class="grid"></div>
 
 </div>
-
-</div>
-
 </section>
 
 
 <section id="about">
 
-<div class="container about-grid">
+<div class="container about">
 
 <div>
 
@@ -773,8 +609,7 @@ Straightforward gadget shopping.
 
 <p>
 Sarefati Gadgets is a Makurdi-based gadget business focused on
-mobile phones and accessories. Our goal is simple: competitive
-pricing, clear information and direct communication.
+mobile phones, laptops and accessories.
 </p>
 
 <p>
@@ -784,30 +619,22 @@ warranty and final price before payment.
 
 </div>
 
-
 <div>
 
-<div class="info-box">
-
+<div class="box">
 <strong>Location</strong>
-
 Behind Customary Court,<br>
 Saba Road, Makurdi.
-
 </div>
 
-<div class="info-box">
-
+<div class="box">
 <strong>Customer service</strong>
-
 WhatsApp us for current stock and prices.
-
 </div>
 
 </div>
 
 </div>
-
 </section>
 
 
@@ -821,27 +648,27 @@ Contact Sarefati Gadgets
 
 <br>
 
-<div class="contact-grid">
+<div class="contact">
 
-<div class="contact-box">
+<div class="box">
 <strong>WhatsApp / Phone</strong>
 09169454032<br>
 07070195576
 </div>
 
-<div class="contact-box">
+<div class="box">
 <strong>Email</strong>
 <a href="mailto:stephenikpilakaa@gmail.com">
 stephenikpilakaa@gmail.com
 </a>
 </div>
 
-<div class="contact-box">
+<div class="box">
 <strong>TikTok</strong>
 @tertese03
 </div>
 
-<div class="contact-box">
+<div class="box">
 <strong>Address</strong>
 Behind Customary Court,<br>
 Saba Road, Makurdi.
@@ -850,342 +677,258 @@ Saba Road, Makurdi.
 </div>
 
 </div>
-
 </section>
 
 
 <footer>
-
 <div class="container">
-
 © 2026 Sarefati Gadgets. All rights reserved.
-
 </div>
-
 </footer>
 
 
-<!-- CART OVERLAY -->
+<a
+class="wa"
+target="_blank"
+href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">
+◉
+</a>
 
-<div
-class="overlay"
-id="overlay"
-onclick="closeCart()">
-</div>
+
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
 
 
-<!-- CART -->
+<aside id="cart" class="cart">
 
-<div
-class="cart-panel"
-id="cartPanel">
-
-<div class="cart-header">
+<div class="carthead">
 
 <h2>Your Cart</h2>
 
-<button
-class="close-cart"
-onclick="closeCart()">
+<button onclick="closeCart()">
 ×
 </button>
 
 </div>
 
+<div id="items" class="items"></div>
 
-<div
-class="cart-items"
-id="cartItems">
+<div class="cartfoot">
 
-</div>
-
-
-<div class="cart-footer">
-
-<div class="cart-total">
-
+<div class="total">
 <span>Total</span>
-
-<span id="cartTotal">
-₦0
-</span>
-
+<span id="total">₦0</span>
 </div>
 
-
-<button
-class="checkout"
-onclick="checkoutWhatsApp()">
-
+<button class="checkout" onclick="checkout()">
 💬 Order on WhatsApp
-
 </button>
 
-
-<button
-class="clear-cart"
-onclick="clearCart()">
-
+<button class="clear" onclick="clearCart()">
 Clear Cart
-
 </button>
 
 </div>
 
-</div>
+</aside>
 
 
 <script>
 
+const phone = `
+<svg viewBox="0 0 160 200">
+<rect x="38" y="8" width="84" height="184" rx="18"
+fill="#080808" stroke="#ffb300" stroke-width="3"/>
+<rect x="46" y="27" width="68" height="145" rx="10"
+fill="#1b1408"/>
+<circle cx="80" cy="18" r="3" fill="#ffb300"/>
+<path d="M52 55Q80 35 108 55V90Q80 105 52 90Z"
+fill="#6b4708"/>
+</svg>
+`;
+
+const laptop = `
+<svg viewBox="0 0 200 160">
+<rect x="28" y="12" width="144" height="100" rx="8"
+fill="#080808" stroke="#ffb300" stroke-width="3"/>
+<rect x="38" y="22" width="124" height="80" rx="4"
+fill="#1a1308"/>
+<path d="M18 119h164l-14 25H32z"
+fill="#16110a" stroke="#ffb300" stroke-width="2"/>
+<rect x="80" y="125" width="40" height="4"
+rx="2" fill="#ffb300"/>
+</svg>
+`;
+
+const tablet = `
+<svg viewBox="0 0 170 200">
+<rect x="25" y="8" width="120" height="184"
+rx="15" fill="#080808"
+stroke="#ffb300" stroke-width="3"/>
+<rect x="35" y="28" width="100" height="140"
+rx="7" fill="#1a1308"/>
+<circle cx="85" cy="18" r="3" fill="#ffb300"/>
+</svg>
+`;
+
+const watch = `
+<svg viewBox="0 0 180 200">
+<rect x="62" y="5" width="56" height="55"
+rx="20" fill="#15110b"
+stroke="#ffb300" stroke-width="3"/>
+<rect x="47" y="48" width="86" height="105"
+rx="25" fill="#080808"
+stroke="#ffb300" stroke-width="3"/>
+<rect x="62" y="63" width="56" height="70"
+rx="13" fill="#1d1508"/>
+<circle cx="90" cy="98" r="17"
+fill="none" stroke="#ffb300" stroke-width="3"/>
+<rect x="62" y="140" width="56" height="55"
+rx="20" fill="#15110b"
+stroke="#ffb300" stroke-width="3"/>
+</svg>
+`;
+
+const earbuds = `
+<svg viewBox="0 0 200 150">
+<rect x="62" y="48" width="76" height="70"
+rx="22" fill="#17120a"
+stroke="#ffb300" stroke-width="3"/>
+<circle cx="82" cy="78" r="13"
+fill="#090806" stroke="#ffb300" stroke-width="2"/>
+<circle cx="118" cy="78" r="13"
+fill="#090806" stroke="#ffb300" stroke-width="2"/>
+<path d="M75 85v32M125 85v32"
+stroke="#ffb300" stroke-width="7"
+stroke-linecap="round"/>
+</svg>
+`;
+
+const charger = `
+<svg viewBox="0 0 180 180">
+<rect x="48" y="45" width="84" height="100"
+rx="12" fill="#16110a"
+stroke="#ffb300" stroke-width="3"/>
+<rect x="62" y="25" width="14" height="30"
+rx="3" fill="#ffb300"/>
+<rect x="104" y="25" width="14" height="30"
+rx="3" fill="#ffb300"/>
+<path d="M90 100v30M75 115h30"
+stroke="#ffb300" stroke-width="4"/>
+</svg>
+`;
+
+const power = `
+<svg viewBox="0 0 160 190">
+<rect x="38" y="18" width="84" height="154"
+rx="18" fill="#12100b"
+stroke="#ffb300" stroke-width="3"/>
+<rect x="56" y="42" width="48" height="35"
+rx="7" fill="#231806"/>
+<path d="M80 48v23M69 59h22"
+stroke="#ffb300" stroke-width="4"/>
+</svg>
+`;
+
+
 const products = [
 
-{
-brand:"Samsung",
-name:"Galaxy A06",
-spec:"4GB / 128GB",
-price:140000,
-displayPrice:"From ₦140,000"
-},
+["Phones","Samsung","Galaxy A07","4GB / 128GB",150000,phone],
 
-{
-brand:"Samsung",
-name:"Galaxy A07",
-spec:"4GB / 64GB",
-price:135000,
-displayPrice:"From ₦135,000"
-},
+["Phones","Samsung","Galaxy A16","4GB / 128GB",185000,phone],
 
-{
-brand:"Samsung",
-name:"Galaxy A07",
-spec:"4GB / 128GB",
-price:150000,
-displayPrice:"From ₦150,000"
-},
+["Phones","Tecno","Spark 40","4GB / 128GB",165000,phone],
 
-{
-brand:"Samsung",
-name:"Galaxy A16",
-spec:"4GB / 128GB",
-price:185000,
-displayPrice:"From ₦185,000"
-},
+["Phones","Tecno","Camon 40","8GB / 128GB",220000,phone],
 
-{
-brand:"Samsung",
-name:"Galaxy A17",
-spec:"4GB / 128GB",
-price:240000,
-displayPrice:"From ₦240,000"
-},
+["Phones","Infinix","Hot 60 Pro","8GB / 256GB",260000,phone],
 
-{
-brand:"Samsung",
-name:"Galaxy A26 5G",
-spec:"6GB / 128GB",
-price:300000,
-displayPrice:"From ₦300,000"
-},
+["Phones","iPhone","iPhone 13","128GB",0,phone],
 
-{
-brand:"Tecno",
-name:"Spark 40",
-spec:"4GB / 128GB",
-price:165000,
-displayPrice:"From ₦165,000"
-},
+["Laptops","HP","HP Laptop","Various RAM & SSD options",0,laptop],
 
-{
-brand:"Tecno",
-name:"Spark 40 Pro",
-spec:"8GB / 256GB",
-price:220000,
-displayPrice:"From ₦220,000"
-},
+["Laptops","Dell","Dell Laptop","Various RAM & SSD options",0,laptop],
 
-{
-brand:"Tecno",
-name:"Spark 40 Pro+",
-spec:"8GB / 256GB",
-price:280000,
-displayPrice:"From ₦280,000"
-},
+["Laptops","Lenovo","Lenovo Laptop","Various RAM & SSD options",0,laptop],
 
-{
-brand:"Tecno",
-name:"Camon 40",
-spec:"8GB / 128GB",
-price:220000,
-displayPrice:"From ₦220,000"
-},
+["Tablets","Android","Android Tablet","Multiple sizes & storage",0,tablet],
 
-{
-brand:"Tecno",
-name:"Camon 40 Pro",
-spec:"8GB / 256GB",
-price:290000,
-displayPrice:"From ₦290,000"
-},
-
-{
-brand:"Tecno",
-name:"Pova 7",
-spec:"8GB / 256GB",
-price:250000,
-displayPrice:"From ₦250,000"
-},
-
-{
-brand:"Infinix",
-name:"Hot 60i",
-spec:"4GB / 128GB",
-price:165000,
-displayPrice:"From ₦165,000"
-},
-
-{
-brand:"Infinix",
-name:"Hot 60",
-spec:"8GB / 128GB",
-price:220000,
-displayPrice:"From ₦220,000"
-},
-
-{
-brand:"Infinix",
-name:"Hot 60 Pro",
-spec:"8GB / 256GB",
-price:260000,
-displayPrice:"From ₦260,000"
-},
-
-{
-brand:"Infinix",
-name:"Hot 70",
-spec:"8GB / 128GB",
-price:200000,
-displayPrice:"From ₦200,000"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 11",
-spec:"64GB / 128GB",
-price:0,
-displayPrice:"Check Current Price"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 12",
-spec:"64GB / 128GB",
-price:0,
-displayPrice:"Check Current Price"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 13",
-spec:"128GB",
-price:0,
-displayPrice:"Check Current Price"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 14",
-spec:"128GB",
-price:0,
-displayPrice:"Check Current Price"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 15",
-spec:"128GB",
-price:0,
-displayPrice:"Check Current Price"
-}
+["Smartwatches","Smartwatch","Smart Watch","Multiple models available",0,watch]
 
 ];
 
 
-let cart=[];
+const accessories = [
+
+["Fast Charger","Fast charging adapters",charger],
+
+["Phone Case","Protective cases",phone],
+
+["Screen Protector","Protection for device screens",tablet],
+
+["Wireless Earbuds","Wireless audio",earbuds],
+
+["Power Bank","Portable power",power],
+
+["USB Cable","Charging and data cable",charger]
+
+];
 
 
-/* PRODUCTS */
-
-function renderProducts(){
-
-const search=
-document.getElementById("search")
-.value
-.toLowerCase();
-
-const brand=
-document.getElementById("brand")
-.value;
+let cart = [];
 
 
-const filtered=
-products.filter(function(product){
+function render(){
 
-const text=
-(product.brand+" "+product.name+" "+product.spec)
-.toLowerCase();
+let q =
+document.getElementById("search").value.toLowerCase();
 
-return
-text.includes(search) &&
-(brand==="All" || product.brand===brand);
+let c =
+document.getElementById("cat").value;
 
-});
+document.getElementById("products").innerHTML =
 
+products
+.map((p,i)=>({p,i}))
+.filter(x =>
+x.p.join(" ").toLowerCase().includes(q)
+&&
+(c=="All" || x.p[0]==c)
+)
+.map(x=>{
 
-const container=
-document.getElementById("products");
-
-
-container.innerHTML=
-filtered.map(function(product,index){
-
-const originalIndex=
-products.indexOf(product);
+let p=x.p;
 
 return `
 
 <article class="product">
 
-<div class="product-image">
-
-<div class="phone"></div>
-
+<div class="visual">
+${p[5]}
 </div>
 
-
-<div class="product-info">
+<div class="info">
 
 <div class="brand">
-${product.brand}
+${p[1]}
 </div>
 
 <h3>
-${product.name}
+${p[2]}
 </h3>
 
 <div class="spec">
-${product.spec}
+${p[3]}
 </div>
 
 <div class="price">
-${product.displayPrice}
+${p[4]
+? "₦"+p[4].toLocaleString("en-NG")
+: "Check Current Price"}
 </div>
 
-<button
-class="add-cart"
-onclick="addProduct(${originalIndex})">
-
+<button class="add"
+onclick="add(${x.i})">
 🛒 Add to Cart
-
 </button>
 
 </div>
@@ -1199,237 +942,219 @@ onclick="addProduct(${originalIndex})">
 }
 
 
-/* ADD PHONE */
+function renderAcc(){
 
-function addProduct(index){
+document.getElementById("acc").innerHTML =
 
-const product=products[index];
+accessories.map((a,i)=>`
 
-const existing=
-cart.find(item=>
-item.name===product.name &&
-item.spec===product.spec &&
-item.brand===product.brand
-);
+<article class="accessory">
 
-if(existing){
+<div class="visual">
+${a[2]}
+</div>
 
-existing.quantity++;
+<div class="info">
 
-}else{
+<h3>
+${a[0]}
+</h3>
 
-cart.push({
+<p>
+${a[1]}
+</p>
 
-brand:product.brand,
-name:product.name,
-spec:product.spec,
-price:product.price,
-displayPrice:product.displayPrice,
-quantity:1
+<button onclick="addAcc(${i})">
+Add to Cart
+</button>
 
-});
+</div>
+
+</article>
+
+`).join("");
 
 }
 
-updateCart();
+
+function add(i){
+
+let p=products[i];
+
+let e=cart.find(x=>x.name==p[2]);
+
+if(e)
+
+e.qty++;
+
+else
+
+cart.push({
+
+brand:p[1],
+
+name:p[2],
+
+spec:p[3],
+
+price:p[4],
+
+qty:1
+
+});
+
+update();
 
 openCart();
 
 }
 
 
-/* ADD ACCESSORY */
+function addAcc(i){
 
-function addAccessory(name,priceText){
+let a=accessories[i];
 
-const existing=
-cart.find(item=>
-item.name===name
-);
+let e=cart.find(x=>x.name==a[0]);
 
-if(existing){
+if(e)
 
-existing.quantity++;
+e.qty++;
 
-}else{
+else
 
 cart.push({
 
 brand:"Accessory",
-name:name,
-spec:"Available options",
+
+name:a[0],
+
+spec:a[1],
+
 price:0,
-displayPrice:priceText,
-quantity:1
+
+qty:1
 
 });
 
-}
-
-updateCart();
+update();
 
 openCart();
 
 }
 
 
-/* UPDATE CART */
+function update(){
 
-function updateCart(){
+document.getElementById("count").textContent =
+cart.reduce((s,x)=>s+x.qty,0);
 
-const count=
-cart.reduce(
-(total,item)=>total+item.quantity,
-0
-);
+let b=document.getElementById("items");
 
-document.getElementById("cartCount")
-.textContent=count;
+if(!cart.length){
 
+b.innerHTML =
+"<p style='color:#aaa093'>Your cart is empty.</p>";
 
-const container=
-document.getElementById("cartItems");
-
-
-if(cart.length===0){
-
-container.innerHTML=
-"<p style='color:#aaa69b'>Your cart is empty.</p>";
-
-document.getElementById("cartTotal")
-.textContent="₦0";
+document.getElementById("total").textContent="₦0";
 
 return;
 
 }
 
+b.innerHTML =
 
-container.innerHTML=
-cart.map(function(item,index){
+cart.map((x,i)=>`
 
-return `
+<div class="item">
 
-<div class="cart-item">
+<b>
+${x.brand} ${x.name}
+</b>
 
-<div class="cart-item-title">
-${item.brand} ${item.name}
+<br>
+
+<small>
+${x.spec}
+</small>
+
+<div style="color:#ffd166;margin-top:5px">
+
+${x.price
+? "₦"+x.price.toLocaleString("en-NG")
+: "Price to confirm"}
+
 </div>
 
-<div style="color:#aaa69b;font-size:12px">
-${item.spec}
-</div>
+<div class="qty">
 
-<div class="cart-item-price">
-
-${item.price>0
-? "₦"+formatMoney(item.price)
-: item.displayPrice}
-
-</div>
-
-
-<div class="quantity">
-
-<button onclick="changeQuantity(${index},-1)">
+<button onclick="qty(${i},-1)">
 −
 </button>
 
-<span>
-${item.quantity}
-</span>
+${x.qty}
 
-<button onclick="changeQuantity(${index},1)">
+<button onclick="qty(${i},1)">
 +
 </button>
 
-<button
-class="remove"
-onclick="removeItem(${index})">
-
+<button class="remove"
+onclick="del(${i})">
 Remove
-
 </button>
 
 </div>
 
 </div>
 
-`;
-
-}).join("");
+`).join("");
 
 
-const total=
-cart.reduce(function(sum,item){
+let t =
+cart.reduce((s,x)=>s+x.price*x.qty,0);
 
-return sum+(item.price*item.quantity);
-
-},0);
-
-
-document.getElementById("cartTotal")
-.textContent=
-total>0
-?"₦"+formatMoney(total)
-:"Price to confirm";
+document.getElementById("total").textContent =
+t
+? "₦"+t.toLocaleString("en-NG")
+: "Price to confirm";
 
 }
 
 
-/* MONEY */
+function qty(i,n){
 
-function formatMoney(number){
+cart[i].qty += n;
 
-return number.toLocaleString("en-NG");
+if(cart[i].qty < 1)
 
-}
+cart.splice(i,1);
 
-
-/* QUANTITY */
-
-function changeQuantity(index,amount){
-
-cart[index].quantity+=amount;
-
-if(cart[index].quantity<=0){
-
-cart.splice(index,1);
-
-}
-
-updateCart();
+update();
 
 }
 
 
-/* REMOVE */
+function del(i){
 
-function removeItem(index){
+cart.splice(i,1);
 
-cart.splice(index,1);
-
-updateCart();
+update();
 
 }
 
-
-/* CLEAR */
 
 function clearCart(){
 
 cart=[];
 
-updateCart();
+update();
 
 }
 
 
-/* OPEN CART */
-
 function openCart(){
 
 document
-.getElementById("cartPanel")
+.getElementById("cart")
 .classList.add("open");
 
 document
@@ -1439,12 +1164,10 @@ document
 }
 
 
-/* CLOSE CART */
-
 function closeCart(){
 
 document
-.getElementById("cartPanel")
+.getElementById("cart")
 .classList.remove("open");
 
 document
@@ -1454,11 +1177,9 @@ document
 }
 
 
-/* WHATSAPP CHECKOUT */
+function checkout(){
 
-function checkoutWhatsApp(){
-
-if(cart.length===0){
+if(!cart.length){
 
 alert("Your cart is empty.");
 
@@ -1466,42 +1187,32 @@ return;
 
 }
 
+let m =
+"Hello Sarefati Gadgets!%0A%0AI would like to order:%0A";
 
-let message=
-"Hello Sarefati Gadgets!%0A%0A"+
-"I would like to order:%0A";
+cart.forEach(x=>{
 
-
-cart.forEach(function(item){
-
-message+=
-"- "+
-item.brand+" "+
-item.name+
-" ("+item.spec+") x "+
-item.quantity+
-"%0A";
+m +=
+`- ${x.brand} ${x.name} (${x.spec}) x ${x.qty}%0A`;
 
 });
 
-
-message+=
-"%0APlease confirm availability and the final price. Thank you!";
-
+m +=
+"%0APlease confirm availability and final price. Thank you!";
 
 window.open(
-"https://wa.me/2349169454032?text="+message,
+"https://wa.me/2349169454032?text="+m,
 "_blank"
 );
 
 }
 
 
-/* START */
+render();
 
-renderProducts();
+renderAcc();
 
-updateCart();
+update();
 
 </script>
 
