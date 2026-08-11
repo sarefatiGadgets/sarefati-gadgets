@@ -1381,4 +1381,63 @@ return;
 }
 
 let message=
-"Hello Sarefati Gadgets!%0A%0
+"Hello Sarefati Gadgets!%0A%0A"+
+"I would like to order:%0A%0A";
+
+let total=0;
+
+cart.forEach(item=>{
+
+total+=item.price*item.qty;
+
+message+=
+"• "+item.brand+" "+item.name+
+" x"+item.qty+
+" — "+naira(item.price)+
+"%0A";
+
+});
+
+message+=
+"%0AEstimated total: "+
+naira(total)+
+"%0A%0APlease confirm current prices and availability.";
+
+window.open(
+"https://wa.me/2349169454032?text="+message,
+"_blank"
+);
+
+}
+
+
+function details(name){
+
+const p=products.find(x=>x.name===name);
+
+if(!p)return;
+
+alert(
+p.name+
+"\n\n"+
+"Brand: "+p.brand+
+"\n"+
+"Specs: "+p.spec+
+"\n"+
+"Colours: "+p.colors+
+"\n"+
+"Estimated price: "+naira(p.price)+
+"\n\n"+
+"Please contact Sarefati Gadgets to confirm the current price and availability."
+);
+
+}
+
+
+renderProducts();
+updateCart();
+
+</script>
+
+</body>
+</html>
