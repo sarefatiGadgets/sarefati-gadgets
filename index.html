@@ -1,358 +1,317 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sarefati Gadgets | Gadget Catalogue</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarefati Gadgets</title>
 
 <style>
 *{box-sizing:border-box}
-:root{
---bg:#070605;
---card:#120e08;
---amber:#ffb000;
---gold:#ffd166;
---text:#fff8eb;
---muted:#a99d8c;
---line:#3b2910;
-}
 body{
-margin:0;
-background:var(--bg);
-color:var(--text);
-font-family:Arial,Helvetica,sans-serif;
+ margin:0;
+ background:#050505;
+ color:#fff;
+ font-family:Arial,Helvetica,sans-serif;
 }
-body:before{
-content:"";
-position:fixed;
-inset:0;
-z-index:-1;
-background:
-radial-gradient(circle at 15% 10%,#ffb00020,transparent 28%),
-radial-gradient(circle at 85% 40%,#ff8c0012,transparent 30%);
-}
-.container{
-width:min(1150px,92%);
-margin:auto;
+:root{
+ --gold:#f5b400;
+ --gold2:#ffd76a;
+ --black:#050505;
+ --card:#111;
+ --line:#342707;
+ --muted:#aaa;
 }
 header{
-position:sticky;
-top:0;
-z-index:50;
-background:#070605ee;
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:50;
+ background:#070707ee;
+ backdrop-filter:blur(12px);
+ border-bottom:1px solid var(--line);
+}
+.container{
+ width:92%;
+ max-width:1150px;
+ margin:auto;
 }
 .nav{
-min-height:70px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
+ min-height:70px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
 }
 .logo{
-color:var(--gold);
-font-weight:900;
-letter-spacing:2px;
-text-decoration:none;
-text-shadow:0 0 18px #ffb00066;
+ color:var(--gold2);
+ font-weight:900;
+ letter-spacing:2px;
+ text-decoration:none;
 }
 nav{
-display:flex;
-gap:9px;
-align-items:center;
+ display:flex;
+ gap:10px;
+ align-items:center;
 }
 nav a{
-color:#ddd;
-text-decoration:none;
-font-size:13px;
+ color:#ddd;
+ text-decoration:none;
+ font-size:13px;
 }
 button,.btn{
-border:1px solid var(--amber);
-background:transparent;
-color:var(--gold);
-padding:10px 14px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-text-decoration:none;
+ border:1px solid var(--gold);
+ background:transparent;
+ color:var(--gold2);
+ padding:10px 14px;
+ border-radius:8px;
+ font-weight:bold;
+ cursor:pointer;
 }
 button:hover,.btn:hover{
-background:var(--amber);
-color:#111;
-box-shadow:0 0 22px #ffb00055;
+ background:var(--gold);
+ color:#111;
 }
 .primary{
-background:var(--amber);
-color:#111;
+ background:var(--gold);
+ color:#111;
 }
 .hero{
-padding:85px 0 70px;
-border-bottom:1px solid var(--line);
+ padding:80px 0;
+ border-bottom:1px solid var(--line);
 }
 .kicker{
-color:var(--gold);
-font-size:11px;
-letter-spacing:2px;
-text-transform:uppercase;
+ color:var(--gold);
+ font-size:11px;
+ letter-spacing:2px;
 }
-.hero h1{
-font-size:clamp(43px,7vw,78px);
-line-height:1.02;
-margin:16px 0;
+h1{
+ font-size:clamp(42px,7vw,76px);
+ line-height:1;
+ margin:15px 0;
 }
 .hero p{
-max-width:680px;
-color:var(--muted);
-font-size:17px;
-line-height:1.7;
+ color:var(--muted);
+ max-width:650px;
+ line-height:1.7;
+ font-size:17px;
 }
 .hero-buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-top:25px;
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-top:25px;
 }
 section{
-padding:60px 0;
+ padding:55px 0;
 }
 .title{
-font-size:32px;
-margin:0 0 8px;
+ font-size:32px;
+ margin-bottom:8px;
 }
 .sub{
-color:var(--muted);
-font-size:13px;
-margin-bottom:25px;
+ color:var(--muted);
+ font-size:13px;
+ margin-bottom:25px;
 }
 .features{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
 }
-.feature,.box{
-background:var(--card);
-border:1px solid var(--line);
-border-radius:12px;
-padding:22px;
+.box{
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:22px;
 }
-.feature strong,.box strong{
-display:block;
-color:var(--gold);
-margin-bottom:8px;
+.box strong{
+ color:var(--gold2);
+ display:block;
+ margin-bottom:8px;
 }
-.feature span,.box span{
-color:var(--muted);
-font-size:13px;
+.box span{
+ color:var(--muted);
+ font-size:13px;
 }
 .controls{
-display:flex;
-gap:10px;
-margin-bottom:25px;
+ display:flex;
+ gap:10px;
+ margin-bottom:25px;
 }
 .search,select{
-background:var(--card);
-border:1px solid var(--line);
-color:white;
-padding:14px;
-border-radius:8px;
+ background:#111;
+ color:white;
+ border:1px solid var(--line);
+ padding:14px;
+ border-radius:8px;
 }
 .search{
-flex:1;
-min-width:180px;
-outline:none;
+ flex:1;
+ outline:none;
 }
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:17px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:17px;
 }
 .product{
-position:relative;
-background:linear-gradient(150deg,#181208,#0d0905);
-border:1px solid var(--line);
-border-radius:13px;
-overflow:hidden;
-transition:.2s;
+ background:linear-gradient(150deg,#171207,#0d0d0d);
+ border:1px solid var(--line);
+ border-radius:13px;
+ overflow:hidden;
+ transition:.2s;
 }
 .product:hover{
-transform:translateY(-4px);
-border-color:#ffb00088;
-box-shadow:0 0 28px #ffb00022;
+ transform:translateY(-4px);
+ border-color:var(--gold);
+ box-shadow:0 0 25px #f5b40022;
 }
 .visual{
-height:210px;
-background:
-radial-gradient(circle,#ffb0001b,transparent 55%),
-#0c0906;
-display:flex;
-align-items:center;
-justify-content:center;
+ height:230px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ background:
+ radial-gradient(circle,#f5b40018,transparent 55%),
+ #080808;
 }
-.visual img{
-width:100%;
-height:100%;
-object-fit:contain;
-padding:15px;
-filter:drop-shadow(0 0 15px #ffb00044);
-}
-.fallback{
-font-size:75px;
-filter:drop-shadow(0 0 20px #ffb00088);
-}
-.badge{
-position:absolute;
-left:10px;
-top:10px;
-background:var(--amber);
-color:#111;
-padding:5px 8px;
-border-radius:5px;
-font-size:9px;
-font-weight:900;
-z-index:2;
+.visual svg{
+ width:100%;
+ height:100%;
+ padding:20px;
 }
 .info{
-padding:16px;
+ padding:16px;
 }
 .brand{
-font-size:10px;
-color:var(--gold);
-letter-spacing:2px;
-text-transform:uppercase;
+ color:var(--gold);
+ font-size:10px;
+ letter-spacing:2px;
+ text-transform:uppercase;
 }
 .info h3{
-margin:7px 0;
+ margin:8px 0;
 }
 .spec{
-color:var(--muted);
-font-size:12px;
+ color:var(--muted);
+ font-size:12px;
 }
 .price{
-color:var(--gold);
-font-weight:bold;
-margin:12px 0;
+ color:var(--gold2);
+ font-weight:bold;
+ margin:12px 0;
 }
 .actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:7px;
 }
 .actions button{
-width:100%;
-padding:9px 5px;
+ width:100%;
+ padding:9px 5px;
+}
+.badge{
+ display:inline-block;
+ margin:10px 10px 0;
+ padding:5px 8px;
+ background:var(--gold);
+ color:#111;
+ border-radius:5px;
+ font-size:9px;
+ font-weight:bold;
 }
 .cart{
-position:fixed;
-right:-430px;
-top:0;
-width:min(430px,100%);
-height:100vh;
-background:#100d08;
-border-left:1px solid var(--line);
-z-index:100;
-transition:.3s;
-display:flex;
-flex-direction:column;
-box-shadow:-15px 0 40px #000;
+ position:fixed;
+ right:-430px;
+ top:0;
+ width:min(430px,100%);
+ height:100vh;
+ background:#100e09;
+ border-left:1px solid var(--line);
+ z-index:100;
+ transition:.3s;
+ display:flex;
+ flex-direction:column;
 }
-.cart.open{
-right:0;
-}
+.cart.open{right:0}
 .cart-head{
-padding:20px;
-border-bottom:1px solid var(--line);
-display:flex;
-justify-content:space-between;
+ padding:20px;
+ border-bottom:1px solid var(--line);
+ display:flex;
+ justify-content:space-between;
 }
 .cart-head h2{
-margin:0;
-color:var(--gold);
+ margin:0;
+ color:var(--gold2);
 }
 .cart-items{
-flex:1;
-overflow:auto;
-padding:15px;
+ flex:1;
+ overflow:auto;
+ padding:15px;
 }
 .cart-item{
-padding:14px 0;
-border-bottom:1px solid var(--line);
+ padding:14px 0;
+ border-bottom:1px solid var(--line);
 }
 .cart-item small{
-color:var(--muted);
+ color:var(--muted);
 }
 .qty{
-display:flex;
-gap:9px;
-align-items:center;
-margin-top:10px;
+ display:flex;
+ align-items:center;
+ gap:8px;
+ margin-top:10px;
 }
 .remove{
-margin-left:auto;
-border:0;
-color:#e27768;
+ margin-left:auto;
+ border:0;
+ color:#ff7777;
 }
 .cart-foot{
-padding:20px;
-border-top:1px solid var(--line);
+ padding:20px;
+ border-top:1px solid var(--line);
 }
 .cart-foot button{
-width:100%;
-margin-top:8px;
+ width:100%;
+ margin-top:8px;
 }
 .overlay{
-display:none;
-position:fixed;
-inset:0;
-background:#000b;
-z-index:90;
+ display:none;
+ position:fixed;
+ inset:0;
+ background:#000b;
+ z-index:90;
 }
-.overlay.show{
-display:block;
-}
+.overlay.show{display:block}
 footer{
-padding:30px 0;
-border-top:1px solid var(--line);
-color:#777;
+ border-top:1px solid var(--line);
+ padding:30px 0;
+ color:#777;
 }
 .wa{
-position:fixed;
-right:18px;
-bottom:18px;
-width:55px;
-height:55px;
-border-radius:50%;
-background:#25d366;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-font-size:23px;
-z-index:70;
-box-shadow:0 0 25px #25d36666;
-}
-.note{
-color:#777;
-font-size:11px;
-line-height:1.6;
-margin-top:20px;
+ position:fixed;
+ right:18px;
+ bottom:18px;
+ width:55px;
+ height:55px;
+ border-radius:50%;
+ background:#25d366;
+ color:white;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-decoration:none;
+ font-size:23px;
+ z-index:70;
 }
 @media(max-width:700px){
-nav a{display:none}
-.hero{padding:60px 0}
-.features{grid-template-columns:1fr}
-.controls{flex-direction:column}
-.grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:10px;
-}
-.visual{height:175px}
-.actions{grid-template-columns:1fr}
+ nav a{display:none}
+ .features{grid-template-columns:1fr}
+ .controls{flex-direction:column}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .visual{height:190px}
+ .actions{grid-template-columns:1fr}
 }
 @media(max-width:420px){
-.grid{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -361,51 +320,38 @@ gap:10px;
 
 <header>
 <div class="container nav">
-
-<a href="#" class="logo">SAREFATI GADGETS</a>
+<a class="logo" href="#">SAREFATI GADGETS</a>
 
 <nav>
 <a href="#shop">Shop</a>
 <a href="#accessories">Accessories</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
-<button onclick="openCart()">
-🛒 Cart <span id="cartCount">0</span>
-</button>
+<button onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
 </nav>
-
 </div>
 </header>
-
 
 <section class="hero">
 <div class="container">
 
-<div class="kicker">Makurdi • Nigeria</div>
+<div class="kicker">MAKURDI • NIGERIA</div>
 
-<h1>
-Premium gadgets.<br>
-Fair prices.
-</h1>
+<h1>Premium gadgets.<br>Fair prices.</h1>
 
 <p>
-Phones, laptops, smart devices and accessories.
-Browse the Sarefati Gadgets catalogue and contact us directly to order.
+Phones, laptops and accessories. Browse the Sarefati Gadgets
+catalogue and contact us directly to confirm prices and availability.
 </p>
 
 <div class="hero-buttons">
+<a class="btn primary" href="#shop">Shop Now</a>
 
-<a href="#shop" class="btn primary">
-Shop Now
-</a>
-
-<a
+<a class="btn"
 href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets"
-target="_blank"
-class="btn">
+target="_blank">
 WhatsApp Us
 </a>
-
 </div>
 
 </div>
@@ -417,29 +363,22 @@ WhatsApp Us
 
 <div class="features">
 
-<div class="feature">
+<div class="box">
 <strong>📱 Phones</strong>
-<span>
-iPhone, Samsung, Tecno and Infinix.
-</span>
+<span>iPhone, Samsung, Tecno and Infinix.</span>
 </div>
 
-<div class="feature">
+<div class="box">
 <strong>💻 Laptops</strong>
-<span>
-HP, Dell and Lenovo.
-</span>
+<span>HP, Dell and Lenovo.</span>
 </div>
 
-<div class="feature">
+<div class="box">
 <strong>🎧 Accessories</strong>
-<span>
-Chargers, earbuds, power banks and more.
-</span>
+<span>Chargers, earbuds, power banks and more.</span>
 </div>
 
 </div>
-
 </div>
 </section>
 
@@ -447,67 +386,31 @@ Chargers, earbuds, power banks and more.
 <section id="shop">
 <div class="container">
 
-<h2 class="title">
-Shop Gadgets
-</h2>
-
-<p class="sub">
-Search for your favourite phone, laptop or gadget.
-</p>
+<h2 class="title">Shop Gadgets</h2>
+<p class="sub">Search and browse our catalogue.</p>
 
 <div class="controls">
 
 <input
-id="search"
 class="search"
+id="search"
 placeholder="Search iPhone, Samsung, Tecno..."
-oninput="renderProducts()">
+oninput="render()">
 
-<select id="brand" onchange="renderProducts()">
-
-<option value="All">
-All Brands
-</option>
-
-<option value="iPhone">
-Apple / iPhone
-</option>
-
-<option value="Samsung">
-Samsung
-</option>
-
-<option value="Tecno">
-Tecno
-</option>
-
-<option value="Infinix">
-Infinix
-</option>
-
-<option value="HP">
-HP
-</option>
-
-<option value="Dell">
-Dell
-</option>
-
-<option value="Lenovo">
-Lenovo
-</option>
-
+<select id="brand" onchange="render()">
+<option value="All">All Brands</option>
+<option value="iPhone">iPhone</option>
+<option value="Samsung">Samsung</option>
+<option value="Tecno">Tecno</option>
+<option value="Infinix">Infinix</option>
+<option value="HP">HP</option>
+<option value="Dell">Dell</option>
+<option value="Lenovo">Lenovo</option>
 </select>
 
 </div>
 
 <div id="products" class="grid"></div>
-
-<p class="note">
-Prices are currently shown as "Price on request".
-Contact Sarefati Gadgets to confirm current price,
-colour, storage and availability.
-</p>
 
 </div>
 </section>
@@ -516,13 +419,8 @@ colour, storage and availability.
 <section id="accessories">
 <div class="container">
 
-<h2 class="title">
-Accessories
-</h2>
-
-<p class="sub">
-Complete your gadget setup.
-</p>
+<h2 class="title">Accessories</h2>
+<p class="sub">Everything you need for your gadgets.</p>
 
 <div id="accessoryGrid" class="grid"></div>
 
@@ -533,25 +431,16 @@ Complete your gadget setup.
 <section id="about">
 <div class="container">
 
-<h2 class="title">
-About Sarefati Gadgets
-</h2>
+<h2 class="title">About Sarefati Gadgets</h2>
 
-<p style="color:var(--muted);line-height:1.8">
-Sarefati Gadgets makes it easy to browse phones,
-laptops and accessories and contact the store for
-current prices and availability.
+<p style="color:#aaa;line-height:1.8">
+Sarefati Gadgets provides phones, laptops and accessories
+with easy ordering and direct customer support.
 </p>
 
 <div class="box">
-
 <strong>Location</strong>
-
-<span>
-Behind Customary Court,
-Saba Road, Makurdi.
-</span>
-
+<span>Behind Customary Court, Saba Road, Makurdi.</span>
 </div>
 
 </div>
@@ -561,9 +450,7 @@ Saba Road, Makurdi.
 <section id="contact">
 <div class="container">
 
-<h2 class="title">
-Contact Sarefati Gadgets
-</h2>
+<h2 class="title">Contact</h2>
 
 <div class="features">
 
@@ -577,39 +464,30 @@ Contact Sarefati Gadgets
 
 <div class="box">
 <strong>Email</strong>
-<span>
-stephenikpilakaa@gmail.com
-</span>
+<span>stephenikpilakaa@gmail.com</span>
 </div>
 
 <div class="box">
 <strong>TikTok</strong>
-<span>
-@tertese03
-</span>
+<span>@tertese03</span>
 </div>
 
 </div>
-
 </div>
 </section>
 
 
 <footer>
-
 <div class="container">
 © 2026 Sarefati Gadgets. All rights reserved.
 </div>
-
 </footer>
 
 
 <a
 class="wa"
 href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets"
-target="_blank">
-💬
-</a>
+target="_blank">💬</a>
 
 
 <div id="overlay" class="overlay" onclick="closeCart()"></div>
@@ -618,33 +496,18 @@ target="_blank">
 <aside id="cart" class="cart">
 
 <div class="cart-head">
-
-<h2>
-Your Cart
-</h2>
-
-<button onclick="closeCart()">
-×
-</button>
-
+<h2>Your Cart</h2>
+<button onclick="closeCart()">×</button>
 </div>
-
 
 <div id="cartItems" class="cart-items"></div>
 
-
 <div class="cart-foot">
-
-<button
-class="primary"
-onclick="checkout()">
+<button class="primary" onclick="checkout()">
 💬 Order on WhatsApp
 </button>
 
-<button onclick="clearCart()">
-Clear Cart
-</button>
-
+<button onclick="clearCart()">Clear Cart</button>
 </div>
 
 </aside>
@@ -652,151 +515,194 @@ Clear Cart
 
 <script>
 
-/* =========================
-   PRODUCT IMAGE DATABASE
-   ========================= */
+/* =====================================================
+   SELF-CONTAINED PRODUCT IMAGES
+   No uploads or external image websites required.
+   ===================================================== */
 
-const images = {
+function phoneSVG(color="#111"){
 
-/* iPhones */
+return `
+<svg viewBox="0 0 240 360"
+xmlns="http://www.w3.org/2000/svg">
 
-"iPhone 11":
-"https://images.unsplash.com/photo-1592286927505-2fd9b7f2e6e0?auto=format&fit=crop&w=700&q=85",
+<defs>
+<linearGradient id="phoneGold" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ffd76a"/>
+<stop offset=".5" stop-color="#f5b400"/>
+<stop offset="1" stop-color="#9a6900"/>
+</linearGradient>
 
-"iPhone 12":
-"https://images.unsplash.com/photo-1603921326210-6edd2d60ca68?auto=format&fit=crop&w=700&q=85",
+<filter id="glow">
+<feGaussianBlur stdDeviation="5" result="blur"/>
+<feMerge>
+<feMergeNode in="blur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+</defs>
 
-"iPhone 13":
-"https://commons.wikimedia.org/wiki/Special:Redirect/file/IPhone_13.jpg",
+<ellipse cx="120" cy="335" rx="75" ry="10"
+fill="#f5b400" opacity=".25"/>
 
-"iPhone 14":
-"https://images.unsplash.com/photo-1663499482523-1c0c1c1c0c1c?auto=format&fit=crop&w=700&q=85",
+<rect x="42" y="10" width="156" height="340"
+rx="28"
+fill="url(#phoneGold)"
+filter="url(#glow)"/>
 
-"iPhone 15":
-"https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=700&q=85",
+<rect x="49" y="17" width="142" height="326"
+rx="22"
+fill="#070707"/>
 
-"iPhone 16":
-"https://images.unsplash.com/photo-1725867967675-8b0b8e0e4f8e?auto=format&fit=crop&w=700&q=85",
+<rect x="58" y="28" width="124" height="304"
+rx="17"
+fill="${color}"/>
 
-/* Samsung */
+<circle cx="120" cy="37" r="5" fill="#222"/>
 
-"Galaxy A17":
-"https://commons.wikimedia.org/wiki/Special:Redirect/file/Samsung_Galaxy_A17_5G_2026.jpg",
+<circle cx="120" cy="177" r="38"
+fill="#f5b400" opacity=".12"/>
 
-"Galaxy A26 5G":
-"https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=700&q=85",
+<circle cx="120" cy="177" r="20"
+fill="#ffd76a" opacity=".25"/>
 
-"Galaxy A36 5G":
-"https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=700&q=85",
-
-"Galaxy A56 5G":
-"https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=700&q=85",
-
-/* Tecno */
-
-"Spark 40":
-"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=85",
-
-"Spark 40 Pro":
-"https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=700&q=85",
-
-"Spark 40 Pro+":
-"https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=700&q=85",
-
-"Camon 40":
-"https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=700&q=85",
-
-"Camon 40 Pro":
-"https://images.unsplash.com/photo-1546054454-aa26e2b734c7?auto=format&fit=crop&w=700&q=85",
-
-/* Infinix */
-
-"Hot 60i":
-"https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=700&q=85",
-
-"Hot 60 Pro":
-"https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=700&q=85",
-
-"Hot 70":
-"https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=700&q=85",
-
-"Note 60 Pro":
-"https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=700&q=85",
-
-/* Laptops */
-
-"HP Laptop":
-"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=85",
-
-"Dell Laptop":
-"https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=700&q=85",
-
-"Lenovo Laptop":
-"https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=700&q=85"
-
-};
+</svg>
+`;
+}
 
 
-/* =========================
+function laptopSVG(){
+
+return `
+<svg viewBox="0 0 420 300"
+xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+<linearGradient id="lap" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#ffd76a"/>
+<stop offset=".5" stop-color="#f5b400"/>
+<stop offset="1" stop-color="#805800"/>
+</linearGradient>
+</defs>
+
+<ellipse cx="210" cy="265" rx="175" ry="13"
+fill="#f5b400" opacity=".22"/>
+
+<rect x="65" y="25" width="290" height="200"
+rx="15"
+fill="url(#lap)"/>
+
+<rect x="75" y="35" width="270" height="180"
+rx="9"
+fill="#080808"/>
+
+<rect x="90" y="50" width="240" height="150"
+rx="5"
+fill="#16120a"/>
+
+<circle cx="210" cy="125" r="35"
+fill="#f5b400"
+opacity=".12"/>
+
+<circle cx="210" cy="125" r="18"
+fill="#ffd76a"
+opacity=".25"/>
+
+<path d="M30 225h360l-35 35H65z"
+fill="url(#lap)"/>
+
+<path d="M155 232h110l10 14H145z"
+fill="#151515"/>
+
+</svg>
+`;
+}
+
+
+function watchSVG(){
+
+return `
+<svg viewBox="0 0 260 330"
+xmlns="http://www.w3.org/2000/svg">
+
+<rect x="88" y="0" width="84" height="95"
+rx="25" fill="#111"/>
+
+<rect x="88" y="235" width="84" height="95"
+rx="25" fill="#111"/>
+
+<rect x="40" y="55" width="180" height="220"
+rx="45" fill="#f5b400"/>
+
+<rect x="52" y="67" width="156" height="196"
+rx="35" fill="#080808"/>
+
+<circle cx="130" cy="165" r="55"
+fill="#f5b400" opacity=".14"/>
+
+<circle cx="130" cy="165" r="30"
+fill="#ffd76a" opacity=".22"/>
+
+</svg>
+`;
+}
+
+
+/* =====================================================
    PRODUCTS
-   ========================= */
+   ===================================================== */
 
-const products = [
+const products=[
 
-["iPhone","Apple","iPhone 11","64GB / 128GB","📱"],
-["iPhone","Apple","iPhone 12","64GB / 128GB / 256GB","📱"],
-["iPhone","Apple","iPhone 13","128GB / 256GB","📱"],
-["iPhone","Apple","iPhone 14","128GB / 256GB","📱"],
-["iPhone","Apple","iPhone 15","128GB / 256GB","📱"],
-["iPhone","Apple","iPhone 16","128GB / 256GB","📱"],
+["iPhone","Apple","iPhone 11","64GB / 128GB","phone"],
+["iPhone","Apple","iPhone 12","64GB / 128GB / 256GB","phone"],
+["iPhone","Apple","iPhone 13","128GB / 256GB","phone"],
+["iPhone","Apple","iPhone 14","128GB / 256GB","phone"],
+["iPhone","Apple","iPhone 15","128GB / 256GB","phone"],
+["iPhone","Apple","iPhone 16","128GB / 256GB","phone"],
 
-["Samsung","Samsung","Galaxy A17","5G smartphone","📱"],
-["Samsung","Samsung","Galaxy A26 5G","5G smartphone","📱"],
-["Samsung","Samsung","Galaxy A36 5G","5G smartphone","📱"],
-["Samsung","Samsung","Galaxy A56 5G","5G smartphone","📱"],
+["Samsung","Samsung","Galaxy A17","5G smartphone","phone"],
+["Samsung","Samsung","Galaxy A26 5G","5G smartphone","phone"],
+["Samsung","Samsung","Galaxy A36 5G","5G smartphone","phone"],
+["Samsung","Samsung","Galaxy A56 5G","5G smartphone","phone"],
 
-["Tecno","Tecno","Spark 40","4GB / 128GB or higher","📱"],
-["Tecno","Tecno","Spark 40 Pro","8GB / 128GB","📱"],
-["Tecno","Tecno","Spark 40 Pro+","8GB / 256GB","📱"],
-["Tecno","Tecno","Camon 40","Camera smartphone","📱"],
-["Tecno","Tecno","Camon 40 Pro","Premium camera smartphone","📱"],
+["Tecno","Tecno","Spark 40","4GB / 128GB or higher","phone"],
+["Tecno","Tecno","Spark 40 Pro","8GB / 128GB","phone"],
+["Tecno","Tecno","Spark 40 Pro+","8GB / 256GB","phone"],
+["Tecno","Tecno","Camon 40","Camera smartphone","phone"],
+["Tecno","Tecno","Camon 40 Pro","Premium camera smartphone","phone"],
 
-["Infinix","Infinix","Hot 60i","Budget smartphone","📱"],
-["Infinix","Infinix","Hot 60 Pro","Mid-range smartphone","📱"],
-["Infinix","Infinix","Hot 70","Hot-series smartphone","📱"],
-["Infinix","Infinix","Note 60 Pro","Premium Note smartphone","📱"],
+["Infinix","Infinix","Hot 60i","Budget smartphone","phone"],
+["Infinix","Infinix","Hot 60 Pro","Mid-range smartphone","phone"],
+["Infinix","Infinix","Hot 70","Hot-series smartphone","phone"],
+["Infinix","Infinix","Note 60 Pro","Premium Note smartphone","phone"],
 
-["HP","HP","HP Laptop","RAM / SSD options","💻"],
-["Dell","Dell","Dell Laptop","RAM / SSD options","💻"],
-["Lenovo","Lenovo","Lenovo Laptop","RAM / SSD options","💻"]
-
-];
-
-
-/* =========================
-   ACCESSORIES
-   ========================= */
-
-const accessories = [
-
-["Fast Charger","Fast charging adapter","🔌"],
-["Phone Case","Protective phone case","📱"],
-["Screen Protector","Screen protection","🛡️"],
-["Wireless Earbuds","Wireless audio","🎧"],
-["Power Bank","Portable charging","🔋"],
-["USB Cable","Charging and data cable","🔌"],
-["Smart Watch","Smart wearable","⌚"]
+["HP","HP","HP Laptop","RAM / SSD options","laptop"],
+["Dell","Dell","Dell Laptop","RAM / SSD options","laptop"],
+["Lenovo","Lenovo","Lenovo Laptop","RAM / SSD options","laptop"]
 
 ];
 
 
-/* =========================
+const accessories=[
+
+["Fast Charger","Fast charging adapter","charger"],
+["Phone Case","Protective phone case","phone"],
+["Screen Protector","Screen protection","phone"],
+["Wireless Earbuds","Wireless audio","earbuds"],
+["Power Bank","Portable charging","power"],
+["USB Cable","Charging and data cable","charger"],
+["Smart Watch","Smart wearable","watch"]
+
+];
+
+
+/* =====================================================
    CART
-   ========================= */
+   ===================================================== */
 
-let cart =
-JSON.parse(
-localStorage.getItem("sarefatiCart") || "[]"
+let cart=JSON.parse(
+localStorage.getItem("sarefatiCart")||"[]"
 );
 
 
@@ -812,8 +718,7 @@ JSON.stringify(cart)
 
 function addToCart(name,brand,spec){
 
-let item =
-cart.find(x=>x.name===name);
+let item=cart.find(x=>x.name===name);
 
 if(item){
 
@@ -822,9 +727,9 @@ item.qty++;
 }else{
 
 cart.push({
-name:name,
-brand:brand,
-spec:spec,
+name,
+brand,
+spec,
 qty:1
 });
 
@@ -839,60 +744,43 @@ openCart();
 
 function updateCart(){
 
-document.getElementById("cartCount").textContent =
-cart.reduce(
-(total,item)=>total+item.qty,
-0
-);
+document.getElementById("cartCount").textContent=
+cart.reduce((total,item)=>total+item.qty,0);
 
-const box =
-document.getElementById("cartItems");
+let box=document.getElementById("cartItems");
 
 if(!cart.length){
 
-box.innerHTML =
+box.innerHTML=
 "<p style='color:#aaa'>Your cart is empty.</p>";
 
 return;
 
 }
 
-
-box.innerHTML =
-cart.map((item,index)=>`
+box.innerHTML=cart.map((item,index)=>`
 
 <div class="cart-item">
 
-<strong>
-${item.brand} ${item.name}
-</strong>
+<strong>${item.brand} ${item.name}</strong>
 
 <br>
 
-<small>
-${item.spec}
-</small>
+<small>${item.spec}</small>
 
-<div style="color:#ffd166;margin-top:7px">
+<div style="color:#ffd76a;margin-top:7px">
 Price on request
 </div>
 
 <div class="qty">
 
-<button onclick="changeQty(${index},-1)">
-−
-</button>
+<button onclick="changeQty(${index},-1)">−</button>
 
-<span>
-${item.qty}
-</span>
+<span>${item.qty}</span>
 
-<button onclick="changeQty(${index},1)">
-+
-</button>
+<button onclick="changeQty(${index},1)">+</button>
 
-<button
-class="remove"
+<button class="remove"
 onclick="removeItem(${index})">
 Remove
 </button>
@@ -908,13 +796,10 @@ Remove
 
 function changeQty(index,amount){
 
-cart[index].qty += amount;
+cart[index].qty+=amount;
 
-if(cart[index].qty<=0){
-
+if(cart[index].qty<=0)
 cart.splice(index,1);
-
-}
 
 saveCart();
 updateCart();
@@ -944,26 +829,16 @@ updateCart();
 
 function openCart(){
 
-document
-.getElementById("cart")
-.classList.add("open");
-
-document
-.getElementById("overlay")
-.classList.add("show");
+document.getElementById("cart").classList.add("open");
+document.getElementById("overlay").classList.add("show");
 
 }
 
 
 function closeCart(){
 
-document
-.getElementById("cart")
-.classList.remove("open");
-
-document
-.getElementById("overlay")
-.classList.remove("show");
+document.getElementById("cart").classList.remove("open");
+document.getElementById("overlay").classList.remove("show");
 
 }
 
@@ -973,26 +848,23 @@ function checkout(){
 if(!cart.length){
 
 alert("Your cart is empty.");
-
 return;
 
 }
 
-let message =
+let message=
 "Hello Sarefati Gadgets!%0A%0A"+
 "I would like to order:%0A";
 
 cart.forEach(item=>{
 
-message +=
-"- "+item.brand+
-" "+item.name+
-" ("+item.spec+") x"+
-item.qty+"%0A";
+message+=
+"- "+item.brand+" "+item.name+
+" ("+item.spec+") x"+item.qty+"%0A";
 
 });
 
-message +=
+message+=
 "%0APlease confirm the current price and availability.";
 
 window.open(
@@ -1003,130 +875,129 @@ window.open(
 }
 
 
-/* =========================
-   IMAGE DISPLAY
-   ========================= */
+/* =====================================================
+   PRODUCT VISUAL
+   ===================================================== */
 
-function getImage(name,emoji){
+function visual(type){
 
-const url = images[name];
+if(type==="laptop")
+return laptopSVG();
 
-if(!url){
+return phoneSVG();
+
+}
+
+
+function accessoryVisual(type){
+
+if(type==="watch")
+return watchSVG();
+
+if(type==="earbuds"){
 
 return `
-<div class="fallback">
-${emoji}
+<div style="
+font-size:70px;
+filter:drop-shadow(0 0 20px #f5b400);
+">
+🎧
 </div>
 `;
 
 }
 
+if(type==="power"){
+
 return `
-
-<img
-src="${url}"
-alt="${name}"
-loading="lazy"
-onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
->
-
-<div
-class="fallback"
-style="display:none">
-${emoji}
+<div style="
+font-size:70px;
+filter:drop-shadow(0 0 20px #f5b400);
+">
+🔋
 </div>
-
 `;
 
 }
 
+if(type==="charger"){
 
-/* =========================
+return `
+<div style="
+font-size:70px;
+filter:drop-shadow(0 0 20px #f5b400);
+">
+🔌
+</div>
+`;
+
+}
+
+return phoneSVG();
+
+}
+
+
+/* =====================================================
    RENDER PRODUCTS
-   ========================= */
+   ===================================================== */
 
-function renderProducts(){
+function render(){
 
-const search =
-document
-.getElementById("search")
+let search=
+document.getElementById("search")
 .value
 .toLowerCase();
 
-const selectedBrand =
-document
-.getElementById("brand")
-.value;
+let brand=
+document.getElementById("brand").value;
 
+let list=products.filter(p=>{
 
-const filtered =
-products.filter(product=>{
-
-const searchable =
-product.join(" ").toLowerCase();
-
-return searchable.includes(search)
+return p.join(" ").toLowerCase().includes(search)
 &&
-(
-selectedBrand==="All"
-||
-product[0]===selectedBrand
-);
+(brand==="All"||p[0]===brand);
 
 });
 
 
-document.getElementById("products").innerHTML =
+document.getElementById("products").innerHTML=
 
-filtered.map(product=>`
+list.map(p=>`
 
 <article class="product">
 
-<div class="badge">
-AVAILABLE
-</div>
+<div class="badge">AVAILABLE</div>
 
 <div class="visual">
-
-${getImage(product[2],product[4])}
-
+${visual(p[4])}
 </div>
 
 <div class="info">
 
-<div class="brand">
-${product[1]}
-</div>
+<div class="brand">${p[1]}</div>
 
-<h3>
-${product[1]} ${product[2]}
-</h3>
+<h3>${p[1]} ${p[2]}</h3>
 
-<div class="spec">
-${product[3]}
-</div>
+<div class="spec">${p[3]}</div>
 
-<div class="price">
-Price on request
-</div>
+<div class="price">Price on request</div>
 
 <div class="actions">
 
-<button
-onclick="details(
-'${product[1]}',
-'${product[2]}',
-'${product[3]}'
+<button onclick="details(
+'${p[1]}',
+'${p[2]}',
+'${p[3]}'
 )">
 View Details
 </button>
 
-<button
-class="primary"
+<button class="primary"
 onclick="addToCart(
-'${product[2]}',
-'${product[1]}',
-'${product[3]}'
+'${p[2]}',
+'${p[1]}',
+'${p[3]}'
 )">
 🛒 Add
 </button>
@@ -1139,80 +1010,52 @@ onclick="addToCart(
 
 `).join("");
 
-
-if(!filtered.length){
-
-document.getElementById("products").innerHTML =
-
-`
-<div class="box">
-<strong>No products found</strong>
-<span>
-Try another search or choose another brand.
-</span>
-</div>
-`;
-
-}
-
 }
 
 
-/* =========================
+/* =====================================================
    ACCESSORIES
-   ========================= */
+   ===================================================== */
 
 function renderAccessories(){
 
-document.getElementById("accessoryGrid").innerHTML =
+document.getElementById("accessoryGrid").innerHTML=
 
-accessories.map(item=>`
+accessories.map(a=>`
 
 <article class="product">
 
+<div class="badge">AVAILABLE</div>
+
 <div class="visual">
-
-<div class="fallback">
-${item[2]}
-</div>
-
+${accessoryVisual(a[2])}
 </div>
 
 <div class="info">
 
-<div class="brand">
-Accessory
-</div>
+<div class="brand">Accessory</div>
 
-<h3>
-${item[0]}
-</h3>
+<h3>${a[0]}</h3>
 
-<div class="spec">
-${item[1]}
-</div>
+<div class="spec">${a[1]}</div>
 
-<div class="price">
-Price on request
-</div>
+<div class="price">Price on request</div>
 
 <div class="actions">
 
-<button
-onclick="details(
+<button onclick="details(
 'Accessory',
-'${item[0]}',
-'${item[1]}'
+'${a[0]}',
+'${a[1]}'
 )">
 View Details
 </button>
 
-<button
-class="primary"
+<button class="primary"
 onclick="addToCart(
-'${item[0]}',
+'${a[0]}',
 'Accessory',
-'${item[1]}'
+'${a[1]}'
 )">
 🛒 Add
 </button>
@@ -1228,43 +1071,29 @@ onclick="addToCart(
 }
 
 
-/* =========================
+/* =====================================================
    DETAILS
-   ========================= */
+   ===================================================== */
 
 function details(brand,name,spec){
 
 alert(
-
-brand+
-" "+
-name+
-"\n\n"+
-"Specification: "+
-spec+
-"\n\n"+
-"Price: Price on request"+
-"\n\n"+
-"Contact Sarefati Gadgets on WhatsApp to confirm current price and availability."
-
+brand+" "+name+
+"\n\nSpecification: "+spec+
+"\n\nPrice: Price on request"+
+"\n\nContact Sarefati Gadgets on WhatsApp to confirm current price and availability."
 );
 
 }
 
 
-/* =========================
-   START WEBSITE
-   ========================= */
+/* START */
 
-renderProducts();
-
+render();
 renderAccessories();
-
 updateCart();
 
 </script>
 
 </body>
-</html>
-```
-   
+   </html>
