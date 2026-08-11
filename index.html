@@ -11,15 +11,9 @@
 <style>
 *{box-sizing:border-box}
 :root{
---bg:#070605;
---panel:#110e09;
---panel2:#171209;
---amber:#ffb000;
---gold:#ffd166;
---text:#f7f0e3;
---muted:#a69c8d;
---line:#3b2a12;
---danger:#d85c4a
+--bg:#070605;--panel:#110e09;--amber:#ffb000;
+--gold:#ffd166;--text:#f7f0e3;--muted:#a69c8d;
+--line:#3b2a12
 }
 html{scroll-behavior:smooth}
 body{
@@ -33,12 +27,9 @@ radial-gradient(circle at 12% 8%,#ffb00018,transparent 25%),
 radial-gradient(circle at 90% 35%,#ff8f0010,transparent 30%)
 }
 .container{width:min(1150px,92%);margin:auto}
-
 header{
-position:sticky;top:0;z-index:80;
-background:#070605ee;
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--line)
+position:sticky;top:0;z-index:80;background:#070605ee;
+backdrop-filter:blur(12px);border-bottom:1px solid var(--line)
 }
 .nav{
 min-height:70px;display:flex;align-items:center;
@@ -49,15 +40,11 @@ color:var(--gold);font-weight:900;letter-spacing:2px;
 text-decoration:none;text-shadow:0 0 16px #ffb00066
 }
 nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-nav a{
-color:#ddd4c5;text-decoration:none;font-size:14px
-}
+nav a{color:#ddd4c5;text-decoration:none;font-size:14px}
 button,.button{
-border:1px solid var(--amber);
-background:transparent;color:var(--gold);
-border-radius:8px;padding:10px 14px;
-font-weight:800;cursor:pointer;
-transition:.2s
+border:1px solid var(--amber);background:transparent;
+color:var(--gold);border-radius:8px;padding:10px 14px;
+font-weight:800;cursor:pointer;transition:.2s
 }
 button:hover,.button:hover{
 background:var(--amber);color:#111;
@@ -66,14 +53,12 @@ box-shadow:0 0 24px #ffb00055
 .primary{background:var(--amber);color:#111}
 
 .hero{
-padding:85px 0 70px;
-border-bottom:1px solid var(--line);
-background:
-radial-gradient(circle at 80% 25%,#ffb00025,transparent 28%)
+padding:85px 0 70px;border-bottom:1px solid var(--line);
+background:radial-gradient(circle at 80% 25%,#ffb00025,transparent 28%)
 }
 .kicker{
-color:var(--gold);font-size:11px;
-letter-spacing:2px;text-transform:uppercase
+color:var(--gold);font-size:11px;letter-spacing:2px;
+text-transform:uppercase
 }
 .hero h1{
 font-size:clamp(42px,7vw,78px);
@@ -83,57 +68,45 @@ line-height:1.02;margin:18px 0
 max-width:690px;color:var(--muted);
 font-size:17px;line-height:1.7
 }
-.hero-actions{
-display:flex;gap:10px;flex-wrap:wrap;margin-top:25px
-}
-
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
 section{padding:60px 0}
 .section-title{font-size:31px;margin:0 0 8px}
-.section-subtitle{
-color:var(--muted);font-size:13px;margin-bottom:25px
-}
+.section-subtitle{color:var(--muted);font-size:13px;margin-bottom:25px}
 
-.controls{
-display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px
-}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
 .search{
-flex:1;min-width:220px;padding:14px;
-background:var(--panel);
-border:1px solid var(--line);
-border-radius:8px;color:white;outline:none
+flex:1;min-width:220px;padding:14px;background:var(--panel);
+border:1px solid var(--line);border-radius:8px;color:white;outline:none
 }
 select{
 padding:14px;background:var(--panel);
-border:1px solid var(--line);
-border-radius:8px;color:white
+border:1px solid var(--line);border-radius:8px;color:white
 }
 
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:17px
 }
-
 .product{
-position:relative;
-background:linear-gradient(150deg,#171209,#0c0906);
-border:1px solid var(--line);
-border-radius:13px;
-overflow:hidden;
-transition:.2s
+position:relative;background:linear-gradient(150deg,#171209,#0c0906);
+border:1px solid var(--line);border-radius:13px;
+overflow:hidden;transition:.2s
 }
 .product:hover{
-transform:translateY(-4px);
-border-color:#ffb00088;
+transform:translateY(-4px);border-color:#ffb00088;
 box-shadow:0 0 28px #ffb0001f
 }
 
 .product-visual{
-height:205px;
-display:flex;align-items:center;justify-content:center;
-background:
+height:205px;display:flex;align-items:center;
+justify-content:center;background:
 radial-gradient(circle,#ffb0001b,transparent 48%),
-linear-gradient(145deg,#1d1509,#090806)
+linear-gradient(145deg,#1d1509,#090806);
+overflow:hidden
+}
+.product-visual img{
+width:100%;height:100%;object-fit:contain;
+padding:18px;filter:drop-shadow(0 0 13px #ffb00040)
 }
 .product-visual svg{
 width:150px;height:175px;
@@ -141,110 +114,66 @@ filter:drop-shadow(0 0 13px #ffb00040)
 }
 
 .badge{
-position:absolute;top:12px;left:12px;
-background:var(--amber);color:#111;
-padding:5px 8px;border-radius:5px;
+position:absolute;top:12px;left:12px;background:var(--amber);
+color:#111;padding:5px 8px;border-radius:5px;
 font-size:9px;font-weight:900;z-index:2
 }
-
 .heart{
-position:absolute;right:12px;top:10px;
-width:36px;height:36px;padding:0;
-border-radius:50%;
-background:#0b0907dd;
-border-color:var(--line);
-z-index:3
+position:absolute;right:12px;top:10px;width:36px;height:36px;
+padding:0;border-radius:50%;background:#0b0907dd;
+border-color:var(--line);z-index:3
 }
 .heart.active{
-color:#ff7968;border-color:#ff7968;
-background:#2a110d
+color:#ff7968;border-color:#ff7968;background:#2a110d
 }
-
 .info{padding:16px}
 .brand{
-color:var(--gold);font-size:10px;
-letter-spacing:2px;text-transform:uppercase
+color:var(--gold);font-size:10px;letter-spacing:2px;
+text-transform:uppercase
 }
 h3{margin:7px 0}
-.spec{
-color:var(--muted);
-font-size:12px;line-height:1.5
-}
-.price{
-color:var(--gold);
-font-weight:900;
-margin:12px 0
-}
-.stock{
-font-size:11px;
-color:#8dbb7d;
-margin-bottom:12px
-}
+.spec{color:var(--muted);font-size:12px;line-height:1.5}
+.price{color:var(--gold);font-weight:900;margin:12px 0}
+.stock{font-size:11px;color:#8dbb7d;margin-bottom:12px}
 .stock.out{color:#d87869}
-.actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px
-}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .actions button{width:100%;padding:9px 6px}
 
-.note{
-color:#77746c;font-size:11px;
-line-height:1.6;margin-top:20px
-}
-
-/* features */
 .featured{
-background:#0e0b07;
-border-top:1px solid var(--line);
+background:#0e0b07;border-top:1px solid var(--line);
 border-bottom:1px solid var(--line)
 }
-.feature-box{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px
-}
+.feature-box{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .feature{
-padding:22px;
-border:1px solid var(--line);
-border-radius:12px;
-background:#0e0b07
+padding:22px;border:1px solid var(--line);
+border-radius:12px;background:#0e0b07
 }
-.feature strong{
-display:block;color:var(--gold);
-margin-bottom:8px
-}
+.feature strong{display:block;color:var(--gold);margin-bottom:8px}
 .feature span{color:var(--muted);font-size:13px}
 
-/* details modal */
 .modal{
-display:none;position:fixed;inset:0;
-background:#000c;z-index:120;
-align-items:center;justify-content:center;
-padding:18px
+display:none;position:fixed;inset:0;background:#000c;z-index:120;
+align-items:center;justify-content:center;padding:18px
 }
 .modal.show{display:flex}
 .modal-card{
-width:min(700px,100%);
-max-height:90vh;overflow:auto;
-background:#100d08;
-border:1px solid var(--line);
-border-radius:15px;
-box-shadow:0 0 50px #000;
-position:relative
+width:min(700px,100%);max-height:90vh;overflow:auto;
+background:#100d08;border:1px solid var(--line);
+border-radius:15px;box-shadow:0 0 50px #000;position:relative
 }
 .modal-close{
-position:absolute;right:12px;top:12px;
-border-radius:50%;width:38px;height:38px;
-padding:0;z-index:5
+position:absolute;right:12px;top:12px;border-radius:50%;
+width:38px;height:38px;padding:0;z-index:5
 }
-.detail-layout{
-display:grid;grid-template-columns:1fr 1fr
-}
+.detail-layout{display:grid;grid-template-columns:1fr 1fr}
 .detail-visual{
-min-height:330px;display:flex;
-align-items:center;justify-content:center;
-background:radial-gradient(circle,#ffb00022,transparent 55%)
+min-height:330px;display:flex;align-items:center;
+justify-content:center;background:radial-gradient(circle,#ffb00022,transparent 55%);
+overflow:hidden
+}
+.detail-visual img{
+width:100%;height:330px;object-fit:contain;padding:20px;
+filter:drop-shadow(0 0 20px #ffb00050)
 }
 .detail-visual svg{
 width:240px;height:280px;
@@ -252,72 +181,37 @@ filter:drop-shadow(0 0 20px #ffb00050)
 }
 .detail-info{padding:35px 25px}
 .detail-info h2{font-size:32px;margin:8px 0}
-.detail-price{
-font-size:23px;color:var(--gold);
-font-weight:900;margin:18px 0
-}
-.detail-list{
-list-style:none;padding:0;color:var(--muted);
-line-height:2;font-size:13px
-}
+.detail-price{font-size:23px;color:var(--gold);font-weight:900;margin:18px 0}
+.detail-list{list-style:none;padding:0;color:var(--muted);line-height:2;font-size:13px}
 .detail-list li{border-bottom:1px solid #2b210f}
-.detail-actions{
-display:grid;grid-template-columns:1fr 1fr;
-gap:8px;margin-top:20px
-}
+.detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
 
-/* account */
 .account-area{display:none}
 .account-area.show{display:block}
 .account-box{
-padding:25px;
-max-width:500px;
-margin:auto;
+padding:25px;max-width:500px;margin:auto;
 background:linear-gradient(150deg,#171209,#0c0906);
-border:1px solid var(--line);
-border-radius:13px
+border:1px solid var(--line);border-radius:13px
 }
 .account-box input{
-width:100%;padding:13px;margin:7px 0 12px;
-background:#0b0907;
-border:1px solid var(--line);
-border-radius:7px;color:white;
-outline:none
+width:100%;padding:13px;margin:7px 0 12px;background:#0b0907;
+border:1px solid var(--line);border-radius:7px;color:white;outline:none
 }
-.account-box button{
-width:100%;margin-top:7px
-}
-.account-msg{
-font-size:13px;color:var(--gold);
-margin-top:15px;line-height:1.5
-}
+.account-box button{width:100%;margin-top:7px}
+.account-msg{font-size:13px;color:var(--gold);margin-top:15px;line-height:1.5}
 .user-info{color:var(--muted);font-size:13px}
-.account-tabs{
-display:grid;grid-template-columns:1fr 1fr;
-gap:7px;margin-bottom:15px
-}
-.account-tabs button.active{
-background:var(--amber);color:#111
-}
+.account-tabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:15px}
+.account-tabs button.active{background:var(--amber);color:#111}
 
-/* wishlist */
 .wishlist-empty{
-padding:25px;
-border:1px dashed var(--line);
-border-radius:10px;
-color:var(--muted)
+padding:25px;border:1px dashed var(--line);
+border-radius:10px;color:var(--muted)
 }
 
-/* cart */
 .cart{
-position:fixed;top:0;right:-430px;
-width:min(430px,100%);
-height:100vh;
-background:#100d08;
-border-left:1px solid var(--line);
-z-index:100;
-transition:.3s;
-display:flex;flex-direction:column;
+position:fixed;top:0;right:-430px;width:min(430px,100%);
+height:100vh;background:#100d08;border-left:1px solid var(--line);
+z-index:100;transition:.3s;display:flex;flex-direction:column;
 box-shadow:-12px 0 40px #0008
 }
 .cart.open{right:0}
@@ -327,109 +221,49 @@ display:flex;justify-content:space-between
 }
 .carthead h2{margin:0;color:var(--gold)}
 .items{flex:1;overflow:auto;padding:15px}
-.item{
-padding:14px 0;border-bottom:1px solid var(--line)
-}
+.item{padding:14px 0;border-bottom:1px solid var(--line)}
 .item small{color:var(--muted)}
-.qty{
-display:flex;align-items:center;
-gap:10px;margin-top:10px
-}
+.qty{display:flex;align-items:center;gap:10px;margin-top:10px}
 .qty button{padding:4px 10px}
-.remove{
-margin-left:auto;border:0;
-background:transparent;color:#c97869
-}
-.cartfoot{
-padding:20px;border-top:1px solid var(--line)
-}
-.total{
-display:flex;justify-content:space-between;
-font-weight:900;font-size:18px;
-margin-bottom:15px
-}
-.checkout{
-width:100%;background:var(--amber);color:#111
-}
-.clear{
-width:100%;margin-top:8px;
-border-color:var(--line);color:var(--muted)
-}
-.overlay{
-display:none;position:fixed;inset:0;
-background:#000b;z-index:90
-}
+.remove{margin-left:auto;border:0;background:transparent;color:#c97869}
+.cartfoot{padding:20px;border-top:1px solid var(--line)}
+.total{display:flex;justify-content:space-between;font-weight:900;font-size:18px;margin-bottom:15px}
+.checkout{width:100%;background:var(--amber);color:#111}
+.clear{width:100%;margin-top:8px;border-color:var(--line);color:var(--muted)}
+.overlay{display:none;position:fixed;inset:0;background:#000b;z-index:90}
 .overlay.show{display:block}
 
-/* about/contact */
-.about{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:35px
-}
-.about p{
-color:var(--muted);line-height:1.8
-}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:35px}
+.about p{color:var(--muted);line-height:1.8}
 .box{
-padding:20px;
-background:var(--panel);
-border:1px solid var(--line);
-border-radius:10px;
-margin-bottom:12px
+padding:20px;background:var(--panel);
+border:1px solid var(--line);border-radius:10px;margin-bottom:12px
 }
 .box strong{
-display:block;color:var(--gold);
-font-size:11px;
-letter-spacing:1px;
-text-transform:uppercase;
-margin-bottom:7px
+display:block;color:var(--gold);font-size:11px;
+letter-spacing:1px;text-transform:uppercase;margin-bottom:7px
 }
-.contact{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:14px
-}
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
 .contact .box{margin:0}
-
-footer{
-padding:30px 0;
-border-top:1px solid var(--line);
-color:#77746c;font-size:12px
-}
-
+footer{padding:30px 0;border-top:1px solid var(--line);color:#77746c;font-size:12px}
 .wa{
-position:fixed;right:18px;bottom:18px;
-background:#25d366;color:white;
-width:55px;height:55px;
-border-radius:50%;
-display:flex;align-items:center;
-justify-content:center;
-box-shadow:0 0 24px #25d36666;
+position:fixed;right:18px;bottom:18px;background:#25d366;color:white;
+width:55px;height:55px;border-radius:50%;display:flex;
+align-items:center;justify-content:center;box-shadow:0 0 24px #25d36666;
 z-index:80;text-decoration:none;font-size:22px
 }
+.note{color:#77746c;font-size:11px;line-height:1.6;margin-top:20px}
 
 @media(max-width:700px){
-nav a{display:none}
-.hero{padding:60px 0}
-section{padding:45px 0}
-.grid{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:10px
-}
-.product-visual{height:165px}
-.info{padding:12px}
-.actions{grid-template-columns:1fr}
-.feature-box{grid-template-columns:1fr}
-.about{grid-template-columns:1fr}
-.detail-layout{grid-template-columns:1fr}
-.detail-visual{min-height:250px}
-.detail-info{padding:25px 18px}
+nav a{display:none}.hero{padding:60px 0}section{padding:45px 0}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.product-visual{height:165px}.info{padding:12px}
+.actions{grid-template-columns:1fr}.feature-box{grid-template-columns:1fr}
+.about{grid-template-columns:1fr}.detail-layout{grid-template-columns:1fr}
+.detail-visual{min-height:250px}.detail-info{padding:25px 18px}
 .detail-info h2{font-size:25px}
 }
-
-@media(max-width:420px){
-.grid{grid-template-columns:1fr}
-}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 
@@ -437,166 +271,77 @@ gap:10px
 
 <header>
 <div class="container nav">
-
 <a class="logo" href="#">SAREFATI GADGETS</a>
-
 <nav>
 <a href="#shop">Shop</a>
 <a href="#accessories">Accessories</a>
 <a href="#wishlist">Wishlist</a>
 <a href="#account">Account</a>
-
-<button onclick="openCart()">
-🛒 Cart <span id="count">0</span>
-</button>
+<button onclick="openCart()">🛒 Cart <span id="count">0</span></button>
 </nav>
-
 </div>
 </header>
 
-
 <section class="hero">
 <div class="container">
-
 <div class="kicker">Makurdi • Nigeria</div>
-
 <h1>Premium gadgets.<br>Fair prices.</h1>
-
-<p>
-Phones, laptops, smart devices and accessories —
-browse the Sarefati Gadgets catalogue and order directly.
-</p>
-
+<p>Phones, laptops, smart devices and accessories — browse the Sarefati Gadgets catalogue and order directly.</p>
 <div class="hero-actions">
 <a class="button primary" href="#shop">Shop Now</a>
-
-<a class="button" target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">
-WhatsApp Us
-</a>
+<a class="button" target="_blank" href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">WhatsApp Us</a>
 </div>
-
 </div>
 </section>
-
 
 <section class="featured">
 <div class="container">
-
 <div class="feature-box">
-
-<div class="feature">
-<strong>📱 Phones</strong>
-<span>iPhone, Samsung, Tecno and Infinix.</span>
+<div class="feature"><strong>📱 Phones</strong><span>iPhone, Samsung, Tecno and Infinix.</span></div>
+<div class="feature"><strong>💻 Laptops</strong><span>HP, Dell and Lenovo options.</span></div>
+<div class="feature"><strong>🎧 Accessories</strong><span>Chargers, cases, earbuds and more.</span></div>
 </div>
-
-<div class="feature">
-<strong>💻 Laptops</strong>
-<span>HP, Dell and Lenovo options.</span>
-</div>
-
-<div class="feature">
-<strong>🎧 Accessories</strong>
-<span>Chargers, cases, earbuds and more.</span>
-</div>
-
-</div>
-
 </div>
 </section>
-
 
 <section id="account" class="account-area">
 <div class="container">
-
 <div class="account-box">
 
 <div id="loggedOut">
-
 <div class="kicker">Customer Account</div>
-
 <div class="account-tabs">
-<button id="loginTab"
-class="active"
-onclick="setAuthMode('login')">
-Log In
-</button>
-
-<button id="signupTab"
-onclick="setAuthMode('signup')">
-Sign Up
-</button>
+<button id="loginTab" class="active" onclick="setAuthMode('login')">Log In</button>
+<button id="signupTab" onclick="setAuthMode('signup')">Sign Up</button>
 </div>
-
 <h2 id="authTitle">Welcome back</h2>
-
-<input id="email"
-type="email"
-placeholder="Email address">
-
-<input id="password"
-type="password"
-placeholder="Password">
-
-<button class="primary"
-onclick="submitAuth()"
-id="authButton">
-Log In
-</button>
-
-<button onclick="resetPassword()">
-Forgot Password?
-</button>
-
+<input id="email" type="email" placeholder="Email address">
+<input id="password" type="password" placeholder="Password">
+<button class="primary" onclick="submitAuth()" id="authButton">Log In</button>
+<button onclick="resetPassword()">Forgot Password?</button>
 <div class="account-msg" id="authMsg"></div>
-
 </div>
-
 
 <div id="loggedIn" style="display:none">
-
 <div class="kicker">Customer Account</div>
-
 <h2>Welcome back 👋</h2>
-
-<p class="user-info">
-Logged in as:
-<strong id="userEmail"></strong>
-</p>
-
-<p class="user-info">
-Your wishlist and shopping session are available on this device.
-</p>
-
+<p class="user-info">Logged in as: <strong id="userEmail"></strong></p>
+<p class="user-info">Your wishlist and shopping session are available on this device.</p>
 <button onclick="signOut()">Log Out</button>
-
 </div>
 
 </div>
 </div>
 </section>
 
-
 <section id="shop">
 <div class="container">
-
 <h2 class="section-title">Shop Gadgets</h2>
-
-<p class="section-subtitle">
-Search for a model or choose a brand.
-</p>
+<p class="section-subtitle">Search for a model or choose a brand.</p>
 
 <div class="controls">
-
-<input
-id="search"
-class="search"
-placeholder="Search iPhone 13, Galaxy A17, Spark 40..."
-oninput="renderProducts()">
-
-<select id="brand"
-onchange="renderProducts()">
-
+<input id="search" class="search" placeholder="Search iPhone 13, Galaxy A17, Spark 40..." oninput="renderProducts()">
+<select id="brand" onchange="renderProducts()">
 <option value="All">All Brands</option>
 <option value="iPhone">🍎 Apple / iPhone</option>
 <option value="Samsung">📱 Samsung</option>
@@ -605,406 +350,175 @@ onchange="renderProducts()">
 <option value="HP">💻 HP</option>
 <option value="Dell">💻 Dell</option>
 <option value="Lenovo">💻 Lenovo</option>
-
 </select>
-
 </div>
 
 <div id="products" class="grid"></div>
-
-<p class="note">
-Prices are currently shown as "Price on request".
-Contact Sarefati Gadgets to confirm current price, colour,
-storage and availability.
-</p>
-
+<p class="note">Prices are currently shown as "Price on request". Contact Sarefati Gadgets to confirm current price, colour, storage and availability.</p>
 </div>
 </section>
-
 
 <section id="accessories">
 <div class="container">
-
 <h2 class="section-title">Accessories</h2>
-
-<p class="section-subtitle">
-Useful extras for your phone, laptop and everyday gadgets.
-</p>
-
+<p class="section-subtitle">Useful extras for your phone, laptop and everyday gadgets.</p>
 <div id="accessoryGrid" class="grid"></div>
-
 </div>
 </section>
-
 
 <section id="wishlist">
 <div class="container">
-
 <h2 class="section-title">❤️ Wishlist</h2>
-
-<p class="section-subtitle">
-Save products you're interested in.
-</p>
-
+<p class="section-subtitle">Save products you're interested in.</p>
 <div id="wishlistGrid" class="grid"></div>
-
 </div>
 </section>
-
 
 <section id="about">
 <div class="container about">
-
 <div>
-
 <div class="kicker">About Sarefati</div>
-
-<h2 class="section-title">
-Straightforward gadget shopping.
-</h2>
-
-<p>
-Sarefati Gadgets is a gadget catalogue designed to make it
-easy to browse phones, laptops and accessories and contact
-the business directly for current prices and availability.
-</p>
-
+<h2 class="section-title">Straightforward gadget shopping.</h2>
+<p>Sarefati Gadgets is a gadget catalogue designed to make it easy to browse phones, laptops and accessories and contact the business directly for current prices and availability.</p>
 </div>
-
 <div>
-
-<div class="box">
-<strong>Location</strong>
-Behind Customary Court,<br>
-Saba Road, Makurdi.
+<div class="box"><strong>Location</strong>Behind Customary Court,<br>Saba Road, Makurdi.</div>
+<div class="box"><strong>Customer Service</strong>Contact us for current stock and prices.</div>
 </div>
-
-<div class="box">
-<strong>Customer Service</strong>
-Contact us for current stock and prices.
-</div>
-
-</div>
-
 </div>
 </section>
-
 
 <section id="contact">
 <div class="container">
-
-<h2 class="section-title">Contact Sarefati Gadgets</h2>
-
-<br>
-
+<h2 class="section-title">Contact Sarefati Gadgets</h2><br>
 <div class="contact">
-
-<div class="box">
-<strong>WhatsApp / Phone</strong>
-09169454032<br>
-07070195576
+<div class="box"><strong>WhatsApp / Phone</strong>09169454032<br>07070195576</div>
+<div class="box"><strong>Email</strong><a href="mailto:stephenikpilakaa@gmail.com">stephenikpilakaa@gmail.com</a></div>
+<div class="box"><strong>TikTok</strong>@tertese03</div>
+<div class="box"><strong>Address</strong>Behind Customary Court,<br>Saba Road, Makurdi.</div>
 </div>
-
-<div class="box">
-<strong>Email</strong>
-<a href="mailto:stephenikpilakaa@gmail.com">
-stephenikpilakaa@gmail.com
-</a>
-</div>
-
-<div class="box">
-<strong>TikTok</strong>
-@tertese03
-</div>
-
-<div class="box">
-<strong>Address</strong>
-Behind Customary Court,<br>
-Saba Road, Makurdi.
-</div>
-
-</div>
-
 </div>
 </section>
 
+<footer><div class="container">© 2026 Sarefati Gadgets. All rights reserved.</div></footer>
 
-<footer>
-<div class="container">
-© 2026 Sarefati Gadgets. All rights reserved.
-</div>
-</footer>
+<a class="wa" target="_blank" href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">💬</a>
 
-
-<a class="wa"
-target="_blank"
-href="https://wa.me/2349169454032?text=Hello%20Sarefati%20Gadgets">
-💬
-</a>
-
-
-<div id="overlay"
-class="overlay"
-onclick="closeCart()"></div>
-
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
 
 <aside id="cart" class="cart">
-
-<div class="carthead">
-<h2>Your Cart</h2>
-<button onclick="closeCart()">×</button>
-</div>
-
+<div class="carthead"><h2>Your Cart</h2><button onclick="closeCart()">×</button></div>
 <div id="cartItems" class="items"></div>
-
 <div class="cartfoot">
-
-<div class="total">
-<span>Total</span>
-<span>Price to confirm</span>
+<div class="total"><span>Total</span><span>Price to confirm</span></div>
+<button class="checkout" onclick="checkout()">💬 Order on WhatsApp</button>
+<button class="clear" onclick="clearCart()">Clear Cart</button>
 </div>
-
-<button class="checkout"
-onclick="checkout()">
-💬 Order on WhatsApp
-</button>
-
-<button class="clear"
-onclick="clearCart()">
-Clear Cart
-</button>
-
-</div>
-
 </aside>
 
-
-<!-- PRODUCT DETAILS MODAL -->
-
 <div id="detailModal" class="modal">
-
 <div class="modal-card">
-
-<button class="modal-close"
-onclick="closeDetails()">×</button>
-
+<button class="modal-close" onclick="closeDetails()">×</button>
 <div class="detail-layout">
-
-<div id="detailVisual"
-class="detail-visual"></div>
-
+<div id="detailVisual" class="detail-visual"></div>
 <div class="detail-info">
-
 <div id="detailBrand" class="brand"></div>
-
 <h2 id="detailName"></h2>
-
-<div id="detailPrice"
-class="detail-price">
-Price on request
-</div>
-
-<div id="detailStock"
-class="stock">
-Checking availability...
-</div>
-
-<ul id="detailList"
-class="detail-list"></ul>
-
+<div id="detailPrice" class="detail-price">Price on request</div>
+<div id="detailStock" class="stock">Checking availability...</div>
+<ul id="detailList" class="detail-list"></ul>
 <div class="detail-actions">
-
-<button class="primary"
-onclick="addCurrentProduct()">
-🛒 Add to Cart
-</button>
-
-<button
-onclick="wishlistCurrent()">
-❤️ Wishlist
-</button>
-
+<button class="primary" onclick="addCurrentProduct()">🛒 Add to Cart</button>
+<button onclick="wishlistCurrent()">❤️ Wishlist</button>
 </div>
-
-<button
-style="width:100%;margin-top:8px"
-onclick="orderCurrent()">
-💬 Ask on WhatsApp
-</button>
-
-</div>
-
-</div>
-
+<button style="width:100%;margin-top:8px" onclick="orderCurrent()">💬 Ask on WhatsApp</button>
 </div>
 </div>
-
+</div>
+</div>
 
 <script>
 
-/* ================================
-   SUPABASE
-================================ */
+/* SUPABASE */
 
-const SUPABASE_URL =
-"https://lxtuaupqvcekgnlnlopq.supabase.co";
+const SUPABASE_URL="https://lxtuaupqvcekgnlnlopq.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_j7rjyILRIfU2kyZ15GCr2A_dEwWlqjF";
 
-const SUPABASE_PUBLISHABLE_KEY =
-"sb_publishable_j7rjyILRIfU2kyZ15GCr2A_dEwWlqjF";
-
-const supabaseClient =
-window.supabase.createClient(
+const supabaseClient=window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_PUBLISHABLE_KEY
 );
 
 
-/* ================================
-   PRODUCT SVG VISUALS
-================================ */
+/* IMAGE URLS
 
-const phoneSVG=`
-<svg viewBox="0 0 160 200">
-<rect x="38" y="8" width="84" height="184" rx="18"
-fill="#080808" stroke="#ffb000" stroke-width="3"/>
-<rect x="46" y="27" width="68" height="145" rx="10"
-fill="#1b1408"/>
-<circle cx="80" cy="18" r="3" fill="#ffb000"/>
-</svg>`;
-
-const laptopSVG=`
-<svg viewBox="0 0 200 160">
-<rect x="28" y="12" width="144" height="100" rx="8"
-fill="#080808" stroke="#ffb000" stroke-width="3"/>
-<rect x="38" y="22" width="124" height="80" rx="4"
-fill="#1a1308"/>
-<path d="M18 119h164l-14 25H32z"
-fill="#16110a" stroke="#ffb000" stroke-width="2"/>
-</svg>`;
-
-const tabletSVG=`
-<svg viewBox="0 0 170 200">
-<rect x="25" y="8" width="120" height="184" rx="15"
-fill="#080808" stroke="#ffb000" stroke-width="3"/>
-<rect x="35" y="28" width="100" height="140" rx="7"
-fill="#1a1308"/>
-</svg>`;
-
-const watchSVG=`
-<svg viewBox="0 0 180 200">
-<rect x="47" y="48" width="86" height="105" rx="25"
-fill="#080808" stroke="#ffb000" stroke-width="3"/>
-<rect x="62" y="63" width="56" height="70" rx="13"
-fill="#1d1508"/>
-<circle cx="90" cy="98" r="17"
-fill="none" stroke="#ffb000" stroke-width="3"/>
-</svg>`;
-
-const earbudsSVG=`
-<svg viewBox="0 0 200 150">
-<rect x="62" y="48" width="76" height="70" rx="22"
-fill="#17120a" stroke="#ffb000" stroke-width="3"/>
-<circle cx="82" cy="78" r="13"
-fill="#090806" stroke="#ffb000" stroke-width="2"/>
-<circle cx="118" cy="78" r="13"
-fill="#090806" stroke="#ffb000" stroke-width="2"/>
-</svg>`;
-
-const chargerSVG=`
-<svg viewBox="0 0 180 180">
-<rect x="48" y="45" width="84" height="100" rx="12"
-fill="#16110a" stroke="#ffb000" stroke-width="3"/>
-<rect x="62" y="25" width="14" height="30" rx="3"
-fill="#ffb000"/>
-<rect x="104" y="25" width="14" height="30" rx="3"
-fill="#ffb000"/>
-</svg>`;
-
-const powerSVG=`
-<svg viewBox="0 0 160 190">
-<rect x="38" y="18" width="84" height="154" rx="18"
-fill="#12100b" stroke="#ffb000" stroke-width="3"/>
-<rect x="56" y="42" width="48" height="35"
-rx="7" fill="#231806"/>
-</svg>`;
-
-
-/* ================================
-   PRODUCTS
-================================ */
-
-/*
-FORMAT:
-brand, company, name, specifications, badge, visual, category, stock
+These use remote image URLs.
+If an image cannot be loaded, the card automatically
+shows an amber gadget illustration instead.
 */
 
+const IMAGE_BASES={
+"iPhone 11":[
+"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-11-1.jpg"
+],
+"iPhone 12":[
+"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-12-1.jpg"
+],
+"iPhone 13":[
+"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-13-1.jpg"
+],
+"iPhone 14":[
+"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-1.jpg"
+],
+"iPhone 15":[
+"https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-1.jpg"
+],
+"Samsung Galaxy A17":[
+"https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a17-5g.jpg"
+]
+};
+
+
+/* AMBER FALLBACKS */
+
+const phoneSVG=`<svg viewBox="0 0 160 200"><rect x="38" y="8" width="84" height="184" rx="18" fill="#080808" stroke="#ffb000" stroke-width="3"/><rect x="46" y="27" width="68" height="145" rx="10" fill="#1b1408"/><circle cx="80" cy="18" r="3" fill="#ffb000"/></svg>`;
+
+const laptopSVG=`<svg viewBox="0 0 200 160"><rect x="28" y="12" width="144" height="100" rx="8" fill="#080808" stroke="#ffb000" stroke-width="3"/><rect x="38" y="22" width="124" height="80" rx="4" fill="#1a1308"/><path d="M18 119h164l-14 25H32z" fill="#16110a" stroke="#ffb000" stroke-width="2"/></svg>`;
+
+const tabletSVG=`<svg viewBox="0 0 170 200"><rect x="25" y="8" width="120" height="184" rx="15" fill="#080808" stroke="#ffb000" stroke-width="3"/><rect x="35" y="28" width="100" height="140" rx="7" fill="#1a1308"/></svg>`;
+
+const watchSVG=`<svg viewBox="0 0 180 200"><rect x="47" y="48" width="86" height="105" rx="25" fill="#080808" stroke="#ffb000" stroke-width="3"/><rect x="62" y="63" width="56" height="70" rx="13" fill="#1d1508"/><circle cx="90" cy="98" r="17" fill="none" stroke="#ffb000" stroke-width="3"/></svg>`;
+
+const earbudsSVG=`<svg viewBox="0 0 200 150"><rect x="62" y="48" width="76" height="70" rx="22" fill="#17120a" stroke="#ffb000" stroke-width="3"/><circle cx="82" cy="78" r="13" fill="#090806" stroke="#ffb000" stroke-width="2"/><circle cx="118" cy="78" r="13" fill="#090806" stroke="#ffb000" stroke-width="2"/></svg>`;
+
+const chargerSVG=`<svg viewBox="0 0 180 180"><rect x="48" y="45" width="84" height="100" rx="12" fill="#16110a" stroke="#ffb000" stroke-width="3"/><rect x="62" y="25" width="14" height="30" rx="3" fill="#ffb000"/><rect x="104" y="25" width="14" height="30" rx="3" fill="#ffb000"/></svg>`;
+
+const powerSVG=`<svg viewBox="0 0 160 190"><rect x="38" y="18" width="84" height="154" rx="18" fill="#12100b" stroke="#ffb000" stroke-width="3"/><rect x="56" y="42" width="48" height="35" rx="7" fill="#231806"/></svg>`;
+
+
+/* PRODUCTS */
+
 const products=[
-
-["iPhone","Apple","iPhone 11",
-"64GB / 128GB","POPULAR",phoneSVG,"Phone",true],
-
-["iPhone","Apple","iPhone 12",
-"64GB / 128GB / 256GB","POPULAR",phoneSVG,"Phone",true],
-
-["iPhone","Apple","iPhone 13",
-"128GB / 256GB","BEST SELLER",phoneSVG,"Phone",true],
-
-["iPhone","Apple","iPhone 14",
-"128GB / 256GB","POPULAR",phoneSVG,"Phone",true],
-
-["iPhone","Apple","iPhone 15",
-"128GB / 256GB","HOT DEAL",phoneSVG,"Phone",true],
-
-["iPhone","Apple","iPhone 16",
-"128GB / 256GB","NEW",phoneSVG,"Phone",true],
-
-["Samsung","Samsung","Galaxy A17",
-"Budget smartphone","POPULAR",phoneSVG,"Phone",true],
-
-["Samsung","Samsung","Galaxy A26 5G",
-"5G smartphone","HOT DEAL",phoneSVG,"Phone",true],
-
-["Samsung","Samsung","Galaxy A36 5G",
-"Mid-range 5G","POPULAR",phoneSVG,"Phone",true],
-
-["Samsung","Samsung","Galaxy A56 5G",
-"Premium A-series","POPULAR",phoneSVG,"Phone",true],
-
-["Tecno","Tecno","Spark 40",
-"4GB / 128GB or higher","BEST SELLER",phoneSVG,"Phone",true],
-
-["Tecno","Tecno","Spark 40 Pro",
-"8GB / 128GB","HOT DEAL",phoneSVG,"Phone",true],
-
-["Tecno","Tecno","Spark 40 Pro+",
-"8GB / 256GB","PREMIUM",phoneSVG,"Phone",true],
-
-["Tecno","Tecno","Camon 40",
-"Camera smartphone","POPULAR",phoneSVG,"Phone",true],
-
-["Tecno","Tecno","Camon 40 Pro",
-"Premium camera smartphone","HOT DEAL",phoneSVG,"Phone",true],
-
-["Infinix","Infinix","Hot 60i",
-"Budget smartphone","BEST SELLER",phoneSVG,"Phone",true],
-
-["Infinix","Infinix","Hot 60 Pro",
-"Mid-range smartphone","POPULAR",phoneSVG,"Phone",true],
-
-["Infinix","Infinix","Hot 70",
-"Hot-series smartphone","NEW",phoneSVG,"Phone",true],
-
-["Infinix","Infinix","Note 60 Pro",
-"Premium Note smartphone","PREMIUM",phoneSVG,"Phone",true],
-
-["HP","HP","HP Laptop",
-"RAM / SSD options","POPULAR",laptopSVG,"Laptop",true],
-
-["Dell","Dell","Dell Laptop",
-"RAM / SSD options","POPULAR",laptopSVG,"Laptop",true],
-
-["Lenovo","Lenovo","Lenovo Laptop",
-"RAM / SSD options","POPULAR",laptopSVG,"Laptop",true],
-
-["Tablet","Android","Android Tablet",
-"Multiple sizes/storage","POPULAR",tabletSVG,"T
+["iPhone","Apple","iPhone 11","64GB / 128GB","POPULAR",phoneSVG,"Phone",true],
+["iPhone","Apple","iPhone 12","64GB / 128GB / 256GB","POPULAR",phoneSVG,"Phone",true],
+["iPhone","Apple","iPhone 13","128GB / 256GB","BEST SELLER",phoneSVG,"Phone",true],
+["iPhone","Apple","iPhone 14","128GB / 256GB","POPULAR",phoneSVG,"Phone",true],
+["iPhone","Apple","iPhone 15","128GB / 256GB","HOT DEAL",phoneSVG,"Phone",true],
+["iPhone","Apple","iPhone 16","128GB / 256GB","NEW",phoneSVG,"Phone",true],
+["Samsung","Samsung","Galaxy A17","Budget smartphone","POPULAR",phoneSVG,"Phone",true],
+["Samsung","Samsung","Galaxy A26 5G","5G smartphone","HOT DEAL",phoneSVG,"Phone",true],
+["Samsung","Samsung","Galaxy A36 5G","Mid-range 5G","POPULAR",phoneSVG,"Phone",true],
+["Samsung","Samsung","Galaxy A56 5G","Premium A-series","POPULAR",phoneSVG,"Phone",true],
+["Tecno","Tecno","Spark 40","4GB / 128GB or higher","BEST SELLER",phoneSVG,"Phone",true],
+["Tecno","Tecno","Spark 40 Pro","8GB / 128GB","HOT DEAL",phoneSVG,"Phone",true],
+["Tecno","Tecno","Spark 40 Pro+","8GB / 256GB","PREMIUM",phoneSVG,"Phone",true],
+["Tecno","Tecno","Camon 40","Camera smartphone","POPULAR",phoneSVG,"Phone",true],
+["Tecno","Tecno","Camon 40 Pro","Premium camera smartphone","HOT DEAL",phoneSVG,"Phone",true],
+["Infinix","Infinix","Hot 60i","Budget smartphone","BEST SELLER",phoneSVG,"Phone",true],
+["Infinix","Infinix","Hot 60 Pro","Mid-range smartphone","POPULAR",phoneSVG,"Phone",true],
+["Infinix","Infinix","Hot 70","Hot-series smartphone","NEW",phoneSVG,"Phone",true],
+["Infinix","Infinix","Note 60 Pro","Premium Note smartphone","PREMIUM",phoneSVG,"Phone",true],
+["HP","HP","HP Laptop","RAM / SSD options","POPULAR",laptopSVG,"Laptop",true],
+["Dell","Dell","Dell Laptop","RAM / SSD options","POPULAR",laptopSVG,"Laptop",true],
+["Lenovo","Lenovo","Lenovo Laptop","RAM / SSD options","POPULAR",laptopSVG,"Laptop",true],
+["Tablet","Android","Android Tablet","Multiple sizes/st
