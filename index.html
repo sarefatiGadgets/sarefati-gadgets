@@ -9,1123 +9,1171 @@
 *{box-sizing:border-box;margin:0;padding:0}
 
 :root{
---black:#050505;
---dark:#0d0d0d;
---card:#121212;
---gold:#f5b51b;
---lightgold:#ffd95a;
---white:#fff;
---gray:#999;
---border:#292929;
+  --black:#050505;
+  --dark:#0d0d0d;
+  --card:#121212;
+  --gold:#f5b51b;
+  --gold2:#ffd95a;
+  --white:#fff;
+  --gray:#999;
+  --line:#292929;
 }
-
-html{scroll-behavior:smooth}
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:var(--black);
-color:#fff;
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
 }
+
+button,input,select{font:inherit}
+
+button{cursor:pointer}
 
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#050505;
-border-bottom:1px solid #3d300b;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#050505;
+  border-bottom:1px solid #3c300b;
 }
 
-.navbar{
-width:94%;
-max-width:1200px;
-margin:auto;
-min-height:70px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
+.nav{
+  width:94%;
+  max-width:1200px;
+  min-height:70px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
 
 .logo{
-color:var(--lightgold);
-text-decoration:none;
-font-size:18px;
-font-weight:900;
-letter-spacing:1px;
+  color:var(--gold2);
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:1px;
 }
 
-.logo span{
-display:block;
-color:#777;
-font-size:8px;
-letter-spacing:3px;
-margin-top:3px;
+.logo small{
+  display:block;
+  color:#777;
+  font-size:8px;
+  letter-spacing:3px;
+  margin-top:3px;
 }
 
-nav{
-display:flex;
-align-items:center;
-gap:10px;
+.nav-actions{
+  display:flex;
+  gap:7px;
+  align-items:center;
 }
 
-nav a{
-color:#ddd;
-text-decoration:none;
-font-size:11px;
-font-weight:bold;
+.nav-btn{
+  border:1px solid var(--gold);
+  background:transparent;
+  color:white;
+  border-radius:7px;
+  padding:9px 11px;
+  font-size:10px;
+  font-weight:bold;
 }
 
-nav a:hover{color:var(--gold)}
-
-.account-btn,
-.cart-button{
-border:1px solid var(--gold);
-background:transparent;
-color:#fff;
-border-radius:7px;
-padding:9px 11px;
-cursor:pointer;
-font-weight:bold;
-font-size:10px;
-}
-
-.cart-number{
-background:var(--gold);
-color:#111;
-border-radius:20px;
-padding:3px 6px;
+.nav-btn:hover{
+  background:var(--gold);
+  color:#111;
 }
 
 .hero{
-padding:70px 0;
-border-bottom:1px solid var(--border);
-background:radial-gradient(circle at 80% 40%,rgba(245,181,27,.13),transparent 35%);
+  padding:70px 0;
+  background:
+  radial-gradient(circle at 80% 40%,rgba(245,181,27,.15),transparent 35%);
 }
 
-.hero-inner{
-width:94%;
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
+.container{
+  width:94%;
+  max-width:1200px;
+  margin:auto;
 }
 
-.small-title{
-color:var(--gold);
-font-size:11px;
-letter-spacing:3px;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:center;
+}
+
+.kicker{
+  color:var(--gold);
+  font-size:11px;
+  letter-spacing:3px;
 }
 
 .hero h1{
-font-size:clamp(42px,7vw,75px);
-line-height:.95;
-margin:18px 0;
+  font-size:clamp(42px,7vw,76px);
+  line-height:.95;
+  margin:18px 0;
 }
 
 .hero h1 span{color:var(--gold)}
 
 .hero p{
-color:#aaa;
-max-width:550px;
-line-height:1.7;
+  color:#aaa;
+  line-height:1.7;
+  max-width:550px;
 }
 
-.buttons{
-display:flex;
-gap:10px;
-margin-top:25px;
+.hero-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:25px;
 }
 
-.button{
-display:inline-block;
-padding:13px 20px;
-border-radius:7px;
-text-decoration:none;
-font-size:12px;
-font-weight:bold;
+.gold-btn,
+.outline-btn{
+  padding:13px 19px;
+  border-radius:7px;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:bold;
 }
 
-.button-gold{
-background:var(--gold);
-color:#111;
+.gold-btn{
+  background:var(--gold);
+  color:#111;
 }
 
-.button-outline{
-color:var(--gold);
-border:1px solid var(--gold);
+.outline-btn{
+  color:var(--gold);
+  border:1px solid var(--gold);
 }
 
-.hero-product{
-display:flex;
-justify-content:center;
+.hero-gadget{
+  display:flex;
+  justify-content:center;
 }
 
-.hero-phone{
-width:190px;
-height:360px;
-background:#171717;
-border:5px solid #303030;
-border-radius:32px;
-padding:9px;
-box-shadow:0 25px 50px rgba(0,0,0,.8);
+/* PHONE ILLUSTRATION */
+
+.phone{
+  width:185px;
+  height:350px;
+  padding:8px;
+  border:5px solid #333;
+  border-radius:32px;
+  background:#111;
+  box-shadow:0 25px 50px #000;
 }
 
-.hero-screen{
-width:100%;
-height:100%;
-border-radius:22px;
-background:radial-gradient(circle at 50% 30%,#ffe58b,#8b6407 35%,#111 75%);
-position:relative;
+.phone-screen{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  border-radius:23px;
+  background:
+    radial-gradient(circle at 50% 25%,#ffe68f,#b47d0b 32%,#111 72%);
 }
 
-.camera{
-position:absolute;
-top:10px;
-left:50%;
-transform:translateX(-50%);
-width:55px;
-height:17px;
-border-radius:20px;
-background:#050505;
+.notch{
+  position:absolute;
+  top:8px;
+  left:50%;
+  transform:translateX(-50%);
+  width:58px;
+  height:17px;
+  border-radius:20px;
+  background:#050505;
 }
 
 .trust{
-border-bottom:1px solid var(--border);
-padding:25px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:24px 0;
 }
 
-.trust-inner{
-width:94%;
-max-width:1200px;
-margin:auto;
-display:flex;
-gap:30px;
-overflow-x:auto;
+.trust-row{
+  display:flex;
+  gap:30px;
+  overflow-x:auto;
 }
 
-.trust-box{
-min-width:190px;
-display:flex;
-align-items:center;
-gap:10px;
+.trust-item{
+  min-width:190px;
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
 
-.trust-icon{font-size:25px}
-
-.trust-box strong{
-font-size:11px;
-display:block;
+.trust-item strong{
+  display:block;
+  font-size:10px;
 }
 
-.trust-box small{
-display:block;
-color:#777;
-margin-top:4px;
+.trust-item small{
+  color:#777;
+  font-size:9px;
 }
 
 section{padding:55px 0}
 
-.container{
-width:94%;
-max-width:1200px;
-margin:auto;
+.section-title{
+  color:var(--gold);
+  font-size:25px;
+  margin-bottom:25px;
 }
 
-.heading{
-color:var(--gold);
-font-size:25px;
-margin-bottom:25px;
-}
-
-.heading:after{
-content:"";
-display:block;
-width:45px;
-height:3px;
-background:var(--gold);
-margin-top:8px;
+.section-title:after{
+  content:"";
+  display:block;
+  width:45px;
+  height:3px;
+  background:var(--gold);
+  margin-top:8px;
 }
 
 .controls{
-display:flex;
-gap:10px;
-margin-bottom:25px;
+  display:flex;
+  gap:10px;
+  margin-bottom:22px;
 }
 
-.search{
-flex:1;
-background:#111;
-color:#fff;
-border:1px solid var(--border);
-border-radius:7px;
-padding:14px;
-outline:none;
-}
-
+.search,
 .filter{
-background:#111;
-color:#fff;
-border:1px solid var(--border);
-border-radius:7px;
-padding:14px;
+  background:#111;
+  border:1px solid var(--line);
+  color:white;
+  border-radius:7px;
+  padding:13px;
+  outline:none;
 }
 
-.products{
-width:100%;
-display:flex;
-flex-direction:row;
-flex-wrap:nowrap;
-gap:18px;
-overflow-x:auto;
-overflow-y:hidden;
-padding:5px 2px 20px;
-scroll-snap-type:x mandatory;
+.search{flex:1}
+
+.search:focus,
+.filter:focus{
+  border-color:var(--gold);
 }
 
-.products::-webkit-scrollbar{height:8px}
-.products::-webkit-scrollbar-track{
-background:#111;
-border-radius:20px;
-}
-.products::-webkit-scrollbar-thumb{
-background:var(--gold);
-border-radius:20px;
-}
+/* HORIZONTAL PRODUCTS */
 
-.product{
-flex:0 0 250px;
-width:250px;
-min-width:250px;
-background:var(--card);
-border:1px solid var(--border);
-border-radius:12px;
-overflow:hidden;
-scroll-snap-align:start;
+.product-row{
+  width:100%;
+  display:flex;
+  flex-wrap:nowrap;
+  gap:18px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:5px 2px 20px;
+  scroll-snap-type:x mandatory;
 }
 
-.product:hover{border-color:var(--gold)}
+.product-row::-webkit-scrollbar{height:8px}
 
-.product-picture{
-width:100%;
-height:230px;
-background:#eee;
-display:flex;
-justify-content:center;
-align-items:center;
-position:relative;
+.product-row::-webkit-scrollbar-track{
+  background:#111;
 }
 
-.phone-picture{
-width:115px;
-height:205px;
-background:#181818;
-border:4px solid #333;
-border-radius:22px;
-position:relative;
-box-shadow:0 15px 25px rgba(0,0,0,.35);
+.product-row::-webkit-scrollbar-thumb{
+  background:var(--gold);
+  border-radius:20px;
 }
 
-.phone-screen{
-position:absolute;
-top:7px;
-left:7px;
-right:7px;
-bottom:7px;
-border-radius:15px;
-background:radial-gradient(circle at 50% 25%,#ffe48b,#9a710c 30%,#191919 70%);
+.product-card{
+  flex:0 0 255px;
+  width:255px;
+  min-width:255px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  scroll-snap-align:start;
 }
 
-.phone-notch{
-position:absolute;
-top:7px;
-left:50%;
-transform:translateX(-50%);
-width:35px;
-height:10px;
-background:#050505;
-border-radius:20px;
+.product-card:hover{
+  border-color:var(--gold);
 }
 
-.laptop-picture{width:190px}
+.product-image{
+  height:230px;
+  background:#f0f0f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* PRODUCT PHONE */
+
+.product-phone{
+  width:108px;
+  height:198px;
+  padding:6px;
+  border:4px solid #222;
+  border-radius:22px;
+  background:#101010;
+  box-shadow:0 15px 25px rgba(0,0,0,.35);
+}
+
+.product-phone-screen{
+  position:relative;
+  width:100%;
+  height:100%;
+  border-radius:15px;
+  background:
+    radial-gradient(circle at 50% 30%,#ffe68f,#b17d10 35%,#161616 72%);
+}
+
+.product-phone-notch{
+  position:absolute;
+  top:6px;
+  left:50%;
+  transform:translateX(-50%);
+  width:34px;
+  height:9px;
+  border-radius:15px;
+  background:#050505;
+}
+
+/* PRODUCT LAPTOP */
+
+.product-laptop{
+  width:195px;
+}
 
 .laptop-screen{
-height:120px;
-background:#181818;
-border:5px solid #333;
-border-radius:7px 7px 3px 3px;
-display:flex;
-justify-content:center;
-align-items:center;
+  height:125px;
+  padding:6px;
+  border:5px solid #292929;
+  border-radius:8px 8px 3px 3px;
+  background:#111;
 }
 
 .laptop-display{
-width:90%;
-height:85%;
-background:linear-gradient(135deg,#333,#c89618,#111);
-border-radius:3px;
+  width:100%;
+  height:100%;
+  background:
+    linear-gradient(135deg,#111,#d5a51d,#292929);
 }
 
 .laptop-base{
-height:10px;
-background:#777;
-border-radius:0 0 15px 15px;
+  height:12px;
+  background:#777;
+  border-radius:0 0 15px 15px;
 }
 
-.product-info{padding:15px}
+.product-body{
+  padding:15px;
+}
 
 .brand{
-color:#777;
-font-size:9px;
-letter-spacing:1.5px;
-text-transform:uppercase;
+  color:#777;
+  text-transform:uppercase;
+  font-size:9px;
+  letter-spacing:1.5px;
 }
 
-.product h3{
-font-size:15px;
-margin:7px 0;
+.product-name{
+  font-size:15px;
+  margin:7px 0;
 }
 
-.spec{
-color:#999;
-font-size:11px;
-line-height:1.5;
+.specs{
+  color:#999;
+  font-size:10px;
+  line-height:1.5;
 }
 
-.colours{
-color:#999;
-font-size:10px;
-line-height:1.5;
-margin-top:7px;
+.colors{
+  color:#999;
+  font-size:10px;
+  line-height:1.5;
+  margin-top:7px;
 }
 
-.colours b{color:#ddd}
+.colors b{color:#ddd}
 
 .price{
-color:var(--lightgold);
-font-size:14px;
-font-weight:bold;
-margin:11px 0;
+  color:var(--gold2);
+  font-weight:bold;
+  font-size:14px;
+  margin:11px 0;
 }
 
-.estimated{
-display:block;
-color:#666;
-font-size:8px;
-font-weight:normal;
-margin-top:3px;
+.price small{
+  display:block;
+  color:#666;
+  font-size:8px;
+  margin-top:3px;
 }
 
-.product-actions{
-display:flex;
-gap:6px;
+.card-buttons{
+  display:flex;
+  gap:7px;
 }
 
-.product-actions button{
-flex:1;
-padding:9px 4px;
-border-radius:6px;
-border:1px solid #765800;
-background:transparent;
-color:#fff;
-font-size:9px;
-font-weight:bold;
-cursor:pointer;
+.card-buttons button{
+  flex:1;
+  padding:9px 4px;
+  border-radius:6px;
+  font-size:9px;
+  font-weight:bold;
 }
 
-.product-actions button:last-child{
-background:var(--gold);
-color:#111;
+.details-btn{
+  background:transparent;
+  color:white;
+  border:1px solid #555;
 }
 
-.accessories{
-display:flex;
-gap:15px;
-overflow-x:auto;
-padding-bottom:15px;
+.add-btn{
+  background:var(--gold);
+  color:#111;
+  border:1px solid var(--gold);
+}
+
+.empty{
+  color:#777;
+  padding:30px 5px;
+}
+
+/* ACCESSORIES */
+
+.accessory-row{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
 }
 
 .accessory{
-flex:0 0 180px;
-background:#111;
-border:1px solid var(--border);
-border-radius:10px;
-padding:22px;
-text-align:center;
+  flex:0 0 180px;
+  background:#111;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:22px;
+  text-align:center;
 }
 
 .accessory-icon{
-font-size:45px;
-margin-bottom:10px;
+  font-size:42px;
+  margin-bottom:10px;
 }
 
 .accessory h3{font-size:12px}
 
 .accessory p{
-color:var(--gold);
-font-size:10px;
-margin-top:7px;
+  color:var(--gold);
+  font-size:10px;
+  margin-top:7px;
 }
 
-.about{
-border-top:1px solid var(--border);
-border-bottom:1px solid var(--border);
-}
-
-.about p{
-max-width:800px;
-color:#999;
-line-height:1.8;
-}
-
-.contacts{
-display:flex;
-gap:15px;
-overflow-x:auto;
-}
-
-.contact{
-min-width:220px;
-background:#111;
-border:1px solid var(--border);
-border-radius:10px;
-padding:20px;
-}
-
-.contact strong{
-color:var(--gold);
-font-size:12px;
-}
-
-.contact p{
-color:#999;
-font-size:12px;
-line-height:1.7;
-margin-top:8px;
-}
-
-footer{
-border-top:1px solid var(--border);
-padding:40px 0 20px;
-}
-
-.footer{
-display:flex;
-justify-content:space-between;
-gap:30px;
-}
-
-.footer h3{
-color:var(--gold);
-font-size:13px;
-margin-bottom:10px;
-}
-
-.footer p{
-color:#777;
-font-size:11px;
-line-height:1.8;
-}
-
-.copy{
-margin-top:30px;
-padding-top:20px;
-border-top:1px solid #222;
-color:#555;
-font-size:10px;
-}
+/* CART */
 
 .overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.75);
-z-index:1500;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  z-index:3000;
+  display:none;
 }
 
-.overlay.active{display:block}
+.overlay.show{display:block}
 
 .cart{
-position:fixed;
-top:0;
-right:-430px;
-width:min(430px,100%);
-height:100vh;
-background:#0c0c0c;
-z-index:2000;
-transition:.3s;
-display:flex;
-flex-direction:column;
+  position:fixed;
+  top:0;
+  right:-450px;
+  width:min(450px,100%);
+  height:100vh;
+  background:#0b0b0b;
+  z-index:4000;
+  transition:right .25s ease;
+  display:flex;
+  flex-direction:column;
 }
 
-.cart.active{right:0}
+.cart.show{right:0}
 
-.cart-header{
-padding:20px;
-display:flex;
-justify-content:space-between;
-border-bottom:1px solid var(--border);
+.cart-head{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  border-bottom:1px solid var(--line);
 }
 
-.cart-header h2{color:var(--gold)}
+.cart-head h2{color:var(--gold)}
 
-.close{
-background:none;
-border:0;
-color:#fff;
-font-size:25px;
-cursor:pointer;
+.close-btn{
+  border:0;
+  background:none;
+  color:white;
+  font-size:27px;
 }
 
-.cart-items{
-flex:1;
-overflow-y:auto;
-padding:20px;
+.cart-list{
+  flex:1;
+  overflow-y:auto;
+  padding:20px;
 }
 
 .cart-item{
-padding:15px 0;
-border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--line);
+  padding:15px 0;
 }
 
-.cart-item small{color:#777}
+.cart-item strong{font-size:13px}
 
-.remove{
-margin-top:8px;
-background:none;
-border:0;
-color:#ff7777;
-cursor:pointer;
+.cart-item p{
+  color:var(--gold2);
+  font-size:11px;
+  margin-top:7px;
 }
 
-.cart-footer{
-padding:20px;
-border-top:1px solid var(--border);
+.remove-btn{
+  border:0;
+  background:none;
+  color:#ff7777;
+  font-size:10px;
+  margin-top:7px;
 }
 
-.cart-footer button{
-width:100%;
-padding:13px;
-margin-top:7px;
-border-radius:7px;
-cursor:pointer;
+.cart-bottom{
+  padding:20px;
+  border-top:1px solid var(--line);
 }
 
-.whatsapp-order{
-background:var(--gold);
-border:0;
-color:#111;
-font-weight:bold;
+.total{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:10px;
+  color:#aaa;
 }
 
-.clear-cart{
-background:transparent;
-border:1px solid #555;
-color:#fff;
+.total strong{color:var(--gold2)}
+
+.order-btn,
+.clear-btn{
+  width:100%;
+  padding:13px;
+  border-radius:7px;
+  margin-top:7px;
+  font-weight:bold;
 }
 
-.whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-width:55px;
-height:55px;
-border-radius:50%;
-background:#25d366;
-color:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-text-decoration:none;
-font-size:25px;
-z-index:1200;
+.order-btn{
+  background:var(--gold);
+  color:#111;
+  border:0;
 }
 
-/* LOGIN */
+.clear-btn{
+  background:transparent;
+  color:white;
+  border:1px solid #555;
+}
+
+/* ACCOUNT */
 
 .auth-overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.88);
-z-index:5000;
-align-items:center;
-justify-content:center;
-padding:20px;
+  position:fixed;
+  inset:0;
+  z-index:6000;
+  background:rgba(0,0,0,.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
-.auth-overlay.active{display:flex}
+.auth-overlay.show{display:flex}
 
 .auth-box{
-width:100%;
-max-width:400px;
-background:#111;
-border:1px solid var(--gold);
-border-radius:12px;
-padding:30px 22px;
-position:relative;
-box-shadow:0 20px 60px #000;
+  width:min(400px,100%);
+  background:#111;
+  border:1px solid var(--gold);
+  border-radius:12px;
+  padding:28px 22px;
+  position:relative;
 }
 
 .auth-box h2{
-color:var(--lightgold);
-margin-bottom:8px;
+  color:var(--gold2);
+  margin-bottom:8px;
 }
 
 .auth-box p{
-color:#888;
-font-size:12px;
-margin-bottom:20px;
-line-height:1.5;
+  color:#888;
+  font-size:11px;
+  line-height:1.6;
+  margin-bottom:18px;
 }
 
 .auth-close{
-position:absolute;
-right:15px;
-top:10px;
-background:none;
-border:0;
-color:#fff;
-font-size:28px;
-cursor:pointer;
+  position:absolute;
+  right:13px;
+  top:8px;
+  background:none;
+  border:0;
+  color:white;
+  font-size:27px;
 }
 
 .auth-input{
-width:100%;
-padding:13px;
-margin-bottom:10px;
-border-radius:7px;
-border:1px solid #333;
-background:#080808;
-color:#fff;
-outline:none;
+  display:block;
+  width:100%;
+  padding:13px;
+  margin-bottom:10px;
+  background:#080808;
+  border:1px solid #333;
+  border-radius:7px;
+  color:white;
+  outline:none;
 }
 
 .auth-input:focus{border-color:var(--gold)}
 
-.auth-submit{
-width:100%;
-padding:13px;
-background:var(--gold);
-border:0;
-border-radius:7px;
-color:#111;
-font-weight:bold;
-cursor:pointer;
+.auth-main{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:7px;
+  background:var(--gold);
+  color:#111;
+  font-weight:bold;
 }
 
 .auth-switch,
 .auth-logout{
-width:100%;
-margin-top:10px;
-padding:11px;
-border-radius:7px;
-background:transparent;
-border:1px solid #555;
-color:#fff;
-cursor:pointer;
+  width:100%;
+  padding:11px;
+  margin-top:9px;
+  background:transparent;
+  border:1px solid #555;
+  border-radius:7px;
+  color:white;
 }
 
 .auth-status{
-margin-top:12px;
-font-size:11px;
-line-height:1.5;
+  margin-top:12px;
+  font-size:10px;
+  line-height:1.5;
 }
 
-@media(max-width:800px){
+/* ABOUT */
 
-nav a{display:none}
-
-.hero-inner{
-grid-template-columns:1fr;
+.about{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
-.hero{padding:55px 0}
-
-.controls{
-flex-direction:column;
+.about p{
+  max-width:800px;
+  color:#999;
+  line-height:1.8;
 }
 
-.product{
-flex:0 0 225px;
-width:225px;
-min-width:225px;
+.contact-row{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
 }
 
-.product-picture{height:215px}
-
-.footer{
-flex-direction:column;
+.contact{
+  flex:0 0 220px;
+  padding:20px;
+  background:#111;
+  border:1px solid var(--line);
+  border-radius:10px;
 }
 
+.contact strong{
+  color:var(--gold);
+  font-size:11px;
 }
 
+.contact p{
+  color:#999;
+  font-size:11px;
+  line-height:1.7;
+  margin-top:7px;
+}
+
+footer{
+  padding:40px 0 20px;
+  border-top:1px solid var(--line);
+}
+
+.footer-row{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.footer-row h3{
+  color:var(--gold);
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+.footer-row p{
+  color:#777;
+  font-size:10px;
+  line-height:1.8;
+}
+
+.copy{
+  color:#555;
+  font-size:9px;
+  border-top:1px solid #222;
+  padding-top:18px;
+  margin-top:25px;
+}
+
+.whatsapp{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#25d366;
+  color:white;
+  text-decoration:none;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:25px;
+  z-index:2500;
+}
+
+@media(max-width:750px){
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-gadget{
+    display:none;
+  }
+
+  .nav{
+    min-height:62px;
+  }
+
+  .logo{
+    font-size:14px;
+  }
+
+  .nav-btn{
+    padding:8px;
+    font-size:9px;
+  }
+
+  .hero{
+    padding:50px 0;
+  }
+
+  .controls{
+    flex-direction:column;
+  }
+
+  .product-card{
+    flex-basis:225px;
+    width:225px;
+    min-width:225px;
+  }
+
+  .footer-row{
+    flex-direction:column;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="navbar">
+  <div class="nav">
 
-<a href="#" class="logo">
-SAREFATI GADGETS
-<span>PREMIUM GADGETS</span>
-</a>
+    <div class="logo">
+      SAREFATI GADGETS
+      <small>PREMIUM GADGETS</small>
+    </div>
 
-<nav>
+    <div class="nav-actions">
 
-<a href="#shop">SHOP</a>
-<a href="#accessories">ACCESSORIES</a>
-<a href="#about">ABOUT</a>
-<a href="#contact">CONTACT</a>
+      <button class="nav-btn" onclick="openAuth()">
+        👤 ACCOUNT
+      </button>
 
-<button class="account-btn" onclick="openAuth()">
-👤 ACCOUNT
-</button>
+      <button class="nav-btn" onclick="openCart()">
+        🛒 CART <span id="cartCount">0</span>
+      </button>
 
-<button class="cart-button" onclick="openCart()">
-🛒 CART
-<span class="cart-number" id="cartNumber">0</span>
-</button>
+    </div>
 
-</nav>
-</div>
+  </div>
 </header>
 
 <section class="hero">
-<div class="hero-inner">
+  <div class="container hero-grid">
 
-<div>
-<div class="small-title">WELCOME TO SAREFATI GADGETS</div>
+    <div>
+      <div class="kicker">WELCOME TO SAREFATI GADGETS</div>
 
-<h1>
-PREMIUM<br>
-<span>GADGETS.</span><br>
-FAIR PRICES.
-</h1>
+      <h1>
+        PREMIUM<br>
+        <span>GADGETS.</span><br>
+        FAIR PRICES.
+      </h1>
 
-<p>
-Shop smartphones, laptops and accessories
-from Sarefati Gadgets. Quality gadgets,
-great prices and easy ordering.
-</p>
+      <p>
+        Shop smartphones, laptops and accessories
+        from Sarefati Gadgets. Quality gadgets,
+        fair prices and easy ordering.
+      </p>
 
-<div class="buttons">
-<a href="#shop" class="button button-gold">SHOP NOW</a>
+      <div class="hero-buttons">
 
-<a href="https://wa.me/2349169454032"
-target="_blank"
-class="button button-outline">
-WHATSAPP US
-</a>
-</div>
-</div>
+        <a href="#shop" class="gold-btn">
+          SHOP NOW
+        </a>
 
-<div class="hero-product">
-<div class="hero-phone">
-<div class="hero-screen">
-<div class="camera"></div>
-</div>
-</div>
-</div>
+        <a
+          href="https://wa.me/2349169454032"
+          target="_blank"
+          class="outline-btn">
+          WHATSAPP US
+        </a>
 
-</div>
+      </div>
+    </div>
+
+    <div class="hero-gadget">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="notch"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <div class="trust">
-<div class="trust-inner">
+  <div class="container trust-row">
 
-<div class="trust-box">
-<div class="trust-icon">🛡️</div>
-<div>
-<strong>QUALITY PRODUCTS</strong>
-<small>Trusted gadgets</small>
-</div>
-</div>
+    <div class="trust-item">
+      <span>🛡️</span>
+      <div>
+        <strong>QUALITY PRODUCTS</strong>
+        <small>Trusted gadgets</small>
+      </div>
+    </div>
 
-<div class="trust-box">
-<div class="trust-icon">🚚</div>
-<div>
-<strong>FAST DELIVERY</strong>
-<small>Across Nigeria</small>
-</div>
-</div>
+    <div class="trust-item">
+      <span>🚚</span>
+      <div>
+        <strong>FAST DELIVERY</strong>
+        <small>Across Nigeria</small>
+      </div>
+    </div>
 
-<div class="trust-box">
-<div class="trust-icon">💬</div>
-<div>
-<strong>CUSTOMER SUPPORT</strong>
-<small>We're here to help</small>
-</div>
-</div>
+    <div class="trust-item">
+      <span>💬</span>
+      <div>
+        <strong>CUSTOMER SUPPORT</strong>
+        <small>We're here to help</small>
+      </div>
+    </div>
 
-</div>
+  </div>
 </div>
 
 <section id="shop">
-<div class="container">
+  <div class="container">
 
-<h2 class="heading">SHOP GADGETS</h2>
+    <h2 class="section-title">SHOP GADGETS</h2>
 
-<div class="controls">
+    <div class="controls">
 
-<input
-id="search"
-class="search"
-type="text"
-placeholder="Search phones or laptops..."
-oninput="showProducts()">
+      <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Search products..."
+        oninput="renderProducts()">
 
-<select
-id="filter"
-class="filter"
-onchange="showProducts()">
+      <select
+        id="category"
+        class="filter"
+        onchange="renderProducts()">
 
-<option value="All">All Products</option>
-<option value="iPhone">iPhone</option>
-<option value="Samsung">Samsung</option>
-<option value="Tecno">Tecno</option>
-<option value="Infinix">Infinix</option>
-<option value="Laptop">Laptops</option>
+        <option value="All">All Products</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Tecno">Tecno</option>
+        <option value="Infinix">Infinix</option>
+        <option value="Laptop">Laptops</option>
 
-</select>
+      </select>
 
-</div>
+    </div>
 
-<div id="products" class="products"></div>
+    <div id="productRow" class="product-row"></div>
 
-</div>
+  </div>
 </section>
 
-<section id="accessories">
-<div class="container">
+<section>
+  <div class="container">
 
-<h2 class="heading">ACCESSORIES</h2>
+    <h2 class="section-title">ACCESSORIES</h2>
 
-<div class="accessories">
+    <div class="accessory-row">
 
-<div class="accessory">
-<div class="accessory-icon">🎧</div>
-<h3>Wireless Earbuds</h3>
-<p>₦25,000 est.</p>
-</div>
+      <div class="accessory">
+        <div class="accessory-icon">🎧</div>
+        <h3>Wireless Earbuds</h3>
+        <p>₦25,000 est.</p>
+      </div>
 
-<div class="accessory">
-<div class="accessory-icon">🔋</div>
-<h3>Power Bank</h3>
-<p>₦25,000 est.</p>
-</div>
+      <div class="accessory">
+        <div class="accessory-icon">🔋</div>
+        <h3>Power Bank</h3>
+        <p>₦25,000 est.</p>
+      </div>
 
-<div class="accessory">
-<div class="accessory-icon">🔌</div>
-<h3>Fast Charger</h3>
-<p>₦12,000 est.</p>
-</div>
+      <div class="accessory">
+        <div class="accessory-icon">🔌</div>
+        <h3>Fast Charger</h3>
+        <p>₦12,000 est.</p>
+      </div>
 
-<div class="accessory">
-<div class="accessory-icon">📱</div>
-<h3>Phone Case</h3>
-<p>₦8,000 est.</p>
-</div>
+      <div class="accessory">
+        <div class="accessory-icon">📱</div>
+        <h3>Phone Case</h3>
+        <p>₦8,000 est.</p>
+      </div>
 
-<div class="accessory">
-<div class="accessory-icon">🛡️</div>
-<h3>Screen Protector</h3>
-<p>₦5,000 est.</p>
-</div>
+      <div class="accessory">
+        <div class="accessory-icon">🛡️</div>
+        <h3>Screen Protector</h3>
+        <p>₦5,000 est.</p>
+      </div>
 
-</div>
-</div>
+    </div>
+
+  </div>
 </section>
 
-<section id="about" class="about">
-<div class="container">
+<section class="about" id="about">
+  <div class="container">
 
-<h2 class="heading">ABOUT US</h2>
+    <h2 class="section-title">ABOUT US</h2>
 
-<p>
-Sarefati Gadgets is your trusted destination
-for smartphones, laptops and accessories.
-Browse our catalogue, select what you want
-and contact us directly to confirm availability
-and final pricing.
-</p>
+    <p>
+      Sarefati Gadgets is your destination for
+      smartphones, laptops and accessories.
+      Browse our products, add your favourites
+      to your cart and contact us to confirm
+      availability and final pricing.
+    </p>
 
-</div>
+  </div>
 </section>
 
 <section id="contact">
-<div class="container">
+  <div class="container">
 
-<h2 class="heading">CONTACT US</h2>
+    <h2 class="section-title">CONTACT US</h2>
 
-<div class="contacts">
+    <div class="contact-row">
 
-<div class="contact">
-<strong>PHONE</strong>
-<p>09169454032<br>07070195576</p>
-</div>
+      <div class="contact">
+        <strong>PHONE</strong>
+        <p>09169454032<br>07070195576</p>
+      </div>
 
-<div class="contact">
-<strong>WHATSAPP</strong>
-<p>09169454032</p>
-</div>
+      <div class="contact">
+        <strong>WHATSAPP</strong>
+        <p>09169454032</p>
+      </div>
 
-<div class="contact">
-<strong>EMAIL</strong>
-<p>stephenikpilakaa@gmail.com</p>
-</div>
+      <div class="contact">
+        <strong>EMAIL</strong>
+        <p>stephenikpilakaa@gmail.com</p>
+      </div>
 
-<div class="contact">
-<strong>LOCATION</strong>
-<p>
-Behind Customary Court,<br>
-Saba Road, Makurdi.
-</p>
-</div>
+      <div class="contact">
+        <strong>LOCATION</strong>
+        <p>
+          Behind Customary Court,<br>
+          Saba Road, Makurdi.
+        </p>
+      </div>
 
-</div>
-</div>
+    </div>
+
+  </div>
 </section>
 
 <footer>
-<div class="container">
+  <div class="container">
 
-<div class="footer">
+    <div class="footer-row">
 
-<div>
-<h3>SAREFATI GADGETS</h3>
-<p>Premium gadgets.<br>Fair prices.</p>
-</div>
+      <div>
+        <h3>SAREFATI GADGETS</h3>
+        <p>Premium gadgets.<br>Fair prices.</p>
+      </div>
 
-<div>
-<h3>QUICK LINKS</h3>
-<p>
-Shop<br>
-Accessories<br>
-About<br>
-Contact
-</p>
-</div>
+      <div>
+        <h3>QUICK LINKS</h3>
+        <p>
+          Shop<br>
+          Accessories<br>
+          About<br>
+          Contact
+        </p>
+      </div>
 
-<div>
-<h3>CONTACT</h3>
-<p>
-09169454032<br>
-07070195576<br>
-stephenikpilakaa@gmail.com
-</p>
-</div>
+      <div>
+        <h3>CONTACT</h3>
+        <p>
+          09169454032<br>
+          07070195576<br>
+          stephenikpilakaa@gmail.com
+        </p>
+      </div>
 
-</div>
+    </div>
 
-<div class="copy">
-© 2026 Sarefati Gadgets. All rights reserved.
-</div>
+    <div class="copy">
+      © 2026 Sarefati Gadgets. All rights reserved.
+    </div>
 
-</div>
+  </div>
 </footer>
+
 
 <!-- CART -->
 
-<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<div id="cartOverlay" class="overlay" onclick="closeCart()"></div>
 
-<div id="cart" class="cart">
+<div id="cartPanel" class="cart">
 
-<div class="cart-header">
-<h2>Your Cart</h2>
+  <div class="cart-head">
+    <h2>Your Cart</h2>
 
-<button class="close" onclick="closeCart()">×</button>
+    <button
+      class="close-btn"
+      onclick="closeCart()">
+      ×
+    </button>
+  </div>
+
+  <div id="cartList" class="cart-list"></div>
+
+  <div class="cart-bottom">
+
+    <div class="total">
+      <span>Estimated total</span>
+      <strong id="cartTotal">₦0</strong>
+    </div>
+
+    <button
+      class="order-btn"
+      onclick="orderWhatsApp()">
+      ORDER ON WHATSAPP
+    </button>
+
+    <button
+      class="clear-btn"
+      onclick="clearCart()">
+      CLEAR CART
+    </button>
+
+  </div>
+
 </div>
 
-<div id="cartItems" class="cart-items"></div>
 
-<div class="cart-footer">
-
-<button class="whatsapp-order"
-onclick="orderWhatsApp()">
-ORDER ON WHATSAPP
-</button>
-
-<button class="clear-cart"
-onclick="clearCart()">
-CLEAR CART
-</button>
-
-</div>
-</div>
-
-<!-- LOGIN / SIGNUP -->
+<!-- ACCOUNT -->
 
 <div id="authOverlay" class="auth-overlay">
 
-<div class="auth-box">
+  <div class="auth-box">
 
-<button class="auth-close"
-onclick="closeAuth()">×</button>
+    <button
+      class="auth-close"
+      onclick="closeAuth()">
+      ×
+    </button>
 
-<h2 id="authTitle">Customer Login</h2>
+    <h2 id="authTitle">Customer Login</h2>
 
-<p id="authMessage">
-Login to your Sarefati Gadgets account.
-</p>
+    <p id="authDescription">
+      Login to your Sarefati Gadgets account.
+    </p>
 
-<input
-id="authName"
-class="auth-input"
-type="text"
-placeholder="Full name"
-style="display:none">
+    <input
+      id="authName"
+      class="auth-input"
+      type="text"
+      placeholder="Full name"
+      style="display:none">
 
-<input
-id="authEmail"
-class="auth-input"
-type="email"
-placeholder="Email address">
+    <input
+      id="authEmail"
+      class="auth-input"
+      type="email"
+      placeholder="Email address">
 
-<input
-id="authPassword"
-class="auth-input"
-type="password"
-placeholder="Password">
+    <input
+      id="authPassword"
+      class="auth-input"
+      type="password"
+      placeholder="Password">
 
-<button
-id="authSubmit"
-class="auth-submit"
-onclick="submitAuth()">
-LOGIN
-</button>
+    <button
+      id="authButton"
+      class="auth-main"
+      onclick="submitAuth()">
+      LOGIN
+    </button>
 
-<button
-id="authSwitch"
-class="auth-switch"
-onclick="switchAuth()">
-Create an account
-</button>
+    <button
+      id="authSwitch"
+      class="auth-switch"
+      onclick="switchAuth()">
+      Create an account
+    </button>
 
-<button
-id="logoutButton"
-class="auth-logout"
-onclick="logout()"
-style="display:none">
-LOG OUT
-</button>
+    <button
+      id="logoutButton"
+      class="auth-logout"
+      onclick="logout()"
+      style="display:none">
+      LOG OUT
+    </button>
 
-<div id="authStatus"
-class="auth-status">
+    <div
+      id="authStatus"
+      class="auth-status">
+    </div>
+
+  </div>
+
 </div>
 
-</div>
-</div>
 
 <a
-class="whatsapp"
-href="https://wa.me/2349169454032"
-target="_blank">
-💬
+  class="whatsapp"
+  href="https://wa.me/2349169454032"
+  target="_blank">
+  💬
 </a>
+
 
 <!-- SUPABASE -->
 
@@ -1133,308 +1181,111 @@ target="_blank">
 
 <script>
 
-/* PRODUCTS */
-
-const products=[
-
-{
-brand:"iPhone",
-name:"iPhone 11",
-price:210000,
-spec:"64GB / 128GB",
-colors:"Black, White, Red, Purple"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 12",
-price:270000,
-spec:"64GB / 128GB / 256GB",
-colors:"Black, White, Blue, Green, Purple"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 13",
-price:350000,
-spec:"128GB / 256GB",
-colors:"Midnight, Starlight, Blue, Pink, Red"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 14",
-price:450000,
-spec:"128GB / 256GB",
-colors:"Midnight, Purple, Starlight, Blue, Red"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 15",
-price:590000,
-spec:"128GB / 256GB / 512GB",
-colors:"Black, Blue, Green, Yellow, Pink"
-},
-
-{
-brand:"iPhone",
-name:"iPhone 16",
-price:720000,
-spec:"128GB / 256GB / 512GB",
-colors:"Black, White, Pink, Teal"
-},
-
-{
-brand:"Samsung",
-name:"Galaxy A17",
-price:220000,
-spec:"4GB RAM / 128GB",
-colors:"Black, Blue, Gray"
-},
-
-{
-brand:"Samsung",
-name:"Galaxy A26 5G",
-price:330000,
-spec:"4GB RAM / 128GB / 5G",
-colors:"Black, White, Mint"
-},
-
-{
-brand:"Samsung",
-name:"Galaxy A36 5G",
-price:390000,
-spec:"8GB RAM / 128GB / 5G",
-colors:"Black, White, Lavender"
-},
-
-{
-brand:"Samsung",
-name:"Galaxy A56 5G",
-price:480000,
-spec:"8GB RAM / 128GB / 5G",
-colors:"Graphite, Gray, Olive, Pink"
-},
-
-{
-brand:"Tecno",
-name:"Spark 40",
-price:185000,
-spec:"4/8GB RAM / 128/256GB",
-colors:"Black, Gray, Blue, White"
-},
-
-{
-brand:"Tecno",
-name:"Spark 40 Pro",
-price:235000,
-spec:"8GB RAM / 128/256GB",
-colors:"Black, Gray, Blue, White"
-},
-
-{
-brand:"Tecno",
-name:"Camon 40",
-price:260000,
-spec:"8GB RAM / 256GB",
-colors:"Black, Green, Silver"
-},
-
-{
-brand:"Infinix",
-name:"Hot 60i",
-price:200000,
-spec:"4GB RAM / 128GB",
-colors:"Black, Blue, Silver, Green"
-},
-
-{
-brand:"Infinix",
-name:"Hot 60 Pro",
-price:250000,
-spec:"8GB RAM / 128GB",
-colors:"Black, Blue, Green"
-},
-
-{
-brand:"Laptop",
-name:"HP Laptop",
-price:650000,
-spec:"Core i5 / 8GB RAM / 256GB SSD",
-colors:"Silver, Black"
-},
-
-{
-brand:"Laptop",
-name:"Dell Laptop",
-price:680000,
-spec:"Core i5 / 8GB RAM / 256GB SSD",
-colors:"Silver, Black"
-},
-
-{
-brand:"Laptop",
-name:"Lenovo Laptop",
-price:620000,
-spec:"Core i5 / 8GB RAM / 256GB SSD",
-colors:"Gray, Black"
-}
-
-];
-
-
-/* PRODUCT PICTURES */
-
-function phonePicture(){
-return `
-<div class="phone-picture">
-<div class="phone-screen">
-<div class="phone-notch"></div>
-</div>
-</div>
-`;
-}
-
-function laptopPicture(){
-return `
-<div class="laptop-picture">
-<div class="laptop-screen">
-<div class="laptop-display"></div>
-</div>
-<div class="laptop-base"></div>
-</div>
-`;
-}
-
-
-/* MONEY */
-
-function money(value){
-return "₦"+value.toLocaleString("en-NG");
-}
-
-
-/* PRODUCTS */
-
-function showProducts(){
-
-const search=
-document.getElementById("search")
-.value.toLowerCase();
-
-const filter=
-document.getElementById("filter").value;
-
-const results=products.filter(product=>{
-
-const text=(
-product.brand+" "+
-product.name+" "+
-product.spec+" "+
-product.colors
-).toLowerCase();
-
-return text.includes(search) &&
-(filter==="All" || product.brand===filter);
-
-});
-
-const container=document.getElementById("products");
-
-if(!results.length){
-
-container.innerHTML=`
-<div style="color:#888;padding:30px">
-No products found.
-</div>`;
-
-return;
-}
-
-container.innerHTML=results.map(product=>{
-
-const originalIndex=products.indexOf(product);
-
-const picture=
-product.brand==="Laptop"
-?laptopPicture()
-:phonePicture();
-
-return `
-<div class="product">
-
-<div class="product-picture">
-${picture}
-</div>
-
-<div class="product-info">
-
-<div class="brand">
-${product.brand}
-</div>
-
-<h3>${product.name}</h3>
-
-<div class="spec">
-${product.spec}
-</div>
-
-<div class="colours">
-<b>Colours:</b>
-${product.colors}
-</div>
-
-<div class="price">
-${money(product.price)}
-<span class="estimated">
-ESTIMATED PRICE
-</span>
-</div>
-
-<div class="product-actions">
-
-<button onclick="details(${originalIndex})">
-DETAILS
-</button>
-
-<button onclick="addToCart(${originalIndex})">
-ADD
-</button>
-
-</div>
-
-</div>
-</div>
-`;
-
-}).join("");
-
-}
-
-
-/* CART */
-
-let cart=[];
-
-function addToCart(index){
-
-const product=products[index];
-
-const existing=cart.find(
-item=>item.name===product.name
-);
-
-if(existing){
-existing.quantity++;
-}else{
-cart.push({
-name:product.name,
-brand:product.brand,
-price:product.price,
-spec:product.spec,
-quantity:1
-});
-}
-
-update
+/* =========================
+   PRODUCT DATA
+========================= */
+
+const products = [
+
+  {
+    brand:"iPhone",
+    name:"iPhone 11",
+    price:210000,
+    specs:"64GB / 128GB",
+    colors:"Black, White, Red, Purple"
+  },
+
+  {
+    brand:"iPhone",
+    name:"iPhone 12",
+    price:270000,
+    specs:"64GB / 128GB / 256GB",
+    colors:"Black, White, Blue, Green, Purple"
+  },
+
+  {
+    brand:"iPhone",
+    name:"iPhone 13",
+    price:350000,
+    specs:"128GB / 256GB",
+    colors:"Midnight, Starlight, Blue, Pink, Red"
+  },
+
+  {
+    brand:"iPhone",
+    name:"iPhone 14",
+    price:450000,
+    specs:"128GB / 256GB",
+    colors:"Midnight, Purple, Starlight, Blue, Red"
+  },
+
+  {
+    brand:"iPhone",
+    name:"iPhone 15",
+    price:590000,
+    specs:"128GB / 256GB / 512GB",
+    colors:"Black, Blue, Green, Yellow, Pink"
+  },
+
+  {
+    brand:"iPhone",
+    name:"iPhone 16",
+    price:720000,
+    specs:"128GB / 256GB / 512GB",
+    colors:"Black, White, Pink, Teal"
+  },
+
+  {
+    brand:"Samsung",
+    name:"Galaxy A17",
+    price:220000,
+    specs:"4GB RAM / 128GB",
+    colors:"Black, Blue, Gray"
+  },
+
+  {
+    brand:"Samsung",
+    name:"Galaxy A26 5G",
+    price:330000,
+    specs:"4GB RAM / 128GB / 5G",
+    colors:"Black, White, Mint"
+  },
+
+  {
+    brand:"Samsung",
+    name:"Galaxy A36 5G",
+    price:390000,
+    specs:"8GB RAM / 128GB / 5G",
+    colors:"Black, White, Lavender"
+  },
+
+  {
+    brand:"Samsung",
+    name:"Galaxy A56 5G",
+    price:480000,
+    specs:"8GB RAM / 128GB / 5G",
+    colors:"Graphite, Gray, Olive, Pink"
+  },
+
+  {
+    brand:"Tecno",
+    name:"Spark 40",
+    price:185000,
+    specs:"4/8GB RAM / 128/256GB",
+    colors:"Black, Gray, Blue, White"
+  },
+
+  {
+    brand:"Tecno",
+    name:"Spark 40 Pro",
+    price:235000,
+    specs:"8GB RAM / 128/256GB",
+    colors:"Black, Gray, Blue, White"
+  },
+
+  {
+    brand:"Tecno",
+    name:"Camon 40",
+    price:260000,
+    specs:"8GB RAM / 256GB",
+    colors:"Black, Green, Silv
